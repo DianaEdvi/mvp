@@ -1,0 +1,223 @@
+{
+  "main": {
+    "id": "03dc7d713c49b1cd",
+    "type": "split",
+    "children": [
+      {
+        "id": "4db229ce3f026b72",
+        "type": "tabs",
+        "children": [
+          {
+            "id": "33b7b04a6328d355",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "Story/Official Story.md",
+                "mode": "source",
+                "source": false
+              },
+              "icon": "lucide-file",
+              "title": "Official Story"
+            }
+          }
+        ]
+      }
+    ],
+    "direction": "vertical"
+  },
+  "left": {
+    "id": "17254c53fff34ef2",
+    "type": "split",
+    "children": [
+      {
+        "id": "82047f3b538069f6",
+        "type": "tabs",
+        "children": [
+          {
+            "id": "30eb8cae46d9296c",
+            "type": "leaf",
+            "state": {
+              "type": "file-explorer",
+              "state": {
+                "sortOrder": "alphabetical",
+                "autoReveal": false
+              },
+              "icon": "lucide-folder-closed",
+              "title": "Files"
+            }
+          },
+          {
+            "id": "3b43efe45d05f4d6",
+            "type": "leaf",
+            "state": {
+              "type": "search",
+              "state": {
+                "query": "",
+                "matchingCase": false,
+                "explainSearch": false,
+                "collapseAll": false,
+                "extraContext": false,
+                "sortOrder": "alphabetical"
+              },
+              "icon": "lucide-search",
+              "title": "Search"
+            }
+          },
+          {
+            "id": "42b6436fc3df9bf6",
+            "type": "leaf",
+            "state": {
+              "type": "bookmarks",
+              "state": {},
+              "icon": "lucide-bookmark",
+              "title": "Bookmarks"
+            }
+          }
+        ]
+      }
+    ],
+    "direction": "horizontal",
+    "width": 200
+  },
+  "right": {
+    "id": "a44e912e3d38be41",
+    "type": "split",
+    "children": [
+      {
+        "id": "9476808cfebb622c",
+        "type": "tabs",
+        "children": [
+          {
+            "id": "01aa8dd4ffa38cdc",
+            "type": "leaf",
+            "state": {
+              "type": "backlink",
+              "state": {
+                "file": "Welcome.md",
+                "collapseAll": false,
+                "extraContext": false,
+                "sortOrder": "alphabetical",
+                "showSearch": false,
+                "searchQuery": "",
+                "backlinkCollapsed": false,
+                "unlinkedCollapsed": true
+              },
+              "icon": "links-coming-in",
+              "title": "Backlinks for Welcome"
+            }
+          },
+          {
+            "id": "beb26524c4ee36ec",
+            "type": "leaf",
+            "state": {
+              "type": "outgoing-link",
+              "state": {
+                "file": "Welcome.md",
+                "linksCollapsed": false,
+                "unlinkedCollapsed": true
+              },
+              "icon": "links-going-out",
+              "title": "Outgoing links from Welcome"
+            }
+          },
+          {
+            "id": "63bef47a20e95d4e",
+            "type": "leaf",
+            "state": {
+              "type": "tag",
+              "state": {
+                "sortOrder": "frequency",
+                "useHierarchy": true,
+                "showSearch": false,
+                "searchQuery": ""
+              },
+              "icon": "lucide-tags",
+              "title": "Tags"
+            }
+          },
+          {
+            "id": "e6edf159af2c0602",
+            "type": "leaf",
+            "state": {
+              "type": "all-properties",
+              "state": {
+                "sortOrder": "frequency",
+                "showSearch": false,
+                "searchQuery": ""
+              },
+              "icon": "lucide-archive",
+              "title": "All properties"
+            }
+          },
+          {
+            "id": "f5833571d0af96f3",
+            "type": "leaf",
+            "state": {
+              "type": "outline",
+              "state": {
+                "file": "Welcome.md",
+                "followCursor": false,
+                "showSearch": false,
+                "searchQuery": ""
+              },
+              "icon": "lucide-list",
+              "title": "Outline of Welcome"
+            }
+          }
+        ]
+      }
+    ],
+    "direction": "horizontal",
+    "width": 300,
+    "collapsed": true
+  },
+  "left-ribbon": {
+    "hiddenItems": {
+      "switcher:Open quick switcher": false,
+      "graph:Open graph view": false,
+      "canvas:Create new canvas": false,
+      "daily-notes:Open today's daily note": false,
+      "templates:Insert template": false,
+      "command-palette:Open command palette": false,
+      "bases:Create new base": false
+    }
+  },
+  "active": "33b7b04a6328d355",
+  "lastOpenFiles": [
+    "Story/Gameplay Notes.md",
+    "Story/EAP Readings.md",
+    "Story/To Do.md",
+    "Story/Characters/Potential Enemis/Minister D.md",
+    "Story/Characters/Act 3 Characters and Enemies.md",
+    "Story/Characters/Potential Enemis/Lady Rowena.md",
+    "Story/Characters/Potential Enemis/The Painter.md",
+    "Story/Characters/Potential Enemis/The Devil.md",
+    "Story/Characters/Act 2 Characters and Enemies.md",
+    "Story/Characters/Goodish characters/Harrison Ainsworth.md",
+    "Story/Characters/Goodish characters/Ligeia.md",
+    "Story/Characters/Goodish characters/Dr Brandsby.md",
+    "Story/Characters/Potential Enemis/Augustus Bedloe, controlled by Doctor Templeton.md",
+    "Story/Characters/Potential Enemis/The Sphinx.md",
+    "Story/Characters/Potential Enemis/The Hop Frog.md",
+    "Story/Characters/Goodish characters/Fortunado.md",
+    "Story/Characters/Act 1 Characters and Enemies.md",
+    "Story/Characters/Potential Enemis/Monsieur Maillard.md",
+    "Story/Characters/Goodish characters/Brevet Brigadier-General John A.B.C. Smith.md",
+    "Story/Characters/Potential Enemis/Axe Man.md",
+    "Story/Characters/Goodish characters/Pluto.md",
+    "Story/Characters/Potential Enemis/Human ManGuy (arangatang).md",
+    "Story/Official Story.md",
+    "Gamplay/Items.md",
+    "Gamplay",
+    "Story/Characters/Bosses/The Mesmerist.md",
+    "Story/Characters/Goodish characters/General Lasalle.md",
+    "Story/Characters/Goodish characters",
+    "Story/Settings",
+    "Story/Characters/Potential Enemis",
+    "Story/Characters/Bosses",
+    "Story/Characters",
+    "Planning Stage",
+    "Story"
+  ]
+}

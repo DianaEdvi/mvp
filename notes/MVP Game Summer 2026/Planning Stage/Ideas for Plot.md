@@ -1,0 +1,28 @@
+# Christmas Carol Gothic Retelling#
+- **Gothic retellings of public domain stories have gained a lot of popularity in the past 10~ years, Ie: Alice Madness with Alice in wonderland and Lies of P with Pinocchio**
+- **This scope wise is achievable, as there needs to be only 3 bosses (past, present, future), with the smaller enemies reflecting those parts of the protagonist**
+- **Furthermore, giving the audience a familiar character to latch onto gives us a leg up, as people prefer things they are used to**
+- **Makes the good ending and bad ending pretty simple, ie good ending is similar to the traditional story, and the bad ending is what would happen if scrooge declined to change**
+
+# Jekyll Hyde Gothic retelling
+- **Similar to previous, but where the insanity meter would be which personality has more control of the person, getting the bad ending makes you completely Mr Hyde, good makes you Jekyll**
+
+# Adaptation of Classic Gothic Lit
+Ie: Edgar Allen Poe, or Flannery O'Connor
+- Could adapt a story from EAP like the cask of Amontillado, where the main character is Montresor, and he battles with his hatred of Fortunato
+- **OR could adapt multiple EAP stories, ie Annabelle Lee has to fight the raven from the raven, some people in the hosue of usher, and stave of a decent into madness (need to make original from Webtoon Nevermore which does something similar)**
+- **Flannery O'Connors "A Good man is hard to find", ie main character is abandoned in the woods after being in a car crash, and they have to fight there way back to the grandma, through the person that they think is helping them initially (NOT IN PUBLIC DOMAIN, SO CHARCTERS MUST BE DESTINCT), could do something with person who we start the game trsuting is not reliable**
+- Flannery O'Connors "Wise Blood", a war vet forms a church without Christ to avoid his religious upbringings, but has "wise blood" that drags him back to to his religious past, could be a really interesting plot about religious trauma (IN PUBLIC DOMAIN OF CANADA ONLY)
+- Or something not gothic told gothic like Odyssey Gothic version told in the woods
+- there are MANY eap and gothic lit stories that could be adapted in some way
+# Original Story Ideas
+- **Main character is riddled with guilt of a decision they made, a decision that lead to them being abandoned in the woods, the people around them do not know what they did, but eventually one of the bosses reveal to the NPC's of the thing you did, and they start to shame you, as a character you can choose to redeem yourself, or divulge into the insanity of isolation. You would become a grim person who can't bear to accept their reality as a bad person, so they began to twist reality around them, make the NPC's smile (with a sort of jinx from Arcane style hallucinations), while obvious to the player that the person is not smiling, the main character cant see it. Could be done with a peace of paper covering the features of the person they don't want to acknowledge. Creates 3 act story, 1rst act is intro, 2nd act is the hatred and isolation. 3rd is their denial of reality**
+- unreliable narrator character (tell tale heart for example), where we start the game believing that the main character is a good person, or at very least a normal person, and we start to learn how they have terrorized the people around them 
+- Gothic lit is based heavily is religious aspects, could lean into that, sinners style. The main character is in a town of religious fanatics, and after experiencing something one of them did, they begin to question the world around them, who people are and what they tell them, while from the perspective of the characters, they are getting worse, the audienec knows they are getting better
+- Reverse of previous, where in a traditional town, the main character is exposed to something that makes them believe in a False/Demonic/Eldritch god, their influence over their mind becomes stronger as you decide to take more of their powers, and you become corrupted, eventually you are the perfect priest, a vessel for the gods destruction
+- Collective version of previous, A sickness/religeon starts to seep into the land where you grew up, corrupting each member of the world, ie the player and the NPC's, a more collective fall into insanity and the MC has to fight of the infection and save the town or fall prey to thier influence
+- **Metamorphosis of a person where the major theme is accepting a major change, game would take place in a representation of the mind, and you would have to defeat parts of yourself as bosses, stages could be memories, everyone you talk to could be people in life who have helped you** 
+- Pure evil main character, like Judge Holden Meets AM, they torture and do terrible things for the purpose of seeing the distraught on a persons face
+- **You are being guided around a strange world by a charismatic teacher (iroh from ATLA of Joel from Last of Us), they show you the rules of the world, NPC's don't want to see interact with you initially because of your relation to this person, and slowly you learn that they are teaching you evil magic, stuff that corrupts the soul, in order to have you join some cult/religious/political movement **
+# Massive Collection of Gothic Lit
+- Pulls form hundreds of places, portrait of dorian grey style reflection, tell tale heart insaity, Jekly and Hyde Delusions, annabell lee love, raven taunting ie

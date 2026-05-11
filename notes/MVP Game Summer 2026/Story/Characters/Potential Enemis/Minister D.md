@@ -1,0 +1,1 @@
+from "the purloined letter", took the letter from a roayl lady to blackmail her
