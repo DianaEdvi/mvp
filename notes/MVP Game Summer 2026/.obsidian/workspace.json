@@ -11,14 +11,10 @@
             "id": "33b7b04a6328d355",
             "type": "leaf",
             "state": {
-              "type": "markdown",
-              "state": {
-                "file": "Story/Official Story.md",
-                "mode": "source",
-                "source": false
-              },
+              "type": "empty",
+              "state": {},
               "icon": "lucide-file",
-              "title": "Official Story"
+              "title": "New tab"
             }
           }
         ]
@@ -180,11 +176,16 @@
       "daily-notes:Open today's daily note": false,
       "templates:Insert template": false,
       "command-palette:Open command palette": false,
-      "bases:Create new base": false
+      "bases:Create new base": false,
+      "obsidian-git:Open Git source control": false
     }
   },
-  "active": "33b7b04a6328d355",
+  "active": "30eb8cae46d9296c",
   "lastOpenFiles": [
+    "Untitled 1.canvas",
+    "2026-05-11.md",
+    "Untitled.canvas",
+    "Story/Official Story.md",
     "Story/Gameplay Notes.md",
     "Story/EAP Readings.md",
     "Story/To Do.md",
@@ -207,11 +208,8 @@
     "Story/Characters/Potential Enemis/Axe Man.md",
     "Story/Characters/Goodish characters/Pluto.md",
     "Story/Characters/Potential Enemis/Human ManGuy (arangatang).md",
-    "Story/Official Story.md",
     "Gamplay/Items.md",
     "Gamplay",
-    "Story/Characters/Bosses/The Mesmerist.md",
-    "Story/Characters/Goodish characters/General Lasalle.md",
     "Story/Characters/Goodish characters",
     "Story/Settings",
     "Story/Characters/Potential Enemis",
