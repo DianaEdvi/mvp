@@ -1,5 +1,5 @@
 3 Act story
- hello hello test 
+testing 
 Collecting eyes to reveal more of the past, also the meta currency
 
 You learn the relevant post boss info with a npc or letter or soemthing in the following act upon discovering their body. Would be so cool to have a room where ominous music plays and its just a body on the ground.
