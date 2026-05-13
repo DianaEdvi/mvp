@@ -25,7 +25,7 @@ The Predatious
 
 The Obsessive
 -  A caged animal (vague dark cage)
-- A set of scissors (could carve the Alice maddness things into each blade for a refrence)
+- lock  and a key
 - Cleanign supplies
 
 The Knave
