@@ -1,8 +1,8 @@
 
 Fallen (also satanic, strong biblical themes in gothic literature ) (refer to [[The Devil]])
 Obsessed (strong gothic theme) (refer to [[Lady Rowena]])
-Delusional (Strong gothic theme ) (refer to [[Human ManGuy (arangatang)]])
+Madness (Strong gothic theme ) (refer to [[Human ManGuy (arangatang)]])
 
-The Fallen defeat the Delusional, as they can be manipulated
-The Obsessed defeat Fallen, as they cannot be swayed
-The Delusional defeat the Obssessed, 
+The Fallen defeat the Madness, as thier madness can be turned to evil
+The Obsessed defeat Fallen, as their obsession cannotbe easily swayed to evil
+The Madness defeat the Obssessed, as the obssessed will waste thier time with the with obsessed  
