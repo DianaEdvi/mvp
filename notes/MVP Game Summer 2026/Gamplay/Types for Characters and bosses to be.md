@@ -1,2 +1,0 @@
-
-Satanic (str)
