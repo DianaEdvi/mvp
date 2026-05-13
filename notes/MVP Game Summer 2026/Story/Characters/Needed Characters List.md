@@ -20,4 +20,16 @@ Top Prio Good:
 
 If Time Permits (IN ORDER):
 [[The Hop Frog]] (unique battle with an interesting character)
+[[The Painter]] (another unique boss)
+[[Monsieur Maillard]] (interesting mechanic)
+[[Dupin]] (good npc with puzzle maybe?)
+[[The Sphinx]] (silly boss)
+[[Fortunado]] (could be shop keep)
+
+
+
+Not Super Needed (IN ORDER):
+[[Montesor]] (more general boss)
+[[Minister D]] (more of extra person)
+
 
