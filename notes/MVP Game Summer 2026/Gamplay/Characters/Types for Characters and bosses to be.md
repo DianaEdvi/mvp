@@ -17,12 +17,12 @@ The Obsessive
 The Knave
 - Makes them harder to hit with, and can make the enemy attack themselves or teamates by accident
 
-Smaller enemies of each type
+Smaller enemies of each type (not in each )
 The Predatious
-- 
+- A vulture 
 
 The Obsessive
--  Ax
+-  
 
 The Knave
 - l
