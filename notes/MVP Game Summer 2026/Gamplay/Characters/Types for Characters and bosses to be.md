@@ -20,15 +20,17 @@ The Knave
 Smaller enemies of each type (not in in eap storeis)
 The Predatious
 - A vulture 
+- A venus fly trap
+- A mirror
 
 The Obsessive
 -  A caged animal (vague dark cage)
-- l
+- A set of scissors (could carve the Alice maddness things into each blade for a refrence)
 - Cleanign supplies
 
 The Knave
 - A Fox
 - A living suit 
-- A  deck of cards
+- A deck of cards
 
 
