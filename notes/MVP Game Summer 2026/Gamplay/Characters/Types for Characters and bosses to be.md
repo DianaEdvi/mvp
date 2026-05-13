@@ -17,14 +17,18 @@ The Obsessive
 The Knave
 - Makes them harder to hit with, and can make the enemy attack themselves or teamates by accident
 
-Smaller enemies of each type (not in each )
+Smaller enemies of each type (not in in eap storeis)
 The Predatious
 - A vulture 
 
 The Obsessive
--  
+-  A caged animal (vague dark cage)
+- l
+- Cleanign supplies
 
 The Knave
-- l
+- A Fox
+- A living suit 
+- A  deck of cards
 
 
