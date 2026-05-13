@@ -19,10 +19,10 @@ The Knave
 
 Smaller enemies of each type
 The Predatious
-- l
+- 
 
 The Obsessive
-- l
+-  Ax
 
 The Knave
 - l
