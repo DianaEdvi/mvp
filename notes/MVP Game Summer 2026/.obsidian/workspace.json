@@ -13,12 +13,12 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "Gamplay/Items, Shope, Currency/Currency.md",
+                "file": "Gamplay/Fighting/Weapons.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "Currency"
+              "title": "Weapons"
             }
           }
         ]
@@ -186,6 +186,8 @@
   },
   "active": "33b7b04a6328d355",
   "lastOpenFiles": [
+    "Gamplay/Items, Shope, Currency/Currency.md",
+    "Gamplay/Tutorial.md",
     "Gamplay/Fighting/Weapons.md",
     "Gamplay/Characters/Types for Characters and bosses to be.md",
     "Gamplay/Items, Shope, Currency/Items to Buy.md",
@@ -193,7 +195,6 @@
     "Story/Characters/Potential Enemis/Monsieur Maillard.md",
     "Story/Characters/Goodish characters/Brevet Brigadier-General John A.B.C. Smith.md",
     "Story/Characters/Potential Enemis/Augustus Bedloe, controlled by Doctor Templeton.md",
-    "Gamplay/Items, Shope, Currency/Currency.md",
     "Gamplay/Fighting/Upgrades.md",
     "Gamplay/Items, Shope, Currency",
     "Gamplay/Fighting",
@@ -214,7 +215,6 @@
     "Story/Official Story.md",
     "Story/Gameplay Notes.md",
     "Story/EAP Readings.md",
-    "Story/Characters/Act 1 Characters and Enemies.md",
     "Untitled 1.canvas",
     "Untitled.canvas",
     "Gamplay",

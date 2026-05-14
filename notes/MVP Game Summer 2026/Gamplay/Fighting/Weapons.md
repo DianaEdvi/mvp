@@ -17,4 +17,11 @@ Throwing Daggers (knave)
 - ranged 
 
 
+
+
 Pack a Punch putting a weapon in a wall (fortunado)
+
+For skills: 
+- low cost skills, 
+- medium cost skills 
+- heavy cost skills 
