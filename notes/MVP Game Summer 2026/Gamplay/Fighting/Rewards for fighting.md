@@ -4,6 +4,7 @@ Per floor
 - % 1 fight gives skill, skills to swap (pick three)
 - % 2 fight gives stat (pick all)
 - % 3 upgrade skill (pick three can upgrade multiple times)
+- Each fight gives item, and # of eyeballs
 1 mini (optional)
 - Relic
 1 boss 
