@@ -21,7 +21,8 @@ Throwing Daggers (knave)
 
 Pack a Punch putting a weapon in a wall (fortunado)
 
-For skills: 
-- low cost skills, 
+ Skills: 
+ - spells slots like system in dnd? like 3 low, 2 med, 1 heavy, 
+- low cost skills        
 - medium cost skills 
 - heavy cost skills 
