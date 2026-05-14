@@ -2,8 +2,8 @@ Rapier:
 - All around good, has all skills
 - PACK A PUNCH VERSION, makes it longer, ornate and shining
 
-A Scythe (Predatious)
-- has neutral and predatious skills
+A Scythe (Predaceous)
+- has neutral and Predaceous skills
 - does higher damage, with slower attack
 - hits tons of enemies with basic attack
 - PACK A PUNCH VERSION, makes it black and has blades on both sides

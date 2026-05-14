@@ -9,7 +9,7 @@ Attack Damage
 Skill Damage
 - Increases skill damage
 Health 
-- Increases health
+- Increases health, starts at 50
 
 
 Maybe?:

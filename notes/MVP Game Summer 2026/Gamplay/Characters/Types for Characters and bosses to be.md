@@ -1,16 +1,16 @@
 
-The Predatious (predetory) (also satanic, strong biblical themes in gothic literature ) (refer to [[The Devil]])
+The Predaceous (predetory) (also satanic, strong biblical themes in gothic literature ) (refer to [[The Devil]])
 The Obsessive (strong gothic theme) (refer to [[Lady Rowena]])
 The Knave (dihonent, rougue, or scoundrel ) (Strong gothic theme ) (refer to [[Human ManGuy (arangatang)]])
 
-The Predatious prays on the frailty of the Obsessive
+The Predaceous prays on the frailty of the Obsessive
 The Obsessive peers past the veil of the Knave
 The Knave fools the Predatious
 
 
 needs a good and bad to each power
 Power Of the Types
-The Predatious
+The Predaceous
 - Applies weaknesses to enemies, either making them not do as much damage, or take more damage
 
 The Obsessive
@@ -22,7 +22,7 @@ The Knave
 - lowers health
 
 Smaller enemies of each type (not in in eap storeis)
-The Predatious
+The Predaceous
 - A vulture 
 - A venus fly trap
 - A mirror
