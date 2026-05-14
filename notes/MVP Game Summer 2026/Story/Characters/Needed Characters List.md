@@ -14,7 +14,7 @@ Needed (No order because all equally important):
 [[The Devil]] (to give a challange to player) (mini boss act 2)
 [[Human ManGuy (arangatang)]] (little silly boss to entice the player to lkeep playing) (miniboss act 1)
 [[Pluto]] (the person who gives you items at the start of the run, could also make them the shop keep)
-[[Augustus Bedloe, controlled by Doctor Templeton]] (healer)
+[[Brevet Brigadier-General John A.B.C. Smith]] (healer)
 
 
 If Time Permits (IN ORDER):
@@ -30,6 +30,7 @@ If Time Permits (IN ORDER):
 Not Super Needed (IN ORDER):
 [[General Lasalle]] (guy who escaped from [[The Raven and The Man]])
 [[Harrison Ainsworth]] (guy who escaped from [[The Raven and The Man]])
+[[Augustus Bedloe, controlled by Doctor Templeton]] 
 [[Montesor]] (more general boss)
 [[Dr Brandsby]] (guy who escaped from [[The Raven and The Man]])
 [[Minister D]] (more of extra person)
