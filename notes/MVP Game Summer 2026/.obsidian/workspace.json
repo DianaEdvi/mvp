@@ -13,12 +13,12 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "Gamplay/Fighting/Rewards for fighting.md",
+                "file": "Gamplay/Characters/Skills.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "Rewards for fighting"
+              "title": "Skills"
             }
           }
         ]
@@ -186,8 +186,9 @@
   },
   "active": "33b7b04a6328d355",
   "lastOpenFiles": [
-    "Gamplay/Fighting/Actual Fight.md",
     "Gamplay/Fighting/Rewards for fighting.md",
+    "Gamplay/Characters/Skills.md",
+    "Gamplay/Fighting/Actual Fight.md",
     "Gamplay/Fighting/Weapons.md",
     "Gamplay/Items, Shope, Currency/Items to Buy.md",
     "Gamplay/Items, Shope, Currency/Currency.md",
@@ -214,7 +215,6 @@
     "Story/Characters/Potential Enemis/Lady Rowena.md",
     "Story/Characters/Potential Enemis/The Hop Frog.md",
     "Story/To Do.md",
-    "Story/Official Story.md",
     "Untitled 1.canvas",
     "Untitled.canvas",
     "Gamplay",
