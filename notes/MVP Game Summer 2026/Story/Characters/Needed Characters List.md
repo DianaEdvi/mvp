@@ -18,9 +18,9 @@ Needed (No order because all equally important):
 
 
 If Time Permits (IN ORDER):
+[[Augustus Bedloe, controlled by Doctor Templeton]] 
 [[The Hop Frog]] (unique battle with an interesting character)
 [[The Painter]] (another unique boss with interesting mechanic)
-[[Augustus Bedloe, controlled by Doctor Templeton]] 
 [[Monsieur Maillard]] (another another unique boss with interesting mechanic)
 [[Dupin]] (good npc with puzzle maybe?)
 [[The Sphinx]] (silly boss)

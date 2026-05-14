@@ -12,7 +12,7 @@ The Predatious
 - Applies weaknesses to enemies, either making them not do as much damage, or take more damage
 
 The Obsessive
-- Allows you to do crazy damage to one person, but low crown damage
+- Allows you to do crazy damage to one person, but low oae damage
 
 The Knave
 - Makes them harder to hit with, and can make the enemy attack themselves or teamates by accident
