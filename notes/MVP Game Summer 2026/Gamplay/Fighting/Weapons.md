@@ -7,6 +7,7 @@ A Scythe (Predatious)
 - PACK A PUNCH VERSION, makes it black and has blades on both sides
 
 Scissors (obsessive):
+- attacks multiple times
 - A set of scissors (could carve the Alice maddness things into each blade for a refrence),
 - PACK A PUNCH VERSION, makes it way bigger and gives it effects
 

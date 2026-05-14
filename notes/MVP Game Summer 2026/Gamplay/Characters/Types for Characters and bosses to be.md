@@ -24,7 +24,7 @@ The Predatious
 - A mirror
 
 The Obsessive
--  A caged animal (vague dark cage)
+- A caged animal (vague dark cage)
 - lock  and a key
 - Cleanign supplies
 
