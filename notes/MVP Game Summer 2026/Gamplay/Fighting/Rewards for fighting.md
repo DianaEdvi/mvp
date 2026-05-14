@@ -1,11 +1,13 @@
 
 Per floor
 3-5 smaller enemies
-- % 1 fight gives skill
+- % 1 fight gives skill, skills to swap
 - % 2 fight gives stat
+- % 3 fight gives another stat 
 1 mini (optional)
 - major upgrade a sill after miniboss 
 1 boss 
+- Gold Bug
 
 in Mewgenics for refrence
 - skill for 1 fight
