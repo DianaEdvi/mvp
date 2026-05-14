@@ -1,4 +1,4 @@
-
+very low amount of actual fight animations
 Menu for Attack:
 - Block (shrinking circle to get more block)
 - Attack (shrinking circle to get more block) (ITS A CLOCK, like pop the lock, bounces back after successfull hit)
