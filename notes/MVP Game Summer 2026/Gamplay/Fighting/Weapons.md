@@ -11,8 +11,9 @@ Scissors (obsessive):
 - A set of scissors (could carve the Alice maddness things into each blade for a refrence),
 - PACK A PUNCH VERSION, makes it way bigger and gives it effects
 
-(knave)
-(maybe daggers, crossbow, priest staff, duel sickle, fan wit blades (kitana mk), throwing dagger, chain with knifes on end)
+Throwing Daggers (knave)
+(maybe daggers, crossbow, duel sickle, fan wit blades (kitana mk), throwing dagger, chain with knifes on end)
+- ranged 
 
 
 Pack a Punch putting a weapon in a wall (fortunado)
