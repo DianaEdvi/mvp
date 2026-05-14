@@ -20,6 +20,7 @@ Needed (No order because all equally important):
 If Time Permits (IN ORDER):
 [[The Hop Frog]] (unique battle with an interesting character)
 [[The Painter]] (another unique boss with interesting mechanic)
+[[Augustus Bedloe, controlled by Doctor Templeton]] 
 [[Monsieur Maillard]] (another another unique boss with interesting mechanic)
 [[Dupin]] (good npc with puzzle maybe?)
 [[The Sphinx]] (silly boss)
@@ -30,7 +31,6 @@ If Time Permits (IN ORDER):
 Not Super Needed (IN ORDER):
 [[General Lasalle]] (guy who escaped from [[The Raven and The Man]])
 [[Harrison Ainsworth]] (guy who escaped from [[The Raven and The Man]])
-[[Augustus Bedloe, controlled by Doctor Templeton]] 
 [[Montesor]] (more general boss)
 [[Dr Brandsby]] (guy who escaped from [[The Raven and The Man]])
 [[Minister D]] (more of extra person)
