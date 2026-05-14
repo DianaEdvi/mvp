@@ -7,6 +7,8 @@ The Predatious prays on the frailty of the Obsessive
 The Obsessive peers past the veil of the Knave
 The Knave fools the Predatious
 
+
+needs a good and bad to each power
 Power Of the Types
 The Predatious
 - Applies weaknesses to enemies, either making them not do as much damage, or take more damage
@@ -17,6 +19,7 @@ The Obsessive
 
 The Knave
 - Makes them harder to hit with, and can make the enemy attack themselves or teamates by accident
+- lowers health
 
 Smaller enemies of each type (not in in eap storeis)
 The Predatious
