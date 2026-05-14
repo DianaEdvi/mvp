@@ -1,9 +1,9 @@
 
 Menu for Attack:
 - Block (shrinking circle to get more block)
-- Attack (shrinking circle to get more block)
+- Attack (shrinking circle to get more block) (ITS A CLOCK, like pop the lock, bounces back after successfull hit)
 - Item
-- Skills
+- Skills (no/small shrinking circle)
 
 Menu for Defense:
 - dodge (bigger timing, no reward)

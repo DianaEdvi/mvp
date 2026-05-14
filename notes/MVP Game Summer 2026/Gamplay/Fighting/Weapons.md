@@ -26,3 +26,6 @@ Pack a Punch putting a weapon in a wall (fortunado)
 - low cost skills        
 - medium cost skills 
 - heavy cost skills 
+
+If time permits: 
+- Each different weapon has action command (if time permits )
