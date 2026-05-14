@@ -4,6 +4,7 @@ Rapier:
 
 A Scythe (Predatious)
 - does higher damage, with slower attack
+- hits tons of enemies with basic attack
 - PACK A PUNCH VERSION, makes it black and has blades on both sides
 
 Scissors (obsessive):
