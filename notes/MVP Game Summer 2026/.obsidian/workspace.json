@@ -13,12 +13,12 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "Story/EAP Readings.md",
+                "file": "[Prospero.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "EAP Readings"
+              "title": "[Prospero"
             }
           }
         ]
@@ -186,6 +186,8 @@
   },
   "active": "33b7b04a6328d355",
   "lastOpenFiles": [
+    "Story/EAP Readings.md",
+    "[Prospero.md",
     "Story/Characters/Real Characters/Good/Pluto.md",
     "Story/Characters/Needed Characters List.md",
     "Story/Characters/Potential Characters/Goodish characters/Fortunado.md",
@@ -216,8 +218,6 @@
     "Gamplay/Items, Shope, Currency/Currency.md",
     "Gamplay/Characters/Character Points.md",
     "Gamplay/Characters/Annabel Lee.md",
-    "Gamplay/Items, Shope, Currency/Items.md",
-    "Gamplay/Items, Shope, Currency/Untitled.md",
     "Gamplay/Items, Shope, Currency",
     "Gamplay/Fighting",
     "Gamplay/Characters",
