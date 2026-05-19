@@ -14,7 +14,18 @@ Bare min List:
 		 - Skill C: Biblically Accurate (Knave), increase eyeballs after the fight (only cast 1 per fight), 2 Clarity
 		 - Skill D: Basilisk (Basic), Next atk does 2x damage, 3 Clarity
  - Implement rapier, intent to add weapons 
- - Start menu, pause menu, credits menu (after Prospero)
+ - Start menu, pause menu, credits menu (after Prospero)\
+ - Super simple cutscene, dialogue box pops up and says lore info 
+ - Needed characters
+	 - [[Prospero]] (with interaction)
+	 - [[Annabel Lee]]
+	 - 
+ 
+
+Test Game Loop:
+- Start screen, start game
+- Enter the Mansion, see a collection of doors 
+
 	 
 	
 	

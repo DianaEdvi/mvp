@@ -13,12 +13,12 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "Planning Stage/Milestone 1 (Prototype Game Elements).md",
+                "file": "Gamplay/Characters/Types for Characters and bosses to be.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "Milestone 1 (Prototype Game Elements)"
+              "title": "Types for Characters and bosses to be"
             }
           }
         ]
@@ -186,8 +186,10 @@
   },
   "active": "33b7b04a6328d355",
   "lastOpenFiles": [
-    "Gamplay/Floor/Gamelong Run.md",
+    "Story/Characters/Needed Characters List.md",
+    "Story/Characters/Act 1 Characters and Enemies.md",
     "Planning Stage/Milestone 1 (Prototype Game Elements).md",
+    "Gamplay/Floor/Gamelong Run.md",
     "Gamplay/Floor",
     "Gamplay/Fighting/Weapons.md",
     "Gamplay/Fighting/Skills.md",
@@ -205,7 +207,6 @@
     "Gamplay/Items, Shope, Currency/Items.md",
     "Gamplay/Items, Shope, Currency/Untitled.md",
     "Story/Characters/Goodish characters/Brevet Brigadier-General John A.B.C. Smith.md",
-    "Story/Characters/Needed Characters List.md",
     "Story/Characters/Potential Enemis/Monsieur Maillard.md",
     "Story/Characters/Potential Enemis/Augustus Bedloe, controlled by Doctor Templeton.md",
     "Gamplay/Fighting/Upgrades.md",
@@ -215,7 +216,6 @@
     "Planning Stage/Ideas for Plot.md",
     "Story/Characters/Goodish characters/Lenore.md",
     "Story/Characters/Goodish characters/Harrison Ainsworth.md",
-    "Story/Characters/Goodish characters/General Lasalle.md",
     "Untitled 1.canvas",
     "Untitled.canvas",
     "Gamplay",
