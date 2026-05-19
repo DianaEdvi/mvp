@@ -6,8 +6,11 @@ Bare min List:
  - Eyeballs (Clarity) needs to be implemented
 	 - FOR NOW: only purpose is to use skills
  - For fighting, just implement attack, block, and skills (cost clarity)
-	 - skills draft
-- 
+	 -  skills draft, 1 skill of each type (basic, predacious, obsessive, knave)
+		 - not gonna be real skills/have real synergy 
+ - 4 weapons 
+	 
+	
 	
  
 
@@ -15,3 +18,5 @@ Bare min List:
  Don't implement/only if get there early:
 - Shop ([[Milestone 2]])
 - Items
+- No classes
+- No weapon
