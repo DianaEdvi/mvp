@@ -13,12 +13,12 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "Story/Characters/Real Characters/Good/Pluto.md",
+                "file": "Story/Characters/Real Characters/Good/Annabel Lee.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "Pluto"
+              "title": "Annabel Lee"
             }
           }
         ]
@@ -186,11 +186,12 @@
   },
   "active": "33b7b04a6328d355",
   "lastOpenFiles": [
+    "Story/Characters/Real Characters/Good/Ligeia.md",
+    "Story/Characters/Real Characters/Good/Pluto.md",
     "Story/Characters/Real Characters/Bosses/Prospero.md",
     "Story/EAP Readings.md",
     "Story/Characters/Needed Characters List.md",
     "[Prospero.md",
-    "Story/Characters/Real Characters/Good/Pluto.md",
     "Story/Characters/Potential Characters/Goodish characters/Fortunado.md",
     "Story/Characters/Real Characters/Mobs/Obsessive.md",
     "Story/Characters/Potential Characters",
@@ -217,7 +218,6 @@
     "Gamplay/Tutorial.md",
     "Gamplay/Fighting/Actual Fight.md",
     "Gamplay/Items, Shope, Currency/Currency.md",
-    "Gamplay/Characters/Character Points.md",
     "Gamplay/Items, Shope, Currency",
     "Gamplay/Fighting",
     "Gamplay/Characters",
