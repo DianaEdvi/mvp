@@ -16,7 +16,9 @@ Bare min List:
  - Implement rapier, intent to add weapons 
  - Start menu, pause menu, credits menu (after Prospero)\
  - Super simple cutscene, dialogue box pops up and says lore info 
- - Parry action command at first 
+ - Parry action thing that happens on enemy turn 
+	 - Parry window (how to do with animations and stuff)
+	 - baby parry for now (ie no real animation reaction, just do action comma)
  - Needed characters
 	 - [[Prospero]] (with interaction)
 	 - [[Annabel Lee]]
