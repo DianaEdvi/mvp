@@ -5,10 +5,10 @@ Per floor
 - % 2 fight gives stat (pick all)
 - % 3 upgrade skill (pick three can upgrade multiple times)
 - Each fight gives item, and # of eyeballs
-1 mini (optional)
-- Relic
+1 miniboss (optional)
+- Big # of eyeballs, goldbug
 1 boss 
-- Gold Bug, Relic 
+- Goldbug, progression 
 
 in Mewgenics for refrence
 - skill for 1 fight

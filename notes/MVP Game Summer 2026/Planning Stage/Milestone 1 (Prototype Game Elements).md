@@ -6,7 +6,9 @@ Bare min List:
  - Eyeballs (Clarity) needs to be implemented
 	 - FOR NOW: only purpose is to use skills
  - For fighting, just implement attack, block, and skills (cost clarity)
-	 - skills draft 
+	 - skills draft
+- 
+	
  
 
 
