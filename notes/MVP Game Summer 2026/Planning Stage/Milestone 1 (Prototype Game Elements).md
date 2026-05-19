@@ -14,7 +14,7 @@ Bare min List:
 		 - Skill C: Biblically Accurate (Knave), increase eyeballs after the fight (only cast 1 per fight), 2 Clarity
 		 - Skill D: Basilisk (Basic), Next atk does 2x damage, 3 Clarity
  - Implement rapier, intent to add weapons 
- - Start menu, pause menu, credits menu ()
+ - Start menu, pause menu, credits menu (after Prospero)
 	 
 	
 	
