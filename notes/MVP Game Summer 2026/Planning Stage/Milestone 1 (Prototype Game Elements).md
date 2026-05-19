@@ -34,6 +34,7 @@ Bare min List:
 Test Game Loop:
 - Start screen, start game
 - Enter the Mansion
+	- Map is similar to "Issac" or "Enter the gungeon", where there is a grid that creates a hallway and then rooms in the hallway, fallback is "Issac"
 
 	 
 	
