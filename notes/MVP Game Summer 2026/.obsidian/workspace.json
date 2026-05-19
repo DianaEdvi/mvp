@@ -13,12 +13,12 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "Gamplay/Characters/Types for Characters and bosses to be.md",
+                "file": "Planning Stage/Weekly Work.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "Types for Characters and bosses to be"
+              "title": "Weekly Work"
             }
           }
         ]
@@ -184,15 +184,19 @@
       "obsidian-git:Open Git source control": false
     }
   },
-  "active": "33b7b04a6328d355",
+  "active": "30eb8cae46d9296c",
   "lastOpenFiles": [
+    "Story/Characters/Real Characters/Untitled",
+    "Story/Characters/Real Characters/Miniboss",
+    "Story/Characters/Real Characters/Good",
+    "Story/Characters/Real Characters",
+    "Gamplay/Characters/Types for Characters and bosses to be.md",
     "Planning Stage/Weekly Work.md",
     "Planning Stage/Milestone 1 (Prototype Game Elements).md",
     "AI Policy.md",
     "Planning Stage/Ideas for Plot.md",
     "Story/Characters/Needed Characters List.md",
     "Planning Stage/Specific dates.md",
-    "Gamplay/Characters/Types for Characters and bosses to be.md",
     "Story/Characters/Act 1 Characters and Enemies.md",
     "Gamplay/Floor/Gamelong Run.md",
     "Gamplay/Floor",
@@ -215,14 +219,10 @@
     "Gamplay/Items, Shope, Currency",
     "Gamplay/Fighting",
     "Gamplay/Characters",
-    "Story/Characters/Goodish characters/Lenore.md",
     "Untitled 1.canvas",
     "Untitled.canvas",
     "Gamplay",
     "Story/Characters/Goodish characters",
-    "Story/Settings",
-    "Story/Characters/Potential Enemis",
-    "Story/Characters/Bosses",
-    "Story/Characters"
+    "Story/Settings"
   ]
 }
