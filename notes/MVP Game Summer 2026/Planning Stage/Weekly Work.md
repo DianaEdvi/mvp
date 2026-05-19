@@ -1,12 +1,17 @@
 
 # Mia 
+- 
 
 # Alex
+- 
 
 # Diana
+- 
 
 # Jacket
+- 
 
-# Raph
+# Raphael
+- 
 
 # Edamame
