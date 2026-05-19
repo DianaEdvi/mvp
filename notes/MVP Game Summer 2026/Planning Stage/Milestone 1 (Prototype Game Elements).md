@@ -19,7 +19,11 @@ Bare min List:
  - Needed characters
 	 - [[Prospero]] (with interaction)
 	 - [[Annabel Lee]]
-	 - 
+	 - [[Human ManGuy (arangatang)]]
+	 - 3 enemies ([[Types for Characters and bosses to be]]) 
+		 - mirror
+		 - animal 
+		 - cards
  
 
 Test Game Loop:

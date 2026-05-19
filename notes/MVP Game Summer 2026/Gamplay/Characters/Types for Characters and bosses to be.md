@@ -21,7 +21,7 @@ The Knave
 - Makes them harder to hit with, and can make the enemy attack themselves or teamates by accident
 - lowers health
 
-Smaller enemies of each type (not in in eap storeis)
+Smaller enemies of each type (not in in eap storeis) 
 The Predaceous
 - A vulture 
 - A venus fly trap
@@ -30,11 +30,13 @@ The Predaceous
 The Obsessive
 - A caged animal (vague dark cage)
 - lock and a key
-- Cleanign supplies
+- Cleaning supplies
 
 The Knave
 - A Fox
 - A living suit 
 - A deck of cards
+
+Personification or Poltergeist 
 
 
