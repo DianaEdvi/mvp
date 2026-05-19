@@ -5,4 +5,6 @@ She is the perfect person, but that didn't stop [[The Raven and The Man]] from e
 
 Will help kill [[The Raven and The Man]] in the end
 
-Spits some lore and give some buff, angelic, im picturing corpse bride, tall fair, mommy?
+Spits some lore and give some buff, angelic, im picturing corpse bride, tall fair, 
+
+![[Pasted image 20260519175252.png]]
