@@ -1,8 +1,8 @@
 A black cat, represents a divine justice, and the guilt of past actions
 
-Purely black cat with a noose around their neck (reference to "The Black Cat)
+Purely black cat with a noose around their neck (reference to "The Black Cat), missing the left eye, they are quite intelligent and quite large. They represent divine judgement and the guilt of past actiosn
 
-Missing one eye, black cat
+
 
 
 You ak for items, and they get it for you

@@ -14,13 +14,13 @@ Murders of the red morgue "https://poemuseum.org/the-murders-in-the-rue-morgue/"
 The devil in the belfry "https://poemuseum.org/the-devil-in-the-belfry/"
 
 annabel lee - [[Annabel Lee]]
-masque - [[[Prospero]]
-raven - raven and the man
-william willson - raven and the man
-the bells - Raven and the man/lenore
-the black cat - Pluto
-lenore - Lenore
-ligeia - ligeia/lady rowena
-the fact in the case of M valdemar - the messmerist
-murders - human manguy
-the devil in the belfrt - the devul
+masque - [[Prospero]]
+raven - [[The Raven and The Man]]
+william willson - [[The Raven and The Man]]
+the bells - [[The Raven and The Man]] [[Lenore]]
+the black cat - [[Pluto]]
+lenore - [[Lenore]]
+ligeia - [[Lady Rowena]] [[Ligeia]]
+the fact in the case of M valdemar - [[The Mesmerist]]
+murders - [[Human ManGuy (arangatang)]]
+the devil in the belfrt - [[The Devil]]
