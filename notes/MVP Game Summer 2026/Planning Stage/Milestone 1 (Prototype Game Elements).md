@@ -6,9 +6,14 @@ Bare min List:
  - Eyeballs (Clarity) needs to be implemented
 	 - FOR NOW: only purpose is to use skills
  - For fighting, just implement attack, block, and skills (cost clarity)
-	 -  skills draft, 1 skill of each type (basic, predacious, obsessive, knave)
-		 - not gonna be real skills/have real synergy 
- - 4 weapons 
+	 -  skills draft, 4 skills
+		 - can be one of each type, but more placeholder
+		 - Skill A: Fixation (Obsessive), increases atk damage to that specific enemy, ie add 4 fixation points
+		 - Skill B: Debuf (Predacious), Deal X 
+		 - Skill C: (Knave)
+		 - Skill D: (Basic)
+ - Implement rapier, intent to add weapons 
+ - 
 	 
 	
 	
