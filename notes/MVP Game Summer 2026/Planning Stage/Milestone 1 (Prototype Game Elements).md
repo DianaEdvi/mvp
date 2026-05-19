@@ -16,6 +16,7 @@ Bare min List:
  - Implement rapier, intent to add weapons 
  - Start menu, pause menu, credits menu (after Prospero)\
  - Super simple cutscene, dialogue box pops up and says lore info 
+ - Parry action command at first 
  - Needed characters
 	 - [[Prospero]] (with interaction)
 	 - [[Annabel Lee]]
@@ -24,6 +25,7 @@ Bare min List:
 		 - mirror
 		 - animal 
 		 - cards
+	
  
 
 Test Game Loop:
