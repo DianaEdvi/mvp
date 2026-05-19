@@ -18,13 +18,13 @@ Needed (No order because all equally important):
 
 
 If Time Permits (IN ORDER):
-[[Augustus Bedloe, controlled by Doctor Templeton]] 
+[[Augustus Bedloe, controlled by Doctor Templeton]] (puppet character, unique battle)
 [[The Hop Frog]] (unique battle with an interesting character)
 [[The Painter]] (another unique boss with interesting mechanic)
 [[Monsieur Maillard]] (another another unique boss with interesting mechanic)
 [[Dupin]] (good npc with puzzle maybe?)
 [[The Sphinx]] (silly boss)
-[[Fortunado]] (could be shop keep)
+[[Fortunado]] (pack a punch)
 
 
 
