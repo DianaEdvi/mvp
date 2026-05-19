@@ -13,12 +13,12 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "Planning Stage/Prototype Game Elements.md",
+                "file": "Gamplay/Fighting/Rewards for fighting.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "Prototype Game Elements"
+              "title": "Rewards for fighting"
             }
           }
         ]
@@ -186,12 +186,13 @@
   },
   "active": "33b7b04a6328d355",
   "lastOpenFiles": [
+    "Planning Stage/Milestone 1 (Prototype Game Elements).md",
+    "Planning Stage/Milestones.md",
+    "Planning Stage/Milestone 2.md",
     "Gamplay/Tutorial.md",
     "Gamplay/Fighting/Actual Fight.md",
     "Gamplay/Fighting/Rewards for fighting.md",
-    "Planning Stage/Prototype Game Elements.md",
     "Planning Stage/Weekly Work.md",
-    "Planning Stage/Milestones.md",
     "Planning Stage/Specific dates.md",
     "Gamplay/Items, Shope, Currency/Currency.md",
     "Gamplay/Fighting/Weapons.md",
@@ -214,7 +215,6 @@
     "Story/Characters/Goodish characters/Harrison Ainsworth.md",
     "Story/Characters/Goodish characters/General Lasalle.md",
     "Story/Characters/Goodish characters/Dr Brandsby.md",
-    "Story/Characters/Act 3 Characters and Enemies.md",
     "Untitled 1.canvas",
     "Untitled.canvas",
     "Gamplay",
