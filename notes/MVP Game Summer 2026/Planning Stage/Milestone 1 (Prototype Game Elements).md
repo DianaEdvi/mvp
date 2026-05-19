@@ -14,8 +14,9 @@ Bare min List:
 		 - Skill C: Biblically Accurate (Knave), increase eyeballs after the fight (only cast 1 per fight), 2 Clarity
 		 - Skill D: Basilisk (Basic), Next atk does 2x damage, 3 Clarity
  - Implement rapier, intent to add weapons 
- - Start menu, pause menu, credits menu (after Prospero)\
+ - Start menu, pause menu, credits menu (after Prospero)
  - Super simple cutscene, dialogue box pops up and says lore info 
+ - Camera Control
  - Turn management
  - Parry action thing that happens on enemy turn 
 	 - Parry window (how to do with animations and stuff)
@@ -35,6 +36,18 @@ Test Game Loop:
 - Start screen, start game
 - Enter the Mansion
 	- Map is similar to "Issac" or "Enter the gungeon", where there is a grid that creates a hallway and then rooms in the hallway, fallback is "Issac"
+	- 10 rooms
+- Enter basic room 
+	- kill basic mini(s)
+	- get eyeballs
+- Enter miniboss
+	- Kill miniboss
+	- get eyeball
+	- get goldbug
+- Enter Boss
+	- Kill Prospero 
+	- Get eyeballs
+- Demo Ends
 
 	 
 	
