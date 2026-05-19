@@ -13,12 +13,12 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "Planning Stage/Weekly Work.md",
+                "file": "Story/Characters/Real Characters/Mobs/Obsessive.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "Weekly Work"
+              "title": "Obsessive"
             }
           }
         ]
@@ -184,14 +184,17 @@
       "obsidian-git:Open Git source control": false
     }
   },
-  "active": "30eb8cae46d9296c",
+  "active": "33b7b04a6328d355",
   "lastOpenFiles": [
-    "Story/Characters/Real Characters/Untitled",
+    "Story/Characters/Real Characters/Mobs/Predacious.md",
+    "Story/Characters/Real Characters/Mobs/Obsessive.md",
+    "Story/Characters/Real Characters/Mobs/Knave.md",
+    "Gamplay/Characters/Types for Characters and bosses to be.md",
+    "Planning Stage/Weekly Work.md",
+    "Story/Characters/Real Characters/Mobs",
     "Story/Characters/Real Characters/Miniboss",
     "Story/Characters/Real Characters/Good",
     "Story/Characters/Real Characters",
-    "Gamplay/Characters/Types for Characters and bosses to be.md",
-    "Planning Stage/Weekly Work.md",
     "Planning Stage/Milestone 1 (Prototype Game Elements).md",
     "AI Policy.md",
     "Planning Stage/Ideas for Plot.md",
@@ -214,15 +217,12 @@
     "Gamplay/Items, Shope, Currency/Untitled.md",
     "Story/Characters/Goodish characters/Brevet Brigadier-General John A.B.C. Smith.md",
     "Story/Characters/Potential Enemis/Monsieur Maillard.md",
-    "Story/Characters/Potential Enemis/Augustus Bedloe, controlled by Doctor Templeton.md",
-    "Gamplay/Fighting/Upgrades.md",
     "Gamplay/Items, Shope, Currency",
     "Gamplay/Fighting",
     "Gamplay/Characters",
     "Untitled 1.canvas",
     "Untitled.canvas",
     "Gamplay",
-    "Story/Characters/Goodish characters",
-    "Story/Settings"
+    "Story/Characters/Goodish characters"
   ]
 }
