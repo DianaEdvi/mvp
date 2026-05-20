@@ -17,4 +17,4 @@ He is a commanding, bold and muscular figure, with a large white dress coat like
 
 For his face I'm imagining a long face with a big nose and a mustache and a hat like this: ![[Pasted image 20260520141555.png]]
 
-He has quite an uptight and strong posture as he is a prince. 
+Initially he has quite an uptight and strong posture as he is a prince. but on his second phase he changes his posture to that of a scared and rabid animal, terrified he wont be able to free [[Ligeia]] or the other inhabitants of this house. He realizes he can fail
