@@ -15,4 +15,4 @@ His weapon is a pendulum that has a blade on the end, like a meteor hammer that 
 
 He is a commanding, bold and muscular figure, with a large white dress coat like this, but with extravagant designs ![[Pasted image 20260520141312.png|296]]
 
-For his face I'm imagining a long face with a big nose and a mustache 
+For his face I'm imagining a long face with a big nose and a mustache and a hat like this: ![[Pasted image 20260520141555.png]]
