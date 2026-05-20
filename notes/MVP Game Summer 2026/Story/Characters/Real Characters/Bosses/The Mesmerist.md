@@ -9,9 +9,11 @@ Parallels our main character as they took this job out of desperation and pay !
 
 His ability to hypnotize the player makes there be threee copies of him, not knowing which one to hit, further more, one of his hypnotic abilities is to reduce your action points by 1
 
-For the actual design of the boss I think a fallen angle is a beautiful metaphor here, as they think they are fighting for good, but have been tricked into b
+For the actual design of the boss I think a fallen angle is a beautiful metaphor here, as they think they are fighting for good, but have been tricked into the same trap as [[Annabel Lee]]
 
 ![[FFXIV_Shadowbringers_trailer_screenshot_13.webp]]
 
 
 ![[FFXIV_Sin_Eater_03.webp]]
+
+So they will have a broken halo/crown over their head, with wings being black to signify their decent into this place. As for his body, they are extremely thing, with long lower limbs, and a nervous temperament, and black hair. Hair style should be like the first image above, and for their skin they must be pale white. Eyes yellowed by a madness, and a disapproving frown for the player.
