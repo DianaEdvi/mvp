@@ -19,6 +19,7 @@ For the actual design of the boss I think a fallen angle is a beautiful metaphor
 
 ![[FFXIV_Sin_Eater_03.webp]]
 
-So they will have a broken halo/crown over their head, with wings being black to signify their decent into this place. As for his body, they are extremely thing, with long lower limbs, and a nervous temperament, and black hair. Hair style should be like the first image above, and for their skin they must be pale white. Eyes yellowed by a madness, and a disapproving frown for the player.
+So they will have a broken halo/crown over their head, with wings being black to signify their decent into this place. As for his body, they are extremely thing, with long lower limbs, and a nervous temperament, and black hair. Hair style should be like the first image above, and for their skin they must be pale white. Eyes yellowed by a madness, and a disapproving frown for the player. They should have eyes all over their body, as that is a way of hypnotism and accurate for angels
 
-For thier weapon, they cant have a clock of a string as that is too visually similar to [[Prospero]]
+For their weapon, they cant have a clock of a string as that is too visually similar to [[Prospero]], so instead I\ imagining they fight with thier fingers, similar to ty lee in atla
+https://www.youtube.com/watch?v=qvx6NiccDVA
