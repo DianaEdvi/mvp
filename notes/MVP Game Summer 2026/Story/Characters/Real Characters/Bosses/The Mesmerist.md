@@ -5,7 +5,7 @@ Essentially tries to put the player in a state of comatose in order to make them
 
 Only does these bad things as he is desperate for cash, how his life is over if doesn't do this, and how he was preyed on but still ends up doing something terrible 
 
-Parallels our main character as they took this job out of desperation and pay !
+Parallels our main character as they took this job out of desperation and pay ! (defies expecations)
 
 Once they are killed, they believe they will be revived by their god, but rather they are revived by the devil, and their color scheme becomes more red and black. Thier motivation remains protecting [[The Raven and The Man]], not hearing your reason, as they go further and further into delusion
 
@@ -24,4 +24,6 @@ So they will have a broken halo/crown over their head, with wings being black to
 For their weapon, they cant have a clock of a string as that is too visually similar to [[Prospero]], so instead I'm imagining they fight with their fingers, similar to ty lee in atla
 https://www.youtube.com/watch?v=qvx6NiccDVA or like a monk might in dnd. They could also use their voice and spirals
 
-To make them more unsettling they should have verry vissible bones, and long arms
+To make them more unsettling they should have verry vissible bones, and long arms. They dont move correctly, sporadic and bending the wrong way
+
+For clothes Im thinking 
