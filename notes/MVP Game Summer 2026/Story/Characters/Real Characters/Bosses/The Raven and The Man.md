@@ -3,3 +3,5 @@ The final boss of the game, resembling the unnamed narrator of the raven (which 
 maybe name the man William Wilson
 
 Shoudl be wedding bells in the soundtrack ("the Bells")n in roder to fully show the delusion of the man
+
+2nd most important character besides [[Annabel Lee]]

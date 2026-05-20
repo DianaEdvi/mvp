@@ -13,12 +13,12 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "Story/Characters/Real Characters/Bosses/The Mesmerist.md",
+                "file": "Story/Characters/Real Characters/Bosses/The Raven and The Man.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "The Mesmerist"
+              "title": "The Raven and The Man"
             }
           }
         ]
@@ -184,18 +184,20 @@
       "obsidian-git:Open Git source control": false
     }
   },
-  "active": "30eb8cae46d9296c",
+  "active": "33b7b04a6328d355",
   "lastOpenFiles": [
+    "Story/Official Story.md",
+    "Official Story.pdf",
+    "Story/Characters/Real Characters/Bosses/The Mesmerist.md",
+    "The Mesmerist.pdf",
     "z Images/Pasted image 20260520161301.png",
     "z Images/Pasted image 20260520161153.png",
     "Story/Characters/Real Characters/Bosses/Prospero.md",
-    "Story/Characters/Real Characters/Bosses/The Mesmerist.md",
     "Prospero.pdf",
     "z Images/FFXIV_Sin_Eater_03.webp",
     "z Images/FFXIV_Shadowbringers_trailer_screenshot_13.webp",
     "z Images/Pasted image 20260520141555.png",
     "z Images/Pasted image 20260520141312.png",
-    "Story/Official Story.md",
     "z Images/Pasted image 20260520134953.png",
     "z Images/Pasted image 20260520134826.png",
     "Story/Characters/Real Characters/Good/Annabel Lee.md",
@@ -203,7 +205,6 @@
     "Annabel Lee.pdf",
     "Story/Characters/Real Characters/Miniboss/Lady Rowena.md",
     "Pasted image 20260519175547.png",
-    "z Images/Pasted image 20260519175506.png",
     "Story/Characters/Real Characters/Good/Ligeia.md",
     "z Images",
     "Story/Characters/Real Characters/Good/Pluto.md",
@@ -227,11 +228,9 @@
     "Planning Stage/Specific dates.md",
     "Story/Characters/Act 1 Characters and Enemies.md",
     "Gamplay/Floor/Gamelong Run.md",
-    "Gamplay/Floor",
     "Gamplay/Fighting/Weapons.md",
     "Gamplay/Fighting/Skills.md",
     "Gamplay/Fighting/Rewards for fighting.md",
-    "Gamplay/Items, Shope, Currency",
     "Untitled 1.canvas",
     "Untitled.canvas"
   ]
