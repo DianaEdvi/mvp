@@ -1,6 +1,6 @@
 Afflicted with a plague, you must become the masque of the red death, and show to hi, that death is inevitable
 
-
+There is a red smoke around Annabel whe she enters the room, and ter is no red in the room otherwise
 
 Prospero, in a desperate attempt to save his own life reveals the true intentions of [[The Raven and The Man]] who hired you to kill him, that he wants to keep you here for himself
 
