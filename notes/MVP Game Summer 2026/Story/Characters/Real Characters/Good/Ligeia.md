@@ -11,4 +11,4 @@ Spits some lore and give some buff, angelic, im picturing corpse bride, tall fai
 
 Tall slender figure with graceful movements. raven black hair, exceptionally large eyes, curved soft lips with black lipstick and dimples. High cheek bones, wavy dark hair.
 
-For clothes they have flowey sleeves 
+For clothes they have flowey sleeves and a collared dress which is symbolic of thier ties to [[the rea]] ![[Pasted image 20260520164102.png|296]]
