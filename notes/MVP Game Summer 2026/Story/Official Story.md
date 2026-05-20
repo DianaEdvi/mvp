@@ -2,7 +2,7 @@
 testing 
 Collecting eyes to reveal more of the past, also the meta currency
 
-You learn the relevant post boss info with a npc or letter or soemthing in the following act upon discovering their body. Would be so cool to have a room where ominous music plays and its just a body on the ground.
+You learn the relevant post boss info with a npc or letter or something in the following act upon discovering their body. Would be so cool to have a room where ominous music plays and its just a body on the ground.
 
 The game starts off with the player being approached by [[The Raven and The Man]] (the representation of poe), with the offer to kill a man by the name of Prospero for an exorbitant amount of money. The player accepts this deal, they are blessed by the man and begins the game 
 (not money, supposed to be something that makes it more thematic )
