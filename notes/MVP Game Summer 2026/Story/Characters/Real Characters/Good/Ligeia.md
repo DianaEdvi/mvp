@@ -8,3 +8,5 @@ Will help kill [[The Raven and The Man]] in the end
 Spits some lore and give some buff, angelic, im picturing corpse bride, tall fair, 
 
 ![[Pasted image 20260519175252.png]]
+
+Tall slender figure with graceful movements. raven black hair, exceptionally large eyes, curved soft lips with black lipstick and dimples. High cheek bones, wavy d
