@@ -1,9 +1,12 @@
 Afflicted with a plague, you must become the masque of the red death, and show to hi, that death is inevitable
 
 
+
 Prospero, in a desperate attempt to save his own life reveals the true intentions of [[The Raven and The Man]] who hired you to kill him, that he wants to keep you here for himself
 
-[[The Raven and The Man]] sent for him to be killed as he has started to turn some of the house against him, speaking of a rebellion 
+[[The Raven and The Man]] sent for him to be killed as he has started to turn some of the house against him by speaking of a rebellion to free the lady he has fallen for, [[Ligeia]]. While she is dead, he hopes to free her of the shackles that bind her to this mortal place. He only fights you in self defense
+
+Once you kill him the first time, the boss room is empty, and in his stead is a sulking ghost, angry he could not free his love. He explains what's happening, and annabel says that she wants to kill [[The Raven and The Man]] but will need practice, and thus the fight continues
 
 Should be a pendulum in the boss room as in "the pit and the pendulum", it represents the impeding and inevitable death
 
