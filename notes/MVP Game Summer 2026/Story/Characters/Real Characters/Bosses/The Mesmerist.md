@@ -22,4 +22,6 @@ For the actual design of the boss I think a fallen angle is a beautiful metaphor
 So they will have a broken halo/crown over their head, with wings being black to signify their decent into this place. As for his body, they are extremely thing, with long lower limbs, and a nervous temperament, and black hair. Hair style should be like the first image above, and for their skin they must be pale white. Eyes yellowed by a madness, and a disapproving frown for the player. They should have eyes all over their body, as that is a way of hypnotism and accurate for angels
 
 For their weapon, they cant have a clock of a string as that is too visually similar to [[Prospero]], so instead I'm imagining they fight with their fingers, similar to ty lee in atla
-https://www.youtube.com/watch?v=qvx6NiccDVA or like a monk might in dnd. They could also use their voice, spirals, and 
+https://www.youtube.com/watch?v=qvx6NiccDVA or like a monk might in dnd. They could also use their voice and spirals
+
+To make them more unsettling they should have verry vissible bones, and long arms
