@@ -5,7 +5,7 @@ admits she kills [[Ligeia]], potentailly gets posessed by [[Ligeia]]after her de
 
 lady ligeia could help you in the endign if you beat her
 
+
 ![[Pasted image 20260519175547.png]]
 
-if [[Ligeia]] has paper white skin, im thinking she has jet balck skin
-![[Pasted image 20260520170258.png]]
+she is shorter, and has more round features, white skin similar to [[Ligeia]], but with blonde hair that is done into curls
