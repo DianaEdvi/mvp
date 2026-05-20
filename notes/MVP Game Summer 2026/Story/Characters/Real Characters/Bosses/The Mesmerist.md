@@ -7,6 +7,9 @@ Only does these bad things as he is desperate for cash, how his life is over if 
 
 Parallels our main character as they took this job out of desperation and pay !
 
+Once they are killed, they believe they will be revived by their god, but rather they are revived by the devil, and their color scheme becomes more red and black. Thier motivation remains protecting [[The Raven and The Man]], not hearing your reason, as they go further and further into delusion
+
+
 His ability to hypnotize the player makes there be threee copies of him, not knowing which one to hit, further more, one of his hypnotic abilities is to reduce your action points by 1
 
 For the actual design of the boss I think a fallen angle is a beautiful metaphor here, as they think they are fighting for good, but have been tricked into the same trap as [[Annabel Lee]]
@@ -17,3 +20,5 @@ For the actual design of the boss I think a fallen angle is a beautiful metaphor
 ![[FFXIV_Sin_Eater_03.webp]]
 
 So they will have a broken halo/crown over their head, with wings being black to signify their decent into this place. As for his body, they are extremely thing, with long lower limbs, and a nervous temperament, and black hair. Hair style should be like the first image above, and for their skin they must be pale white. Eyes yellowed by a madness, and a disapproving frown for the player.
+
+For thier weapon, they cant have a clock of a string as that is too visually similar to [[Prospero]]
