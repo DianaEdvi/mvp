@@ -6,3 +6,4 @@ admits she kills [[Ligeia]], potentailly gets posessed by [[Ligeia]]after her de
 lady ligeia could help you in the endign if you beat her
 
 ![[Pasted image 20260519175547.png]]
+
