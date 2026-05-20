@@ -26,4 +26,5 @@ https://www.youtube.com/watch?v=qvx6NiccDVA or like a monk might in dnd. They co
 
 To make them more unsettling they should have verry vissible bones, and long arms. They dont move correctly, sporadic and bending the wrong way
 
-For clothes Im thinking 
+For clothes Im thinking torn fabric that is mostly white and silver, but falling apart to represent their fall like this : ![[Pasted image 20260520161153.png|296]]
+![[Pasted image 20260520161301.png|266]]
