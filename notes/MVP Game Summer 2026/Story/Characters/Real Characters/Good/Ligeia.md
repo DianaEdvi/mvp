@@ -13,3 +13,5 @@ Tall slender figure with graceful movements. raven black hair, exceptionally lar
 
 For clothes they have flowey sleeves and a collared dress which is symbolic of thier ties to [[The Raven and The Man]] ![[Pasted image 20260520164102.png|296]]
 Im imagining they keep their hands together when standing, like this : ![[Pasted image 20260520164431.png]]
+
+

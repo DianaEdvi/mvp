@@ -13,12 +13,12 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "Story/Characters/Real Characters/Miniboss/Lady Rowena.md",
+                "file": "Planning Stage/Weekly Work.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "Lady Rowena"
+              "title": "Weekly Work"
             }
           }
         ]
@@ -184,12 +184,15 @@
       "obsidian-git:Open Git source control": false
     }
   },
-  "active": "30eb8cae46d9296c",
+  "active": "33b7b04a6328d355",
   "lastOpenFiles": [
+    "Story/Characters/Real Characters/Good/Ligeia.md",
+    "Ligeia.pdf",
+    "Story/Characters/Real Characters/Miniboss/Lady Rowena.md",
+    "Lady Rowena.pdf",
     "Story/Characters/Real Characters/Miniboss/The Devil.md",
     "z Images/Pasted image 20260520184002.png",
     "Official Story.pdf",
-    "Story/Characters/Real Characters/Miniboss/Lady Rowena.md",
     "z Images/Pasted image 20260520184224.png",
     "z Images/Pasted image 20260520183655.png",
     "Story/Official Story.md",
@@ -199,7 +202,6 @@
     "Story/Characters/Real Characters/Bosses/The Mesmerist.md",
     "Story/Characters/Real Characters/Bosses/Prospero.md",
     "Story/Characters/Potential Characters/Potential Goodish characters/Dr Brandsby.md",
-    "Story/Characters/Real Characters/Good/Ligeia.md",
     "z Images/Pasted image 20260520164431.png",
     "z Images/Pasted image 20260520164102.png",
     "Story/Characters/Real Characters/Bosses/The Raven and The Man.md",
@@ -224,8 +226,6 @@
     "Planning Stage/Weekly Work.md",
     "Story/Characters/Real Characters/Mobs",
     "Story/Characters/Real Characters/Miniboss",
-    "Story/Characters/Real Characters/Good",
-    "Story/Characters/Real Characters",
     "Planning Stage/Milestone 1 (Prototype Game Elements).md",
     "AI Policy.md",
     "Planning Stage/Ideas for Plot.md",
