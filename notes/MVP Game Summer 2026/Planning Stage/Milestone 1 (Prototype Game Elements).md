@@ -58,7 +58,7 @@ Art Section:
 - Mia: [[Annabel Lee]], [[Human ManGuy (arangatang)]], mirror, eyeball
 - Jacket: [[Prospero]] caged animal, card, few room objects, 
 - Raph: Walls and rooms for milestone 1, different for boss
-	- T
+	- The [[Human ManGuy (orangutan)]] room,[[Prospero]] room, and the regular rooms
 
 	 
 	
