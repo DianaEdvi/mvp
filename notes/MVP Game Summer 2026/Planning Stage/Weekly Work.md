@@ -4,6 +4,7 @@ Week of May 18 - May 24
 # Mia 
 
 - Make character and enemy descriptions for Concept art
+- how each character speaks, interacts with the world, mannerisms
 - Attacks and stuff for enemies
 - Discuss plan on whos doing what for art
 - Get references for color palate, for style, for models, objects, and weapons
@@ -20,6 +21,7 @@ Week of May 18 - May 24
 - Begin models
 - Discuss plan on whos doing what for art
 - Get references for color palate, for style, for models, objects, and weapons
+- character sketches, a least the upcoming ones 
 
 # Raphael
 - Fight track  
