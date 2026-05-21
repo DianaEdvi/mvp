@@ -6,7 +6,7 @@ Week of May 18 - May 24
 - Make character and enemy descriptions for Concept art
 - Attacks and stuff for enemies
 - Discuss plan on whos doing what for art
-- Dialogue planning
+- Get references for color palate, for style, for models, objects, and weapons
 
 # Aleck
 - Attacks and stuff for enemies
@@ -19,6 +19,7 @@ Week of May 18 - May 24
 # Jacket
 - Begin models
 - Discuss plan on whos doing what for art
+- Get references for color palate, for style, for models, objects, and weapons
 
 # Raphael
 - Fight track  

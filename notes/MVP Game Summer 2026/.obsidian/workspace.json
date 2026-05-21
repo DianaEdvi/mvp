@@ -27,12 +27,12 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "Art/Art Style.md",
+                "file": "Planning Stage/Weekly Work.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "Art Style"
+              "title": "Weekly Work"
             }
           }
         ],
@@ -201,10 +201,11 @@
   },
   "active": "c09b007346612c4c",
   "lastOpenFiles": [
-    "Planning Stage/Milestone 1 (Prototype Game Elements).md",
-    "Art/Art Style.md",
-    "Art",
+    "Gamplay/Fighting/Weapons.md",
     "Planning Stage/Weekly Work.md",
+    "Art/Art Style.md",
+    "Planning Stage/Milestone 1 (Prototype Game Elements).md",
+    "Art",
     "Story/Characters/Real Characters/Good/Ligeia.md",
     "Ligeia.pdf",
     "Story/Characters/Real Characters/Miniboss/Lady Rowena.md",
@@ -246,7 +247,6 @@
     "AI Policy.md",
     "Planning Stage/Ideas for Plot.md",
     "Planning Stage/Specific dates.md",
-    "Story/Characters/Act 1 Characters and Enemies.md",
     "Untitled 1.canvas",
     "Untitled.canvas"
   ]
