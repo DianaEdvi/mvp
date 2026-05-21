@@ -56,7 +56,8 @@ Art Section:
 - [[Human ManGuy (arangatang)]]
 	- mobs: card, caged animal, mirror
 - Mia: [[Annabel Lee]], [[Human ManGuy (arangatang)]], mirror, eyeball
-- Jacket: [[Prospero]] caged animal, card 
+- Jacket: [[Prospero]] caged animal, card, few room objects, 
+- Raph: Walls and rooms for milestone 1, different for boss
 
 	 
 	
