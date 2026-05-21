@@ -13,12 +13,12 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "Planning Stage/Weekly Work.md",
+                "file": "Planning Stage/Milestone 1 (Prototype Game Elements).md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "Weekly Work"
+              "title": "Milestone 1 (Prototype Game Elements)"
             }
           }
         ]
@@ -186,6 +186,7 @@
   },
   "active": "33b7b04a6328d355",
   "lastOpenFiles": [
+    "Planning Stage/Weekly Work.md",
     "Story/Characters/Real Characters/Good/Ligeia.md",
     "Ligeia.pdf",
     "Story/Characters/Real Characters/Miniboss/Lady Rowena.md",
@@ -223,7 +224,6 @@
     "Story/Characters/Real Characters/Mobs/Predacious.md",
     "Story/Characters/Real Characters/Mobs/Knave.md",
     "Gamplay/Characters/Types for Characters and bosses to be.md",
-    "Planning Stage/Weekly Work.md",
     "Story/Characters/Real Characters/Mobs",
     "Story/Characters/Real Characters/Miniboss",
     "Planning Stage/Milestone 1 (Prototype Game Elements).md",

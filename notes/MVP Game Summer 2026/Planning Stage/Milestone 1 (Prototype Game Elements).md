@@ -27,7 +27,7 @@ Bare min List:
 	 - [[Human ManGuy (arangatang)]]
 	 - 3 enemies ([[Types for Characters and bosses to be]]) 
 		 - mirror
-		 - animal 
+		 - caged animal 
 		 - cards
 	
  
@@ -48,6 +48,12 @@ Test Game Loop:
 	- Kill Prospero 
 	- Get eyeballs
 - Demo Ends
+
+
+Art Section:
+- [[Annabel Lee]] character model done
+- [[Prospero]] character model
+- [[Human ManGuy (arangatang)]]
 
 	 
 	

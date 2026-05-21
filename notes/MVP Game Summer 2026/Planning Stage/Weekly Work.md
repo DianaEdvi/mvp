@@ -2,7 +2,7 @@
 Week of May 18 - May 24
 
 # Mia 
-- Personification or Poltergeist  + (maybe) Concept art
+
 - Make character and enemy descriptions for Concept art
 - Attacks and stuff for enemies
 - Discuss plan on whos doing what for art
@@ -17,7 +17,6 @@ Week of May 18 - May 24
 - Begin working on procedural generation
 
 # Jacket
-- Personification or Poltergeist + Concept art
 - Begin models
 - Discuss plan on whos doing what for art
 
