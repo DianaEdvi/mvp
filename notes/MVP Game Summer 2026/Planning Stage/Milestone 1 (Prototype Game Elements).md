@@ -54,6 +54,9 @@ Art Section:
 - [[Annabel Lee]] character model done
 - [[Prospero]] character model
 - [[Human ManGuy (arangatang)]]
+	- mobs: card, caged animal, mirror
+- Mia: [[Annabel Lee]], [[Human ManGuy (arangatang)]], mirror, eyeball
+- Jacket: [[Prospero]] caged animal, card 
 
 	 
 	
