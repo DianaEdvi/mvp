@@ -10,19 +10,19 @@ public class CombatTransition : MonoBehaviour
     {
         if (Keyboard.current != null && Keyboard.current.spaceKey.wasPressedThisFrame) {
 
-            EventHolder.triggerCombat?.Invoke();
+            EventHolder.OnTriggerCombat?.Invoke();
 
         }
     }
 
     private void OnEnable()
     {
-        EventHolder.triggerCombat += loadCombat;
+        EventHolder.OnTriggerCombat += loadCombat;
     }
 
     private void OnDisable()
     {
-        EventHolder.triggerCombat -= loadCombat;
+        EventHolder.OnTriggerCombat -= loadCombat;
     }
 
     private void loadCombat() {

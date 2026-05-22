@@ -3,5 +3,5 @@ using UnityEngine.Events;
 
 public class EventHolder : MonoBehaviour
 {
-    public static UnityAction triggerCombat;
+    public static UnityAction OnTriggerCombat;
 }
