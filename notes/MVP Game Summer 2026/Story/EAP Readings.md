@@ -33,7 +33,7 @@ Everyone: Annebel Lee, The Raven
 Raph: Fall of the House of Usher, 
 Saya:
 Alek:
-Mia:
+Mia: Murders of the red morgue 
 Diana:
 Jacket: Masque of the red death,
 
