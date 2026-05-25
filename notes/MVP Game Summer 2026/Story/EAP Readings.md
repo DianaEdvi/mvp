@@ -1,5 +1,5 @@
 
-Annabel Lee: https://www.poetryfoundation.org/poems/44885/annabel-lee
+Annabel Lee: https://www.poetryfoundation.org/poems/44885/annabel-lee 
 Masque of the Red Death: https://poemuseum.org/the-masque-of-the-red-death/
 Fall of the house of Usher:
 https://poemuseum.org/the-fall-of-the-house-of-usher/
@@ -24,3 +24,16 @@ ligeia - [[Lady Rowena]] [[Ligeia]]
 the fact in the case of M valdemar - [[The Mesmerist]]
 murders - [[Human ManGuy (arangatang)]]
 the devil in the belfrt - [[The Devil]]
+
+
+Who should Read what
+
+Everyone: Annebel Lee, The Raven
+
+Raph: Fall of the House of Usher, 
+Saya:
+Alek:
+Mia:
+Diana:
+Jacket: Masque of the red death,
+
