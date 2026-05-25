@@ -27,7 +27,7 @@ Bare min List:
 	 - [[Human ManGuy (arangatang)]]
 	 - 3 enemies ([[Types for Characters and bosses to be]]) 
 		 - mirror
-		 - animal 
+		 - caged animal 
 		 - cards
 	
  
@@ -48,6 +48,17 @@ Test Game Loop:
 	- Kill Prospero 
 	- Get eyeballs
 - Demo Ends
+
+
+Art Section:
+- [[Annabel Lee]] character model done
+- [[Prospero]] character model
+- [[Human ManGuy (arangatang)]]
+	- mobs: card, caged animal, mirror
+- Mia: [[Annabel Lee]], [[Human ManGuy (arangatang)]], mirror, eyeball
+- Jacket: [[Prospero]] caged animal, card, few room objects, 
+- Raph: Walls and rooms for milestone 1, different for boss
+	- The [[Human ManGuy (orangutan)]] room,[[Prospero]] room, and the regular rooms
 
 	 
 	
