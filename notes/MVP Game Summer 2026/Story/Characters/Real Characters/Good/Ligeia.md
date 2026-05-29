@@ -15,3 +15,5 @@ For clothes they have flowey sleeves and a collared dress which is symbolic of t
 Im imagining they keep their hands together when standing, like this : ![[Pasted image 20260520164431.png]]
 
 
+![[Pasted image 20260528222119.png]]
+Ghostly like this
