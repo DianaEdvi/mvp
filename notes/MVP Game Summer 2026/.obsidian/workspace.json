@@ -27,12 +27,12 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "Gamplay/Characters/Types for Characters and bosses to be.md",
+                "file": "Gamplay/Fighting/Rewards for fighting.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "Types for Characters and bosses to be"
+              "title": "Rewards for fighting"
             }
           }
         ],
@@ -201,6 +201,9 @@
   },
   "active": "c09b007346612c4c",
   "lastOpenFiles": [
+    "Gamplay/Fighting/Skills.md",
+    "Gamplay/Fighting/Actual Fight.md",
+    "Gamplay/Characters/Types for Characters and bosses to be.md",
     "Planning Stage/Milestone 1 (Prototype Game Elements).md",
     "Story/Characters/Real Characters/Miniboss/Lady Rowena.md",
     "Story/Characters/Real Characters/Miniboss/Human ManGuy (orangutan).md",
@@ -244,8 +247,6 @@
     "z Images/Pasted image 20260521132636.png",
     "z Images/Pasted image 20260521132258.png",
     "Planning Stage/Specific dates.md",
-    "Story/Dialauge/Dialauge.md",
-    "Story/Characters/Potential Characters/Potential Goodish characters/Dr Brandsby.md",
     "Untitled 1.canvas",
     "Untitled.canvas"
   ]
