@@ -1,23 +1,32 @@
 using UnityEngine;
 using TMPro;
-public class GridCellsPlane : MonoBehaviour
-{
-    [SerializeField] private int width;
-    [SerializeField] private int height;
+public class GridVisual : MonoBehaviour
+{    
     private float cellSize;
     [SerializeField] private GameObject cellPrefab;
     [SerializeField] private Material cellEvenMaterial;
     [SerializeField] private Material cellOddMaterial;
     private TMP_Text cellText;
 
-    void Awake()
-    {
-        cellSize = cellPrefab.GetComponent<Renderer>().bounds.size.x;
-        Debug.Log($"Cell size: {cellSize}");
+    private float width;
+    private float height;
 
-        GenerateGrid();
+    void Start()
+    {
+        cellSize = cellPrefab.GetComponentInChildren<Renderer>().bounds.size.x;
+        Debug.Log($"Actual cell size in unity units: {cellSize}");
+
+        if (RoomSpawner.Instance == null)
+        {
+            Debug.LogError("GridVisual: RoomSpawner instance not found!");
+            return;
+        }
+        width = RoomSpawner.Instance.NumCellsWidth;
+        height = RoomSpawner.Instance.NumCellsHeight;
+
+        GenerateGridVisual();
     }
-    void GenerateGrid()
+    public float GenerateGridVisual()
     {
         for (int i = 0; i < width; i++)
         {
@@ -27,7 +36,7 @@ public class GridCellsPlane : MonoBehaviour
                 cell.name = $"Cell_{i}_{j}";
                 TMP_Text cellText = cell.GetComponentInChildren<TMP_Text>();
                 cellText.text = $"{i},{j}";
-                Renderer cellRenderer = cell.GetComponent<Renderer>();
+                Renderer cellRenderer = cell.GetComponentInChildren<Renderer>();
                 if ((i + j) % 2 == 0)
                 {
                     cellRenderer.material = cellEvenMaterial;
@@ -38,5 +47,7 @@ public class GridCellsPlane : MonoBehaviour
                 }
             }
         }
+
+        return cellSize;
     }
 }
