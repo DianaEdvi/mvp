@@ -11,5 +11,4 @@ public class Room : MonoBehaviour
 
     [Header("Exits")]
     public Transform[] doorSockets;
-    
-    }
+}
