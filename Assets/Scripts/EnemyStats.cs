@@ -8,11 +8,11 @@ public class EnemyStats : MonoBehaviour
 
     [SerializeField] private EnemyUI enemyUI;
 
-    public void setHealth(int h) {
+    public void takeDamage(int h) {
 
         health -= h;
 
-        enemyUI.setHealthSlider((int) enemyUI.getHealthSlider() + h);
+        enemyUI.setHealthSlider((int) enemyUI.getHealthSlider() - h);
 
         if (health <= 0) {
 

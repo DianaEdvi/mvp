@@ -52,6 +52,12 @@ public class CombatTargeting : MonoBehaviour
                 currentTarget.GetComponent<EnemyUI>().setTargetArrow(true);
 
             }
+
+            if (Keyboard.current.enterKey.wasPressedThisFrame) {
+
+                EventHolder.OnPlayerAttack?.Invoke(currentTarget);
+
+            }
         }
     }
 

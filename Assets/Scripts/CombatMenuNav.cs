@@ -13,6 +13,18 @@ public class CombatMenuNav : MonoBehaviour
     //add variable for target handling script, enable in relevant methods
     [SerializeField] private CombatTargeting combatTargetingScript;
 
+    private void OnEnable()
+    {
+        EventHolder.OnEnableMenu += enableMenu;
+        EventHolder.OnDisableMenu += disableMenu;
+    }
+
+    private void OnDisable()
+    {
+        EventHolder.OnEnableMenu -= enableMenu;
+        EventHolder.OnDisableMenu -= disableMenu;
+    }
+
     private void Update()
     {
         if (Keyboard.current != null && Keyboard.current.escapeKey.wasReleasedThisFrame) {
@@ -51,6 +63,19 @@ public class CombatMenuNav : MonoBehaviour
         //add skill list active here
 
         combatTargetingScript.resetTargeting();
+
+        combatMenu.SetActive(true);
+
+    }
+
+    public void disableMenu() {
+
+        backSelect();
+        combatMenu.SetActive(false);
+
+    }
+
+    public void enableMenu() {
 
         combatMenu.SetActive(true);
 
