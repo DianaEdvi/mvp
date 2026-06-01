@@ -1,6 +1,6 @@
 using UnityEngine;
-
 using UnityEngine.InputSystem;
+using System.Collections.Generic;
 
 
 public class RoomSpawner : MonoBehaviour
@@ -23,7 +23,7 @@ public class RoomSpawner : MonoBehaviour
     [Header("Rooms Settings")]
     [SerializeField] private Room[] roomPrefabs;
     [SerializeField] private int numRoomsToSpawn = 5;
-    private Transform availableDoors;
+    private List<Transform> availableDoors;
 
     public float NumCellsWidth => numCellsWidth;
     public float NumCellsHeight => numCellsHeight;
@@ -47,10 +47,13 @@ public class RoomSpawner : MonoBehaviour
 
     void Start()
     {
+        availableDoors = new List<Transform>();
         occupiedGrid = new bool[numCellsWidth, numCellsHeight];
         
         // Try spawning inital room at specified grid coordinates
         TrySpawnRoom(startingRoomPrefab, xIndex, zIndex);
+
+      
     }
 
     void Update()
@@ -59,12 +62,50 @@ public class RoomSpawner : MonoBehaviour
 
         if (jumpAction.WasPressedThisFrame())
         {
-            for (int i = 0; i < numRoomsToSpawn; i++)
+                // Choose random door and room from available
+            Transform randomDoor = availableDoors[Random.Range(0, availableDoors.Count)];
+
+            // Get a step direction based on the door's forward vector
+            // North = (0, 1), East = (1, 0), South = (0, -1), West = (-1, 0)
+            int dirX = Mathf.RoundToInt(randomDoor.forward.x);
+            int dirZ = Mathf.RoundToInt(randomDoor.forward.z);
+
+            Room randomRoom = roomPrefabs[Random.Range(0, roomPrefabs.Length)];
+            Transform[] incomingDoors = randomRoom.doorSockets;
+            bool spawnedSuccessfully = false;
+
+            for (int i = 0; i < incomingDoors.Length; i++)
             {
-                Room randomRoom = roomPrefabs[Random.Range(0, roomPrefabs.Length)];
-                int randomX = Random.Range(0, numCellsWidth);
-                int randomZ = Random.Range(0, numCellsHeight);
-                TrySpawnRoom(randomRoom, randomX, randomZ);
+                // Get a step direction based on the door's forward vector
+                // North = (0, 1), East = (1, 0), South = (0, -1), West = (-1, 0)
+                int incDirX = Mathf.RoundToInt(incomingDoors[i].forward.x);
+                int incDirZ = Mathf.RoundToInt(incomingDoors[i].forward.z);
+
+                // Check if the incoming door is facing the opposite direction of the randomDoor
+                if (incDirX == -dirX && incDirZ == -dirZ)
+                {
+                    // int doorOffsetCompensationX = Mathf.RoundToInt(incomingDoors[i].localPosition.x / actualCellSize);
+                    // int doorOffsetCompensationZ = Mathf.RoundToInt(incomingDoors[i].localPosition.z / actualCellSize);
+
+                    // Debug.Log($"Found matching door socket: {incomingDoors[i].name} in {randomRoom.name}. Direction: ({incDirX}, {incDirZ}). Offset compensation: ({doorOffsetCompensationX}, {doorOffsetCompensationZ})");
+
+                    // Calculate the grid coordinates for the new room based on the randomDoor's position and the incoming door's position
+                    int newRoomX = Mathf.FloorToInt(randomDoor.position.x / actualCellSize) + incDirX;
+                    int newRoomZ = Mathf.FloorToInt(randomDoor.position.z / actualCellSize) + incDirZ;
+
+                    // Try to spawn the new room at the calculated coordinates
+                    if (TrySpawnRoom(randomRoom, newRoomX, newRoomZ))
+                    {
+                        Debug.Log($"Successfully spawned {randomRoom.name} at ({newRoomX}, {newRoomZ}) connected to {randomDoor.name}");
+                        spawnedSuccessfully = true;
+                    }
+                    break; // Exit loop after finding a valid door
+                }
+            }
+
+            if (spawnedSuccessfully)
+            {
+                availableDoors.Remove(randomDoor);
             }
         }
     }
@@ -107,13 +148,17 @@ public class RoomSpawner : MonoBehaviour
             }
         }
 
+        // Check each door socket to see if it's facing outside the grid. If so, disable it. Otherwise, add it to the list of available doors.
         for (int i = 0; i < newRoom.doorSockets.Length; i++)
         {
             if (isDoorFacingEdge(newRoom.doorSockets[i]))
             {
-                Debug.LogWarning($"Door {newRoom.doorSockets[i].name} in {newRoom.name} is facing outside the grid!");
+                // Debug.LogWarning($"Door {newRoom.doorSockets[i].name} in {newRoom.name} is facing outside the grid!");
                 newRoom.doorSockets[i].gameObject.SetActive(false); // Disable the door if it's facing outside the grid
+                continue;
             }
+            // Debug.Log($"Door {newRoom.doorSockets[i].name} in {newRoom.name} is valid and facing inside the grid.");
+            availableDoors.Add(newRoom.doorSockets[i]);
         }
 
         return true;
@@ -134,7 +179,7 @@ public class RoomSpawner : MonoBehaviour
         int targetX = doorGridX + dirX;
         int targetZ = doorGridZ + dirZ;
 
-        Debug.Log($"[{door.name}] resides on cell ({doorGridX}, {doorGridZ}). Checking neighbor branch at: ({targetX}, {targetZ})");
+        // Debug.Log($"[{door.name}] resides on cell ({doorGridX}, {doorGridZ}). Checking neighbor branch at: ({targetX}, {targetZ})");
 
         // Check boundaries
         if (targetX < 0 || targetX >= numCellsWidth || 
