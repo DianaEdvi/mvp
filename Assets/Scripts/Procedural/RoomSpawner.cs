@@ -43,6 +43,8 @@ public class RoomSpawner : MonoBehaviour
             Instance = this;
         }
         jumpAction = InputSystem.actions.FindAction("Jump"); // temp
+
+        // Debug.unityLogger.logEnabled = false;
     }
 
     void Start()
@@ -52,14 +54,26 @@ public class RoomSpawner : MonoBehaviour
         
         // Try spawning inital room at specified grid coordinates
         TrySpawnRoom(startingRoomPrefab, xIndex, zIndex);
-        // TrySpawnRoom(startingRoomPrefab, xIndex, zIndex);
+        TrySpawnRoom(startingRoomPrefab, 7, 0);
 
       
     }
 
     public bool TrySpawnRoom(Room room, int startX, int startZ)
     {
-        if (!AreCoordinatesValid(room.localCellCoordinates, startX, startZ)) return false;
+
+        Vector2Int[] cellWorldCoordinates = new Vector2Int[room.localCellCoordinates.Length];
+        for (int i = 0; i < room.localCellCoordinates.Length; i++)
+        {
+            cellWorldCoordinates[i] = new Vector2Int(startX + room.localCellCoordinates[i].x, startZ + room.localCellCoordinates[i].y);
+        }
+      
+        if (!AreCoordinatesValid(cellWorldCoordinates, startX, startZ)){
+            Debug.LogWarning($"Cannot spawn {room.name} at grid coordinates ({startX},{startZ}) due to invalid position or overlap!");
+             return false;
+        }
+
+        Debug.Log($"Spawning {room.name} at grid coordinates ({startX},{startZ})");
 
         // If room is in valid position, compute the exact grid alignment position
         Vector3 spawnPos = new Vector3(startX * actualCellSize, 0, startZ * actualCellSize);
@@ -80,7 +94,6 @@ public class RoomSpawner : MonoBehaviour
         {
             if (isDoorFacingEdge(newRoom.doorSockets[i]))
             {
-                Debug.LogWarning($"Door {newRoom.doorSockets[i].name} in {newRoom.name} is facing outside the grid!");
                 newRoom.doorSockets[i].gameObject.SetActive(false); // Disable the door if it's facing outside the grid
                 continue;
             }
@@ -107,33 +120,36 @@ public class RoomSpawner : MonoBehaviour
         int targetZ = doorGridZ + dirZ;
 
         // Check boundaries
-        AreCoordinatesValid(new Vector2Int[] { new Vector2Int(targetX, targetZ) }, doorGridX, doorGridZ);
+        Debug.Log($"Checking door {door.name} at grid ({doorGridX},{doorGridZ}) facing direction ({dirX},{dirZ}) towards target grid ({targetX},{targetZ})");
+        if (!AreCoordinatesValid(new Vector2Int[] { new Vector2Int(targetX, targetZ) }, doorGridX, doorGridZ))
+        {
+            return true; // Door is facing outside the grid
+        }
 
         return false;        
     }
 
-    private bool AreCoordinatesValid(Vector2Int[] cellCoordinates, int startX, int startZ)
+    private bool AreCoordinatesValid(Vector2Int[] cellWorldCoordinates, int startX, int startZ)
     {
         // Check if the room is valid 
-        foreach (Vector2Int cell in cellCoordinates)
+        foreach (Vector2Int cell in cellWorldCoordinates)
         {
-            // Convert local cell coordinates to world grid coordinates
-            int worldX = startX + cell.x;
-            int worldZ = startZ + cell.y;
             // Check if the world grid coordinates are within bounds
-            if (worldX < 0 || worldX >= numCellsWidth || worldZ < 0 || worldZ >= numCellsHeight)
+            if (cell.x < 0 || cell.x >= numCellsWidth || cell.y < 0 || cell.y >= numCellsHeight)
             {   
-                Debug.LogWarning($"Local cell at ({cell.x},{cell.y}) would be out of grid boundaries when placed at ({startX},{startZ})!");
+                Debug.LogWarning($"Cell at ({cell.x},{cell.y}) would be out of grid boundaries when room origin is placed at ({startX},{startZ})!");
                 return false;
             }
 
             // Check if the world grid coordinates are already occupied
-            if (occupiedGrid[worldX, worldZ])
+            if (occupiedGrid[cell.x, cell.y])
             {
-                Debug.LogWarning($"Local cell at ({cell.x},{cell.y}) would overlap with an occupied cell at ({worldX},{worldZ}) when placed at ({startX},{startZ})!");
+                Debug.LogWarning($"Cell at ({cell.x},{cell.y}) is already occupied when trying to place room origin at ({startX},{startZ})!");
                 return false;
             }
             
         }
         return true;    }
 }
+
+//TODO: Decide what to do about doors that face each other. Do we disable one (currently implemented) or do we allow them both to be active (if thats the case separate boundary check and occupied check into two different methods)? Do we merge the walls or something?
