@@ -52,97 +52,24 @@ public class RoomSpawner : MonoBehaviour
         
         // Try spawning inital room at specified grid coordinates
         TrySpawnRoom(startingRoomPrefab, xIndex, zIndex);
+        // TrySpawnRoom(startingRoomPrefab, xIndex, zIndex);
 
       
     }
 
-    void Update()
+    public bool TrySpawnRoom(Room room, int startX, int startZ)
     {
-        // temp
+        if (!AreCoordinatesValid(room.localCellCoordinates, startX, startZ)) return false;
 
-        if (jumpAction.WasPressedThisFrame())
-        {
-                // Choose random door and room from available
-            Transform randomDoor = availableDoors[Random.Range(0, availableDoors.Count)];
-
-            // Get a step direction based on the door's forward vector
-            // North = (0, 1), East = (1, 0), South = (0, -1), West = (-1, 0)
-            int dirX = Mathf.RoundToInt(randomDoor.forward.x);
-            int dirZ = Mathf.RoundToInt(randomDoor.forward.z);
-
-            Room randomRoom = roomPrefabs[Random.Range(0, roomPrefabs.Length)];
-            Transform[] incomingDoors = randomRoom.doorSockets;
-            bool spawnedSuccessfully = false;
-
-            for (int i = 0; i < incomingDoors.Length; i++)
-            {
-                // Get a step direction based on the door's forward vector
-                // North = (0, 1), East = (1, 0), South = (0, -1), West = (-1, 0)
-                int incDirX = Mathf.RoundToInt(incomingDoors[i].forward.x);
-                int incDirZ = Mathf.RoundToInt(incomingDoors[i].forward.z);
-
-                // Check if the incoming door is facing the opposite direction of the randomDoor
-                if (incDirX == -dirX && incDirZ == -dirZ)
-                {
-                    // int doorOffsetCompensationX = Mathf.RoundToInt(incomingDoors[i].localPosition.x / actualCellSize);
-                    // int doorOffsetCompensationZ = Mathf.RoundToInt(incomingDoors[i].localPosition.z / actualCellSize);
-
-                    // Debug.Log($"Found matching door socket: {incomingDoors[i].name} in {randomRoom.name}. Direction: ({incDirX}, {incDirZ}). Offset compensation: ({doorOffsetCompensationX}, {doorOffsetCompensationZ})");
-
-                    // Calculate the grid coordinates for the new room based on the randomDoor's position and the incoming door's position
-                    int newRoomX = Mathf.FloorToInt(randomDoor.position.x / actualCellSize) + incDirX;
-                    int newRoomZ = Mathf.FloorToInt(randomDoor.position.z / actualCellSize) + incDirZ;
-
-                    // Try to spawn the new room at the calculated coordinates
-                    if (TrySpawnRoom(randomRoom, newRoomX, newRoomZ))
-                    {
-                        Debug.Log($"Successfully spawned {randomRoom.name} at ({newRoomX}, {newRoomZ}) connected to {randomDoor.name}");
-                        spawnedSuccessfully = true;
-                    }
-                    break; // Exit loop after finding a valid door
-                }
-            }
-
-            if (spawnedSuccessfully)
-            {
-                availableDoors.Remove(randomDoor);
-            }
-        }
-    }
-
-    public bool TrySpawnRoom(Room prefab, int startX, int startZ)
-    {
-        // Check if the room can fit within the grid boundaries
-        if (startX + prefab.roomWidthCells > numCellsWidth || 
-            startZ + prefab.roomHeightCells > numCellsHeight ||
-            startX < 0 || startZ < 0)
-        {
-            Debug.LogWarning($"Cannot spawn {prefab.name}: Out of grid boundaries.");
-            return false;
-        }
-
-        // Check if the required grid cells for this room are already occupied
-        for (int x = startX; x < startX + prefab.roomWidthCells; x++)
-        {
-            for (int z = startZ; z < startZ + prefab.roomHeightCells; z++)
-            {
-                if (occupiedGrid[x, z])
-                {
-                    Debug.LogWarning($"Cannot spawn {prefab.name}: Space at ({x},{z}) is already taken!");
-                    return false;
-                }
-            }
-        }
-
-        // If both checks pass, compute the exact grid alignment position
+        // If room is in valid position, compute the exact grid alignment position
         Vector3 spawnPos = new Vector3(startX * actualCellSize, 0, startZ * actualCellSize);
-        Room newRoom = Instantiate(prefab, spawnPos, Quaternion.identity, this.transform);
+        Room newRoom = Instantiate(room, spawnPos, Quaternion.identity, this.transform);
         newRoom.name = $"Room_{startX}_{startZ}";
 
         // Mark cells as occupied
-        for (int x = startX; x < startX + prefab.roomWidthCells; x++)
+        for (int x = startX; x < startX + room.roomWidthCells; x++)
         {
-            for (int z = startZ; z < startZ + prefab.roomHeightCells; z++)
+            for (int z = startZ; z < startZ + room.roomHeightCells; z++)
             {
                 occupiedGrid[x, z] = true;
             }
@@ -153,7 +80,7 @@ public class RoomSpawner : MonoBehaviour
         {
             if (isDoorFacingEdge(newRoom.doorSockets[i]))
             {
-                // Debug.LogWarning($"Door {newRoom.doorSockets[i].name} in {newRoom.name} is facing outside the grid!");
+                Debug.LogWarning($"Door {newRoom.doorSockets[i].name} in {newRoom.name} is facing outside the grid!");
                 newRoom.doorSockets[i].gameObject.SetActive(false); // Disable the door if it's facing outside the grid
                 continue;
             }
@@ -179,15 +106,34 @@ public class RoomSpawner : MonoBehaviour
         int targetX = doorGridX + dirX;
         int targetZ = doorGridZ + dirZ;
 
-        // Debug.Log($"[{door.name}] resides on cell ({doorGridX}, {doorGridZ}). Checking neighbor branch at: ({targetX}, {targetZ})");
-
         // Check boundaries
-        if (targetX < 0 || targetX >= numCellsWidth || 
-            targetZ < 0 || targetZ >= numCellsHeight)
-        {
-            return true;
-        }
+        AreCoordinatesValid(new Vector2Int[] { new Vector2Int(targetX, targetZ) }, doorGridX, doorGridZ);
 
         return false;        
     }
+
+    private bool AreCoordinatesValid(Vector2Int[] cellCoordinates, int startX, int startZ)
+    {
+        // Check if the room is valid 
+        foreach (Vector2Int cell in cellCoordinates)
+        {
+            // Convert local cell coordinates to world grid coordinates
+            int worldX = startX + cell.x;
+            int worldZ = startZ + cell.y;
+            // Check if the world grid coordinates are within bounds
+            if (worldX < 0 || worldX >= numCellsWidth || worldZ < 0 || worldZ >= numCellsHeight)
+            {   
+                Debug.LogWarning($"Local cell at ({cell.x},{cell.y}) would be out of grid boundaries when placed at ({startX},{startZ})!");
+                return false;
+            }
+
+            // Check if the world grid coordinates are already occupied
+            if (occupiedGrid[worldX, worldZ])
+            {
+                Debug.LogWarning($"Local cell at ({cell.x},{cell.y}) would overlap with an occupied cell at ({worldX},{worldZ}) when placed at ({startX},{startZ})!");
+                return false;
+            }
+            
+        }
+        return true;    }
 }

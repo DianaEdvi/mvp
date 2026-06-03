@@ -81,6 +81,13 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::Room
   roomWidthCells: 3
   roomHeightCells: 2
+  localCellCoordinates:
+  - {x: 0, y: 0}
+  - {x: 1, y: 0}
+  - {x: 2, y: 0}
+  - {x: 0, y: 1}
+  - {x: 1, y: 1}
+  - {x: 2, y: 1}
   doorSockets:
   - {fileID: 8272487278187244944}
   - {fileID: 7177133649092212768}
