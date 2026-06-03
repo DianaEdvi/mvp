@@ -2,11 +2,11 @@ Now that this is a 1 act game the enemies need to be changed
 
 There will still be the Knave, Obsessive, and Predacious
 
-Good: [[Lady Rowena]]
+Good: [[Lady Rowena]], [[Fortunado]]
 
 Minibosses
 
-Obsessive: [[Lady Rowena]]
+Obsessive: [[Lady Rowena]] (most important)
 
 Knave [[Prospero]]
 
@@ -14,4 +14,11 @@ Predacious [[The Mesmerist]]
 
 Enemies:
 
-Knave: [[Human ManGuy (orangutan)]], [[]]
+Knave: [[Human ManGuy (orangutan)]], [[The Hop Frog]]
+
+Predacious: [[The Devil]], [[Augustus Bedloe, controlled by Doctor Templeton]]
+
+Obsessive: [[The Painter]], [[Axe Man]]
+
+
+if time permits: [[Brevet Brigadier-General John A.B.C. Smith]]
