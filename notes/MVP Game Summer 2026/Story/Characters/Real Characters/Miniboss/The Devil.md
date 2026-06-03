@@ -1,5 +1,9 @@
 from "The Devil in the Belfry"
 
+[[Final Characters]]
+
+Represented as an illusion 
+
 mysterous man playing a fiddle, where he comes he brings chaos and misfortune
 
 challange character

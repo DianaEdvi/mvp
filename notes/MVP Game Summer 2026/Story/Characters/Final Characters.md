@@ -15,8 +15,10 @@ Predacious [[The Mesmerist]]
 Enemies:
 
 Knave: [[Human ManGuy (orangutan)]] , [[The Hop Frog]] 
+(both animals)
 
 Predacious: [[The Devil]], [[Augustus Bedloe, controlled by Doctor Templeton]]
+(both are trick representations of each other)
 
 Obsessive: [[The Painter]], [[Axe Man]]
 
