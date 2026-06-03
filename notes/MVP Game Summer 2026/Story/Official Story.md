@@ -1,4 +1,4 @@
-3 Act story
+1 act story, therefore this all takes place in one act 
 testing 
 Collecting eyes to reveal more of the past, also the meta currency
 
