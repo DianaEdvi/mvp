@@ -49,7 +49,8 @@ public class RoomSpawner : MonoBehaviour
         
         // Try spawning inital room at specified grid coordinates
         TrySpawnRoom(startingRoomPrefab, xIndex, zIndex);
-        TrySpawnRoom(startingRoomPrefab, 7, 0);
+        // TrySpawnRoom(startingRoomPrefab, 7, 0);
+        GenerateFullMap();
 
       
     }
@@ -116,7 +117,7 @@ public class RoomSpawner : MonoBehaviour
         int targetZ = doorGridZ + dirZ;
 
         // Check boundaries
-        Debug.Log($"Checking door {door.name} at grid ({doorGridX},{doorGridZ}) facing direction ({dirX},{dirZ}) towards target grid ({targetX},{targetZ})");
+        // Debug.Log($"Checking door {door.name} at grid ({doorGridX},{doorGridZ}) facing direction ({dirX},{dirZ}) towards target grid ({targetX},{targetZ})");
         if (!AreCoordinatesWithinBounds(new Vector2Int[] { new Vector2Int(targetX, targetZ) }))
         {
             return true; // Door is facing outside the grid
@@ -150,4 +151,63 @@ public class RoomSpawner : MonoBehaviour
         }
         return false;
     }
+
+    private void GenerateFullMap()
+    {
+        for (int i = 0; i < numRoomsToSpawn; i++)
+        {
+            if (availableDoors.Count == 0)
+            {
+                Debug.LogWarning("No more available doors left anywhere to spawn new rooms!");
+                return;
+            }
+
+            // Create a temporary list tracking doors we haven't tried yet for this room iteration
+            List<Transform> untriedDoors = new List<Transform>(availableDoors);
+            bool roomSpawnedSuccessfully = false;
+
+            // Randomly select a room prefab to try to fit
+            Room roomPrefab = roomPrefabs[Random.Range(0, roomPrefabs.Length)];
+
+            // Keep trying doors until we successfully spawn a room OR run out of doors to try
+            while (untriedDoors.Count > 0 && !roomSpawnedSuccessfully)
+            {
+                // Pick a random door from our untried pool
+                int randomUntriedIndex = Random.Range(0, untriedDoors.Count);
+                Transform doorToSpawnFrom = untriedDoors[randomUntriedIndex];
+
+                // Calculate grid alignment based on this door
+                int dirX = Mathf.RoundToInt(doorToSpawnFrom.forward.x);
+                int dirZ = Mathf.RoundToInt(doorToSpawnFrom.forward.z);
+
+                int doorGridX = Mathf.FloorToInt(doorToSpawnFrom.position.x / actualCellSize);
+                int doorGridZ = Mathf.FloorToInt(doorToSpawnFrom.position.z / actualCellSize);
+
+                int targetX = doorGridX + dirX;
+                int targetZ = doorGridZ + dirZ;
+
+                // Try to spawn the room
+                if (TrySpawnRoom(roomPrefab, targetX, targetZ))
+                {
+                    roomSpawnedSuccessfully = true;
+
+                    // Find this door in the master list and remove it permanently
+                    availableDoors.Remove(doorToSpawnFrom);
+                    Debug.Log($"Successfully spawned {roomPrefab.name} after finding a valid door match.");
+                }
+                else
+                {
+                    // Remove this door from our untried pool so we don't pick it again for this room prefab
+                    untriedDoors.RemoveAt(randomUntriedIndex);
+                }
+            }
+
+            // Room prefab couln't fit anywhere
+            if (!roomSpawnedSuccessfully)
+            {
+                Debug.LogWarning($"Skipping room iteration {i}: Checked all {availableDoors.Count} available doors, but '{roomPrefab.name}' didn't fit anywhere.");
+            }
+        }
+    }
+
 }
