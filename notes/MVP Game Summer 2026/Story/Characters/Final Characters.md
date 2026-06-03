@@ -14,7 +14,7 @@ Predacious [[The Mesmerist]]
 
 Enemies:
 
-Knave: [[Human ManGuy (orangutan)]], [[The Hop Frog]]
+Knave: [[Human ManGuy (orangutan)]] , [[The Hop Frog]] 
 
 Predacious: [[The Devil]], [[Augustus Bedloe, controlled by Doctor Templeton]]
 
