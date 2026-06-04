@@ -1,4 +1,5 @@
 using UnityEngine;
+using System.Collections.Generic;
 
 public class Room : MonoBehaviour
 {
@@ -65,5 +66,27 @@ public class Room : MonoBehaviour
         {
             relativeCoordinatesToOrigin[i] = cellsInWorldCoords[i] - originInWorldCoords;
         }
+    }
+
+    private void OnValidate()
+    {
+        // 1. Grab every single transform attached to this object or its children (including inactive ones)
+        Transform[] allChildren = GetComponentsInChildren<Transform>(true);
+        
+        // 2. Create a temporary list to hold the ones that match our criteria
+        List<Transform> matchingCells = new List<Transform>();
+
+        // 3. Loop through and find the ones tagged "Cell"
+        foreach (Transform child in allChildren)
+        {
+            // Use CompareTag as it's much safer and more performant than child.tag == "Cell"
+            if (child.CompareTag("Cell"))
+            {
+                matchingCells.Add(child);
+            }
+        }
+
+        // 4. Assign the results back to your serialized array so it updates in the Inspector
+        cellTransforms = matchingCells.ToArray();
     }
 }

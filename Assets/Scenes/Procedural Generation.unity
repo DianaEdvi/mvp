@@ -325,17 +325,30 @@ MonoBehaviour:
   numCellsWidth: 11
   numCellsHeight: 10
   actualCellSize: 10
-  startingRoomPrefab: {fileID: 3147549813767752222, guid: c0920371e1834da4198f353a35ab1a9b, type: 3}
+  startingRoomPrefab: {fileID: 8452098039410964737, guid: cb706a2c123143b43819176002d059df, type: 3}
   xIndex: 5
-  zIndex: 5
+  zIndex: 0
   roomPrefabs:
-  - {fileID: 8452098039410964737, guid: 6925664df5fdbe94282b9ddd162db42a, type: 3}
-  - {fileID: 4717774688546967774, guid: 8b22f29b4c54a384396a8ca3bd1a92da, type: 3}
-  - {fileID: 3147549813767752222, guid: c0920371e1834da4198f353a35ab1a9b, type: 3}
-  - {fileID: 6371164167707181159, guid: 17d6bba552c96d145a59d116e61ff392, type: 3}
   - {fileID: 8452098039410964737, guid: 3c1f5860e13bf264b9dd9af330b3929a, type: 3}
-  - {fileID: 1584635007771713046, guid: e5487dc33e24c9b47a6dffb2defc0692, type: 3}
-  numRoomsToSpawn: 5
+  - {fileID: 8452098039410964737, guid: 37b1ecd6899dd6746847aa7f20b770c7, type: 3}
+  - {fileID: 8452098039410964737, guid: cb706a2c123143b43819176002d059df, type: 3}
+  - {fileID: 8452098039410964737, guid: c58293d932dc6b640b88465740c8cfab, type: 3}
+  - {fileID: 8452098039410964737, guid: 45c828f4ab0eea448829f0c8404305e6, type: 3}
+  - {fileID: 8452098039410964737, guid: 8e50ddaccb50f5941ac80c44cc6d5ba1, type: 3}
+  - {fileID: 8452098039410964737, guid: 71c9e5cd712555f4ca25212b8276cade, type: 3}
+  - {fileID: 8452098039410964737, guid: 93bf4e26034357f48ab909c1918a1f23, type: 3}
+  - {fileID: 8452098039410964737, guid: dd344eba06cd8834286304831a01ea5f, type: 3}
+  - {fileID: 8452098039410964737, guid: 7a9fc516a989aeb4e93faf59b6659f31, type: 3}
+  - {fileID: 8452098039410964737, guid: 64f6f3a0d4ce95544b266cd293497f69, type: 3}
+  - {fileID: 8452098039410964737, guid: 42f07bab828f7fd4695d021adf5ced2e, type: 3}
+  - {fileID: 5086773838791859875, guid: ff8323834689e4945b618363983255a2, type: 3}
+  - {fileID: 5086773838791859875, guid: 12b5ae067ce258e44b35f896af2389e6, type: 3}
+  - {fileID: 5086773838791859875, guid: 218415ae6c5756245b12a6d4d0356537, type: 3}
+  - {fileID: 5086773838791859875, guid: 39e2d9ed8f7a08e4eb73fb81241416d3, type: 3}
+  - {fileID: 8452098039410964737, guid: 18a1b653d4df7324aaec6f9e3487f363, type: 3}
+  - {fileID: 8452098039410964737, guid: 9f6397dc7b86a8144acd4e71bc689979, type: 3}
+  numRoomsToSpawn: 10
+  searchFolderPath: Assets/Prefabs/ProceduralRooms
 --- !u!4 &1761261380
 Transform:
   m_ObjectHideFlags: 0

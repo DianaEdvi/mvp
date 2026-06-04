@@ -20,6 +20,11 @@ public class RoomSpawner : MonoBehaviour
     [SerializeField] private int numRoomsToSpawn = 5;
     private List<Transform> availableDoors;
 
+    // --- NEW EDITOR TOOLS SECTION ---
+    [Header("Editor Tools")]
+    [Tooltip("The exact folder path in your project to scan (e.g., Assets/Prefabs/ProceduralRooms)")]
+    [SerializeField] private string searchFolderPath = "Assets/Prefabs/ProceduralRooms";
+
     public float NumCellsWidth => numCellsWidth;
     public float NumCellsHeight => numCellsHeight;
 
@@ -83,7 +88,7 @@ public class RoomSpawner : MonoBehaviour
 
         // Instantiate using the computed position
         Room newRoom = Instantiate(room, finalSpawnPos, Quaternion.identity, this.transform);
-        newRoom.name = $"Room_{startX}_{startZ}";
+        newRoom.name = $"{room.name}_at_{startX}_{startZ}";
 
         // Mark cells as occupied
         for (int i = 0; i < cellWorldCoordinates.Length; i++)
@@ -211,4 +216,44 @@ public class RoomSpawner : MonoBehaviour
             }
         }
     }
+
+    // --- NEW PREFAB SCANNER METHOD ---
+#if UNITY_EDITOR
+    [ContextMenu("Auto-Populate Room Prefabs")]
+    private void AutoPopulateRoomPrefabs()
+    {
+        // 1. Verify the folder path is actually valid
+        if (!UnityEditor.AssetDatabase.IsValidFolder(searchFolderPath))
+        {
+            Debug.LogError($"Folder '{searchFolderPath}' does not exist. Make sure the path is correct and starts with 'Assets/'");
+            return;
+        }
+
+        // 2. Find all GameObject assets in the specified folder
+        string[] guids = UnityEditor.AssetDatabase.FindAssets("t:GameObject", new[] { searchFolderPath });
+        List<Room> validRooms = new List<Room>();
+
+        // 3. Loop through them and check for the "Room" tag and Room.cs component
+        foreach (string guid in guids)
+        {
+            string path = UnityEditor.AssetDatabase.GUIDToAssetPath(guid);
+            GameObject prefab = UnityEditor.AssetDatabase.LoadAssetAtPath<GameObject>(path);
+
+            if (prefab != null && prefab.CompareTag("Room"))
+            {
+                Room roomScript = prefab.GetComponent<Room>();
+                if (roomScript != null)
+                {
+                    validRooms.Add(roomScript);
+                }
+            }
+        }
+
+        // 4. Assign to the array and mark the scene as dirty so Unity saves the changes
+        roomPrefabs = validRooms.ToArray();
+        UnityEditor.EditorUtility.SetDirty(this);
+
+        Debug.Log($"Success! Found and assigned {validRooms.Count} Room prefabs.");
+    }
+#endif
 }
