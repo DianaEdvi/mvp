@@ -1,5 +1,6 @@
 
 # Big Models
+## Characters
 [[Annabel Lee]]
 [[Prospero]]
 [[The Mesmerist]]
@@ -7,7 +8,14 @@
 [[The Raven and The Man]]
 [[Ligeia]]
 
+## Places
+[[The Mansion]]
+
+## Things
+[[Weapons]]
+
 # Small Models
+## Characters
 [[Augustus Bedloe, controlled by Doctor Templeton]]
 [[The Devil]]
 [[The Hop Frog]]
@@ -16,12 +24,21 @@
 [[Maison de Santé]]
 [[Fortunado]]
 
-# Mia
+## Places
+Mansion Walls
+
+## Things
+The objects around the mansion
+
+# Whos doing what
+
+## Mia
 - Annabel Lee
 
-# Saya
+## Saya
 
-# Jacket
+## Jacket
 - Prospero
 
-# Raph
+## Raph
+- Mansion walls
