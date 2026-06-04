@@ -14,6 +14,7 @@ Murders of the red morgue "https://poemuseum.org/the-murders-in-the-rue-morgue/"
 The devil in the belfry "https://poemuseum.org/the-devil-in-the-belfry/"
 Dr tarr and feather "https://poestories.com/read/systemoftarr"
 tale mountians "https://www.eapoe.org/works/tales/raggedb.htm"
+hop frog "https://www.eapoe.org/works/mabbott/tom3t037.htm"
 
 annabel lee - [[Annabel Lee]]
 masque - [[Prospero]]
@@ -28,6 +29,7 @@ murders - [[Human ManGuy (arangatang)]]
 the devil in the belfrt - [[The Devil]]
 Aslyum - [[Maison de Santé]]
 templeton - [[Augustus Bedloe, controlled by Doctor Templeton]]
+hop frog - [[The Hop Frog]]
 
 
 Who should Read what
