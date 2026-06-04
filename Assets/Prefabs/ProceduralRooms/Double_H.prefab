@@ -45,9 +45,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8c1787653d9605147a288bba76e0ffb8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Room
-  localCellCoordinates:
-  - {x: 0, y: 0}
-  - {x: 1, y: 0}
+  cellSize: 10
+  origin: {fileID: 3104527173214539619}
+  cellTransforms:
+  - {fileID: 3104527173214539619}
+  - {fileID: 5845294775699071916}
+  relativeCoordinatesToOrigin: []
   doorSockets:
   - {fileID: 8272487278187244944}
   - {fileID: 4369358718830532484}

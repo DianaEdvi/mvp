@@ -39,6 +39,8 @@ public class RoomSpawner : MonoBehaviour
         {
             Instance = this;
         }
+
+        actualCellSize = startingRoomPrefab.cellSize;
         // Debug.unityLogger.logEnabled = false;
     }
 
@@ -58,10 +60,11 @@ public class RoomSpawner : MonoBehaviour
     public bool TrySpawnRoom(Room room, int startX, int startZ)
     {
 
-        Vector2Int[] cellWorldCoordinates = new Vector2Int[room.localCellCoordinates.Length];
-        for (int i = 0; i < room.localCellCoordinates.Length; i++)
+        Debug.Log($"Spawning {room.name} at grid coordinates ({startX},{startZ})");
+        Vector2Int[] cellWorldCoordinates = new Vector2Int[room.RelativeCoordinatesToOrigin.Length];
+        for (int i = 0; i < room.RelativeCoordinatesToOrigin.Length; i++)
         {
-            cellWorldCoordinates[i] = new Vector2Int(startX + room.localCellCoordinates[i].x, startZ + room.localCellCoordinates[i].y);
+            cellWorldCoordinates[i] = new Vector2Int(startX + room.RelativeCoordinatesToOrigin[i].x, startZ + room.RelativeCoordinatesToOrigin[i].y);
         }
       
         if (!AreCoordinatesWithinBounds(cellWorldCoordinates)){
@@ -74,7 +77,6 @@ public class RoomSpawner : MonoBehaviour
              return false;
         }
 
-        Debug.Log($"Spawning {room.name} at grid coordinates ({startX},{startZ})");
 
         // If room is in valid position, compute the exact grid alignment position
         Vector3 spawnPos = new Vector3(startX * actualCellSize, 0, startZ * actualCellSize);
