@@ -46,7 +46,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Room
   cellSize: 10
-  origin: {fileID: 3104527173214539619}
+  origin: {fileID: 678057433463904345}
   cellTransforms:
   - {fileID: 3104527173214539619}
   - {fileID: 678057433463904345}

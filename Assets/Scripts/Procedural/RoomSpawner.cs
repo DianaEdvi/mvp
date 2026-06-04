@@ -1,7 +1,5 @@
 using UnityEngine;
-using UnityEngine.InputSystem;
 using System.Collections.Generic;
-
 
 public class RoomSpawner : MonoBehaviour
 {  
@@ -41,7 +39,6 @@ public class RoomSpawner : MonoBehaviour
         }
 
         actualCellSize = startingRoomPrefab.cellSize;
-        // Debug.unityLogger.logEnabled = false;
     }
 
     void Start()
@@ -51,36 +48,41 @@ public class RoomSpawner : MonoBehaviour
         
         // Try spawning inital room at specified grid coordinates
         TrySpawnRoom(startingRoomPrefab, xIndex, zIndex);
-        // TrySpawnRoom(startingRoomPrefab, 7, 0);
         GenerateFullMap();
-
-      
     }
 
     public bool TrySpawnRoom(Room room, int startX, int startZ)
     {
-
-        Debug.Log($"Spawning {room.name} at grid coordinates ({startX},{startZ})");
-        Vector2Int[] cellWorldCoordinates = new Vector2Int[room.RelativeCoordinatesToOrigin.Length];
-        for (int i = 0; i < room.RelativeCoordinatesToOrigin.Length; i++)
+        Debug.Log($"Spawning {room.name} targeting origin at grid coordinates ({startX},{startZ})");
+        
+        // Validate the room can fit at the target location by checking all of its cells' world coordinates
+        Vector2Int[] relativeCoords = room.GetRelativeCoordinates();
+        Vector2Int[] cellWorldCoordinates = new Vector2Int[relativeCoords.Length];
+        
+        for (int i = 0; i < relativeCoords.Length; i++)
         {
-            cellWorldCoordinates[i] = new Vector2Int(startX + room.RelativeCoordinatesToOrigin[i].x, startZ + room.RelativeCoordinatesToOrigin[i].y);
+            cellWorldCoordinates[i] = new Vector2Int(startX + relativeCoords[i].x, startZ + relativeCoords[i].y);
         }
-      
+
         if (!AreCoordinatesWithinBounds(cellWorldCoordinates)){
-            Debug.LogWarning($"Cannot spawn {room.name} at grid coordinates ({startX},{startZ}) because it would be out of bounds!");
-             return false;
+            Debug.LogWarning($"Cannot spawn {room.name} because it would be out of bounds!");
+            return false;
         }
 
         if (AreCoordinatesOccupied(cellWorldCoordinates)){
-            Debug.LogWarning($"Cannot spawn {room.name} at grid coordinates ({startX},{startZ}) because it would overlap with an existing room!");
-             return false;
+            Debug.LogWarning($"Cannot spawn {room.name} because it would overlap!");
+            return false;
         }
 
+        // Compute spawn position
+        Vector3 targetWorldPos = new Vector3(startX * actualCellSize, 0, startZ * actualCellSize);
+        
+        // Calculate the physical offset mapping needed to align the custom origin
+        Vector3 prefabOffset = new Vector3(room.LocalOriginOffset.x * actualCellSize, 0, room.LocalOriginOffset.y * actualCellSize);
+        Vector3 finalSpawnPos = targetWorldPos - prefabOffset;
 
-        // If room is in valid position, compute the exact grid alignment position
-        Vector3 spawnPos = new Vector3(startX * actualCellSize, 0, startZ * actualCellSize);
-        Room newRoom = Instantiate(room, spawnPos, Quaternion.identity, this.transform);
+        // Instantiate using the computed position
+        Room newRoom = Instantiate(room, finalSpawnPos, Quaternion.identity, this.transform);
         newRoom.name = $"Room_{startX}_{startZ}";
 
         // Mark cells as occupied
@@ -89,12 +91,12 @@ public class RoomSpawner : MonoBehaviour
             occupiedGrid[cellWorldCoordinates[i].x, cellWorldCoordinates[i].y] = true;
         }
 
-        // Check each door socket to see if it's facing outside the grid. If so, disable it. Otherwise, add it to the list of available doors.
+        // Check door sockets
         for (int i = 0; i < newRoom.doorSockets.Length; i++)
         {
             if (isDoorFacingEdge(newRoom.doorSockets[i]))
             {
-                newRoom.doorSockets[i].gameObject.SetActive(false); // Disable the door if it's facing outside the grid
+                newRoom.doorSockets[i].gameObject.SetActive(false);
                 continue;
             }
             availableDoors.Add(newRoom.doorSockets[i]);
@@ -106,7 +108,6 @@ public class RoomSpawner : MonoBehaviour
     private bool isDoorFacingEdge(Transform door)
     {
         // Get a step direction based on the door's forward vector
-        // North = (0, 1), East = (1, 0), South = (0, -1), West = (-1, 0)
         int dirX = Mathf.RoundToInt(door.forward.x);
         int dirZ = Mathf.RoundToInt(door.forward.z);
 
@@ -119,7 +120,6 @@ public class RoomSpawner : MonoBehaviour
         int targetZ = doorGridZ + dirZ;
 
         // Check boundaries
-        // Debug.Log($"Checking door {door.name} at grid ({doorGridX},{doorGridZ}) facing direction ({dirX},{dirZ}) towards target grid ({targetX},{targetZ})");
         if (!AreCoordinatesWithinBounds(new Vector2Int[] { new Vector2Int(targetX, targetZ) }))
         {
             return true; // Door is facing outside the grid
@@ -204,12 +204,11 @@ public class RoomSpawner : MonoBehaviour
                 }
             }
 
-            // Room prefab couln't fit anywhere
+            // Room prefab couldn't fit anywhere
             if (!roomSpawnedSuccessfully)
             {
                 Debug.LogWarning($"Skipping room iteration {i}: Checked all {availableDoors.Count} available doors, but '{roomPrefab.name}' didn't fit anywhere.");
             }
         }
     }
-
 }

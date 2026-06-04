@@ -325,23 +325,17 @@ MonoBehaviour:
   numCellsWidth: 11
   numCellsHeight: 10
   actualCellSize: 10
-  startingRoomPrefab: {fileID: 8452098039410964737, guid: 6925664df5fdbe94282b9ddd162db42a, type: 3}
+  startingRoomPrefab: {fileID: 3147549813767752222, guid: c0920371e1834da4198f353a35ab1a9b, type: 3}
   xIndex: 5
-  zIndex: 0
+  zIndex: 5
   roomPrefabs:
-  - {fileID: 8452098039410964737, guid: 9f6397dc7b86a8144acd4e71bc689979, type: 3}
-  - {fileID: 8452098039410964737, guid: 3c1f5860e13bf264b9dd9af330b3929a, type: 3}
-  - {fileID: 1584635007771713046, guid: e5487dc33e24c9b47a6dffb2defc0692, type: 3}
-  - {fileID: 8452098039410964737, guid: cb706a2c123143b43819176002d059df, type: 3}
-  - {fileID: 8452098039410964737, guid: 18a1b653d4df7324aaec6f9e3487f363, type: 3}
-  - {fileID: 3485160429261813736, guid: 5763765aa01c48648aaca7645556330c, type: 3}
-  - {fileID: 8452098039410964737, guid: c3705a87b626eed4a9a4230e265cc3d4, type: 3}
-  - {fileID: 8450643951307681162, guid: 931314a3f28041b4aa7c13cbf3860476, type: 3}
-  - {fileID: 8452098039410964737, guid: dd344eba06cd8834286304831a01ea5f, type: 3}
-  - {fileID: 4365456971549255818, guid: f55c1b3906f4ccf41908335550bc595e, type: 3}
   - {fileID: 8452098039410964737, guid: 6925664df5fdbe94282b9ddd162db42a, type: 3}
   - {fileID: 4717774688546967774, guid: 8b22f29b4c54a384396a8ca3bd1a92da, type: 3}
-  numRoomsToSpawn: 0
+  - {fileID: 3147549813767752222, guid: c0920371e1834da4198f353a35ab1a9b, type: 3}
+  - {fileID: 6371164167707181159, guid: 17d6bba552c96d145a59d116e61ff392, type: 3}
+  - {fileID: 8452098039410964737, guid: 3c1f5860e13bf264b9dd9af330b3929a, type: 3}
+  - {fileID: 1584635007771713046, guid: e5487dc33e24c9b47a6dffb2defc0692, type: 3}
+  numRoomsToSpawn: 5
 --- !u!4 &1761261380
 Transform:
   m_ObjectHideFlags: 0
