@@ -20,7 +20,8 @@ Knave: [[Human ManGuy (orangutan)]] , [[The Hop Frog]]
 Predacious: [[The Devil]], [[Augustus Bedloe, controlled by Doctor Templeton]]
 (both are trick representations of each other)
 
-Obsessive: [[The Painter]], [[Axe Man]]
+Obsessive: 
+(both are places that attack you)
 
 
 if time permits: [[Brevet Brigadier-General John A.B.C. Smith]]
