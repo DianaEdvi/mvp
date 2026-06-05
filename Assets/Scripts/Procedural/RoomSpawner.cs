@@ -19,6 +19,7 @@ public class RoomSpawner : MonoBehaviour
     [SerializeField] private Room[] roomPrefabs;
     [SerializeField] private int numRoomsToSpawn = 5;
     private List<Transform> availableDoors;
+    public LayerMask doorLayerMask;
 
     // --- NEW EDITOR TOOLS SECTION ---
     [Header("Editor Tools")]
@@ -44,6 +45,7 @@ public class RoomSpawner : MonoBehaviour
         }
 
         actualCellSize = startingRoomPrefab.cellSize;
+        Debug.unityLogger.logEnabled = false;
     }
 
     void Start()
@@ -54,6 +56,7 @@ public class RoomSpawner : MonoBehaviour
         // Try spawning inital room at specified grid coordinates
         TrySpawnRoom(startingRoomPrefab, xIndex, zIndex);
         GenerateFullMap();
+        TrimExtraDoors();
     }
 
     public bool TrySpawnRoom(Room room, int startX, int startZ)
@@ -139,7 +142,6 @@ public class RoomSpawner : MonoBehaviour
         {
             if (cell.x < 0 || cell.x >= numCellsWidth || cell.y < 0 || cell.y >= numCellsHeight)
             {   
-                Debug.LogWarning($"Cell at ({cell.x},{cell.y}) is out of grid boundaries!");
                 return false;
             }
         }
@@ -152,7 +154,6 @@ public class RoomSpawner : MonoBehaviour
         {
             if (occupiedGrid[cell.x, cell.y])
             {
-                Debug.LogWarning($"Cell at ({cell.x},{cell.y}) is already occupied!");
                 return true;
             }
         }
@@ -183,7 +184,15 @@ public class RoomSpawner : MonoBehaviour
                 int randomUntriedIndex = Random.Range(0, untriedDoors.Count);
                 Transform doorToSpawnFrom = untriedDoors[randomUntriedIndex];
 
-                // Calculate grid alignment based on this door
+                Transform newDoorToConnect = GetValidConnectingDoor(roomPrefab, doorToSpawnFrom);
+
+                if (newDoorToConnect == null)
+                {
+                    untriedDoors.RemoveAt(randomUntriedIndex);
+                    continue; // Skip the rest of the loop and try a different door
+                }
+
+                // Calculate where the old door wants the connection to happen (the Target Cell)
                 int dirX = Mathf.RoundToInt(doorToSpawnFrom.forward.x);
                 int dirZ = Mathf.RoundToInt(doorToSpawnFrom.forward.z);
 
@@ -193,14 +202,28 @@ public class RoomSpawner : MonoBehaviour
                 int targetX = doorGridX + dirX;
                 int targetZ = doorGridZ + dirZ;
 
-                // Try to spawn the room
-                if (TrySpawnRoom(roomPrefab, targetX, targetZ))
+                // Find out which grid cell the NEW door is attached to relative to its prefab's origin
+                Vector3 insideNewDoorPos = newDoorToConnect.position - (newDoorToConnect.forward * 0.1f);
+                int newDoorCellX = Mathf.FloorToInt(insideNewDoorPos.x / actualCellSize);
+                int newDoorCellZ = Mathf.FloorToInt(insideNewDoorPos.z / actualCellSize);
+
+                int originCellX = Mathf.FloorToInt(roomPrefab.origin.position.x / actualCellSize);
+                int originCellZ = Mathf.FloorToInt(roomPrefab.origin.position.z / actualCellSize);
+
+                int doorOffsetX = newDoorCellX - originCellX;
+                int doorOffsetZ = newDoorCellZ - originCellZ;
+
+                // Shift the target origin coordinates backward by the offset so the doors snap together
+                int originSpawnX = targetX - doorOffsetX;
+                int originSpawnZ = targetZ - doorOffsetZ;
+
+                // Try to spawn the room with the adjusted origin coordinates
+                if (TrySpawnRoom(roomPrefab, originSpawnX, originSpawnZ))
                 {
                     roomSpawnedSuccessfully = true;
 
                     // Find this door in the master list and remove it permanently
                     availableDoors.Remove(doorToSpawnFrom);
-                    Debug.Log($"Successfully spawned {roomPrefab.name} after finding a valid door match.");
                 }
                 else
                 {
@@ -217,23 +240,87 @@ public class RoomSpawner : MonoBehaviour
         }
     }
 
-    // --- NEW PREFAB SCANNER METHOD ---
+
+    private void TrimExtraDoors()
+    {
+        GameObject[] doorObjects = GameObject.FindGameObjectsWithTag("Door");
+        
+        List<GameObject> doorsToDisable = new List<GameObject>();
+
+        // Check each door to see if it's valid or should be disabled
+        foreach (GameObject doorObj in doorObjects)
+        {
+            Transform door = doorObj.transform;
+
+            int dirX = Mathf.RoundToInt(door.forward.x);
+            int dirZ = Mathf.RoundToInt(door.forward.z);
+
+            int doorGridX = Mathf.FloorToInt(door.position.x / actualCellSize);
+            int doorGridZ = Mathf.FloorToInt(door.position.z / actualCellSize);
+
+            Vector3 rayCastDirection = new Vector3(dirX, 0, dirZ);
+            Vector3 rayCastOrigin = door.position + (rayCastDirection * 0.2f);
+            float rayCastDistance = actualCellSize * 0.5f; 
+
+            // Debug.DrawRay(rayCastOrigin, rayCastDirection * rayCastDistance, Color.red, 15f);
+
+            if (Physics.Raycast(rayCastOrigin, rayCastDirection, out RaycastHit hit, rayCastDistance, doorLayerMask))
+            {
+                if (!hit.collider.CompareTag("Door"))
+                {
+                    // It hit something, but it wasn't a door. Add to the hit list.
+                    doorsToDisable.Add(doorObj);
+                }
+            }
+            else
+            {
+                // It hit nothing. Add to the hit list.
+                doorsToDisable.Add(doorObj);
+            }
+        }
+
+        // Disable the bad doors.
+        foreach (GameObject badDoor in doorsToDisable)
+        {
+            badDoor.SetActive(false);
+        }
+    }
+
+    private Transform GetValidConnectingDoor(Room prefab, Transform doorToSpawnFrom)
+    {
+        Vector3 requiredDirection = -doorToSpawnFrom.forward;
+
+        foreach (Transform socket in prefab.doorSockets)
+        {
+            // Check if this door is facing the correct opposite direction
+            bool facesOpposite = Mathf.RoundToInt(socket.forward.x) == Mathf.RoundToInt(requiredDirection.x) &&
+                                Mathf.RoundToInt(socket.forward.z) == Mathf.RoundToInt(requiredDirection.z);
+
+            if (facesOpposite)
+            {
+                return socket; // Returns the first valid door
+            }
+        }
+
+        return null; // No door found that points in the correct direction
+    }
+
 #if UNITY_EDITOR
     [ContextMenu("Auto-Populate Room Prefabs")]
     private void AutoPopulateRoomPrefabs()
     {
-        // 1. Verify the folder path is actually valid
+        // Verify the folder path is actually valid
         if (!UnityEditor.AssetDatabase.IsValidFolder(searchFolderPath))
         {
             Debug.LogError($"Folder '{searchFolderPath}' does not exist. Make sure the path is correct and starts with 'Assets/'");
             return;
         }
 
-        // 2. Find all GameObject assets in the specified folder
+        // Find all GameObject assets in the specified folder
         string[] guids = UnityEditor.AssetDatabase.FindAssets("t:GameObject", new[] { searchFolderPath });
         List<Room> validRooms = new List<Room>();
 
-        // 3. Loop through them and check for the "Room" tag and Room.cs component
+        // Loop through them and check for the "Room" tag and Room.cs component
         foreach (string guid in guids)
         {
             string path = UnityEditor.AssetDatabase.GUIDToAssetPath(guid);
@@ -249,11 +336,9 @@ public class RoomSpawner : MonoBehaviour
             }
         }
 
-        // 4. Assign to the array and mark the scene as dirty so Unity saves the changes
+        // Assign to the array and mark the scene as dirty so Unity saves the changes
         roomPrefabs = validRooms.ToArray();
         UnityEditor.EditorUtility.SetDirty(this);
-
-        Debug.Log($"Success! Found and assigned {validRooms.Count} Room prefabs.");
     }
 #endif
 }

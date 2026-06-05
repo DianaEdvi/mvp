@@ -7,7 +7,7 @@ public class Room : MonoBehaviour
 
     public Transform origin;
     [SerializeField] private Transform[] cellTransforms;
-    [SerializeField] private Vector2Int[] relativeCoordinatesToOrigin;
+    private Vector2Int[] relativeCoordinatesToOrigin;
 
     [Tooltip("The door sockets in the room where new rooms can be attached.")]
     public Transform[] doorSockets;

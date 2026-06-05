@@ -330,7 +330,7 @@ MonoBehaviour:
   zIndex: 0
   roomPrefabs:
   - {fileID: 8452098039410964737, guid: 3c1f5860e13bf264b9dd9af330b3929a, type: 3}
-  - {fileID: 8452098039410964737, guid: 37b1ecd6899dd6746847aa7f20b770c7, type: 3}
+  - {fileID: 8452098039410964737, guid: f8e972f2cba6fd2449d4f7693fd1313e, type: 3}
   - {fileID: 8452098039410964737, guid: cb706a2c123143b43819176002d059df, type: 3}
   - {fileID: 8452098039410964737, guid: c58293d932dc6b640b88465740c8cfab, type: 3}
   - {fileID: 8452098039410964737, guid: 45c828f4ab0eea448829f0c8404305e6, type: 3}
@@ -346,8 +346,14 @@ MonoBehaviour:
   - {fileID: 5086773838791859875, guid: 218415ae6c5756245b12a6d4d0356537, type: 3}
   - {fileID: 5086773838791859875, guid: 39e2d9ed8f7a08e4eb73fb81241416d3, type: 3}
   - {fileID: 8452098039410964737, guid: 18a1b653d4df7324aaec6f9e3487f363, type: 3}
+  - {fileID: 8452098039410964737, guid: 930fdb492d885d9439b47d3df98a2586, type: 3}
+  - {fileID: 8452098039410964737, guid: 6978ad90d6a99c645b88a2fbac292396, type: 3}
+  - {fileID: 8452098039410964737, guid: c61d6fe85bfa48d4282b081e34696850, type: 3}
   - {fileID: 8452098039410964737, guid: 9f6397dc7b86a8144acd4e71bc689979, type: 3}
   numRoomsToSpawn: 10
+  doorLayerMask:
+    serializedVersion: 2
+    m_Bits: 64
   searchFolderPath: Assets/Prefabs/ProceduralRooms
 --- !u!4 &1761261380
 Transform:
