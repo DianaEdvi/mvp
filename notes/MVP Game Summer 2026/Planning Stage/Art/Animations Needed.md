@@ -6,8 +6,10 @@ For each weapon: [[Weapons]] (4 total)
 - 1 general skill attacks
 
 For each Mob, Boss, Miniboss (10 total)
-- 1 maybe 
+- 1 attack
 - death animation
+	- coding forward animation 
+	- 
 - idle
 
 For each Bos, MiniBoss (4 total)
