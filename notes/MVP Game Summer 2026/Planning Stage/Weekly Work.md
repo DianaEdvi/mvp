@@ -6,7 +6,7 @@ Week of May 18 - May 24
 - dialogue
 - annabel lee
 - the raven and the man
-- fix prospero, 
+- fix prospero, the messmerist, re-touch story
 
 
 # Aleck
