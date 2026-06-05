@@ -9,10 +9,10 @@ For each Mob, Boss, Miniboss (10 total)
 - 1 attack
 - death animation
 	- coding forward animation 
-	- 
+	- maybe freeze their idle then have them kind of explode in smoke 
 - idle
 
-For each Bos, MiniBoss (4 total)
+For each Boss, MiniBoss (4 total)
 - Little start animation
 - 2rd attack 
 
@@ -28,9 +28,9 @@ Annabel Lee
 
 
 
-Total animations:  12 weapon, 120 enemy, 8 bosses, 2 bug boss, 3 annabel lee
+Total animations:  12 weapon, 30 enemy, 8 bosses, 2 bug boss, 3 annabel lee
 
-145 animations...
+55 animations...
 jesus christ
 
 

@@ -22,13 +22,12 @@ Bare min List:
 	 - Parry window (how to do with animations and stuff)
 	 - baby parry for now (ie no real animation reaction, just do action command)
  - Needed characters
-	 - [[Prospero]] (with interaction)
 	 - [[Annabel Lee]]
-	 - [[Human ManGuy (arangatang)]]
+	 - [[The Raven and The Man]]
 	 - 3 enemies ([[Types for Characters and bosses to be]]) 
-		 - mirror
-		 - caged animal 
-		 - cards
+		 - [[Augustus Bedloe, controlled by Doctor Templeton]]
+		 - [[Human ManGuy (orangutan)]]
+		 - [[The Mansion (enemy)]]
 	
  
 
