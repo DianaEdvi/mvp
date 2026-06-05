@@ -2,7 +2,7 @@ Now that this is a 1 act game the enemies need to be changed
 
 There will still be the Knave, Obsessive, and Predacious
 
-Good: [[Lady Rowena]], [[Fortunado]]
+Good: [[Ligeia]], [[Fortunado]]
 
 Minibosses
 
@@ -11,6 +11,8 @@ Obsessive: [[Lady Rowena]] (most important)
 Knave [[Prospero]]
 
 Predacious [[The Mesmerist]]
+
+Boss : [[The Raven and The Man]]
 
 Enemies:
 
