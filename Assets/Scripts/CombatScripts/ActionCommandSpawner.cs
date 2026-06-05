@@ -8,15 +8,15 @@ public class ActionCommandSpawner : MonoBehaviour
 
     private void OnEnable()
     {
-        EventHolder.OnTriggerCircleActionCommand += spawnCommand;
+        EventHolder.OnTriggerCircleActionCommand += SpawnCommand;
     }
 
     private void OnDisable()
     {
-        EventHolder.OnTriggerCircleActionCommand -= spawnCommand;
+        EventHolder.OnTriggerCircleActionCommand -= SpawnCommand;
     }
 
-    public void spawnCommand()
+    public void SpawnCommand()
     {
 
         float x = Random.Range(-ActionSpawnArea.rect.width / 2, ActionSpawnArea.rect.width / 2);

@@ -8,15 +8,16 @@ public class EnemyStats : MonoBehaviour
 
     [SerializeField] private EnemyUI enemyUI;
 
-    public void takeDamage(int h) {
+    public void TakeDamage(int h) {
 
         health -= h;
 
-        enemyUI.setHealthSlider((int) enemyUI.getHealthSlider() - h);
+        enemyUI.SetHealthSlider((int) enemyUI.GetHealthSlider() - h);
 
         if (health <= 0) {
 
-            //Die event goes here but just destroy for now
+            //Trigger die event and then destroy game object
+            EventHolder.OnEnemyDeath?.Invoke(gameObject);
             Destroy(gameObject);
 
         }

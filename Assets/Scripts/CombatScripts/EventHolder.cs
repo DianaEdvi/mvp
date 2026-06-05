@@ -3,8 +3,6 @@ using UnityEngine.Events;
 
 public class EventHolder : MonoBehaviour
 {
-    public static UnityAction OnTriggerCombat;
-
     public static UnityAction OnTriggerCircleActionCommand;
 
     public static UnityAction<string> OnActionCommandCompletion;
@@ -16,4 +14,6 @@ public class EventHolder : MonoBehaviour
     public static UnityAction OnDisableMenu;
 
     public static UnityAction OnEnableMenu;
+
+    public static UnityAction<GameObject> OnEnemyDeath;
 }

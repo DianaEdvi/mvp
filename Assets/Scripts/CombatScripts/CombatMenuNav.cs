@@ -15,67 +15,67 @@ public class CombatMenuNav : MonoBehaviour
 
     private void OnEnable()
     {
-        EventHolder.OnEnableMenu += enableMenu;
-        EventHolder.OnDisableMenu += disableMenu;
+        EventHolder.OnEnableMenu += EnableMenu;
+        EventHolder.OnDisableMenu += DisableMenu;
     }
 
     private void OnDisable()
     {
-        EventHolder.OnEnableMenu -= enableMenu;
-        EventHolder.OnDisableMenu -= disableMenu;
+        EventHolder.OnEnableMenu -= EnableMenu;
+        EventHolder.OnDisableMenu -= DisableMenu;
     }
 
     private void Update()
     {
         if (Keyboard.current != null && Keyboard.current.escapeKey.wasReleasedThisFrame) {
 
-            backSelect();
+            BackSelect();
 
         }
     }
 
-    public void attackSelect() {
+    public void AttackSelect() {
 
         combatMenu.SetActive(false);
         attackToolTip.SetActive(true);
 
         //enable targeting in target script
-        combatTargetingScript.startTargeting(1);
+        combatTargetingScript.StartTargeting(targetingType.SingleEnemy);
     }
 
-    public void blockSelect()
+    public void BlockSelect()
     {
         combatMenu.SetActive(false);
         blockToolTip.SetActive(true);
 
         //enable targeting in target script
-        combatTargetingScript.startTargeting(0);
+        combatTargetingScript.StartTargeting(targetingType.Self);
     }
 
-    public void skillSelect() { 
-    
+    public void SkillSelect() { 
+        
     }
 
-    public void backSelect() {
+    public void BackSelect() {
 
         attackToolTip.SetActive(false);
         blockToolTip.SetActive(false);
         //add skill list active here
 
-        combatTargetingScript.resetTargeting();
+        combatTargetingScript.ResetTargeting();
 
         combatMenu.SetActive(true);
 
     }
 
-    public void disableMenu() {
+    public void DisableMenu() {
 
-        backSelect();
+        BackSelect();
         combatMenu.SetActive(false);
 
     }
 
-    public void enableMenu() {
+    public void EnableMenu() {
 
         combatMenu.SetActive(true);
 

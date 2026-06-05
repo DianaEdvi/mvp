@@ -12,10 +12,10 @@ public class ActionCommandCircle : MonoBehaviour
     {
         shrinkCircle = transform.GetChild(0);
 
-        StartCoroutine(startActionCommand());
+        StartCoroutine(StartActionCommand());
     }
 
-    private IEnumerator startActionCommand() {
+    private IEnumerator StartActionCommand() {
 
 
         while (!buttonHit)

@@ -7,17 +7,17 @@ public class EnemyUI : MonoBehaviour
 
     [SerializeField] private GameObject targetArrow;
 
-    public void setHealthSlider(int h) {
+    public void SetHealthSlider(int h) {
 
         healthSlider.value = h;
     }
 
-    public float getHealthSlider() {
+    public float GetHealthSlider() {
 
         return healthSlider.value;
 
     }
-    public void setTargetArrow(bool b) {
+    public void SetTargetArrow(bool b) {
 
         targetArrow.SetActive(b); 
 

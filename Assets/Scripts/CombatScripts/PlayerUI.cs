@@ -4,7 +4,7 @@ public class PlayerUI : MonoBehaviour
 {
     [SerializeField] private GameObject targetArrow;
 
-    public void setTargetArrow(bool b) {
+    public void SetTargetArrow(bool b) {
 
         targetArrow.SetActive(b);
 

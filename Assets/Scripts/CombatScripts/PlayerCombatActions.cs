@@ -9,17 +9,17 @@ public class PlayerCombatActions : MonoBehaviour
 
     private void OnEnable()
     {
-        EventHolder.OnActionCommandCompletion += listenForAC;
-        EventHolder.OnPlayerAttack += startAttackAction;
+        EventHolder.OnActionCommandCompletion += ListenForAC;
+        EventHolder.OnPlayerAttack += StartAttackAction;
     }
 
     private void OnDisable()
     {
-        EventHolder.OnActionCommandCompletion -= listenForAC;
-        EventHolder.OnPlayerAttack -= startAttackAction;
+        EventHolder.OnActionCommandCompletion -= ListenForAC;
+        EventHolder.OnPlayerAttack -= StartAttackAction;
     }
 
-    private void startAttackAction(GameObject t) {
+    private void StartAttackAction(GameObject t) {
         ACResult = null;
         StartCoroutine(AttackAction(t));
     }
@@ -37,19 +37,19 @@ public class PlayerCombatActions : MonoBehaviour
         switch (ACResult) {
 
             case "Perfect":
-                t.GetComponent<EnemyStats>().takeDamage(damage*2);
+                t.GetComponent<EnemyStats>().TakeDamage(damage*2);
                 break;
 
             case "Great":
-                t.GetComponent<EnemyStats>().takeDamage((int)Mathf.Ceil(damage * 1.5f));
+                t.GetComponent<EnemyStats>().TakeDamage((int)Mathf.Ceil(damage * 1.5f));
                 break;
 
             case "Good":
-                t.GetComponent<EnemyStats>().takeDamage(damage);
+                t.GetComponent<EnemyStats>().TakeDamage(damage);
                 break;
 
             case "Miss":
-                t.GetComponent<EnemyStats>().takeDamage((int) (damage / 2));
+                t.GetComponent<EnemyStats>().TakeDamage((int) (damage / 2));
                 break;
 
         }
@@ -59,7 +59,7 @@ public class PlayerCombatActions : MonoBehaviour
         EventHolder.OnEnableMenu?.Invoke();
     }
 
-    private void listenForAC(string s) {
+    private void ListenForAC(string s) {
 
         ACResult = s;
 

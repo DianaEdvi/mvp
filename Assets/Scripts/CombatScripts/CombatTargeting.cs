@@ -2,6 +2,8 @@ using UnityEngine;
 using System.Collections.Generic;
 using UnityEngine.InputSystem;
 
+public enum targetingType {Self, SingleEnemy, AllEnemy}
+
 public class CombatTargeting : MonoBehaviour
 {
     [SerializeField] private GameObject Player;
@@ -9,8 +11,6 @@ public class CombatTargeting : MonoBehaviour
     //both need to shrink and grow dynamically since you could target multiple enemies and enemies can die
     private List<GameObject> Enemies = new List<GameObject>();
     private GameObject currentTarget;
-
-    //never really worked with enums before so for now I'm setting targeting as 0 = self, 1 = single enemy, 2 = all enemies
 
     private bool targetSwapping = false;
 
@@ -35,9 +35,9 @@ public class CombatTargeting : MonoBehaviour
                 //get index of current target in enemies list, then disable ui and swap current target to new enemy and enable their ui
                 int currentTargetIndex = Enemies.IndexOf(currentTarget);
 
-                currentTarget.GetComponent<EnemyUI>().setTargetArrow(false);
+                currentTarget.GetComponent<EnemyUI>().SetTargetArrow(false);
                 currentTarget = Enemies[currentTargetIndex-1];
-                currentTarget.GetComponent<EnemyUI>().setTargetArrow(true);
+                currentTarget.GetComponent<EnemyUI>().SetTargetArrow(true);
 
             }
 
@@ -47,9 +47,9 @@ public class CombatTargeting : MonoBehaviour
                 //get index of current target in enemies list, then disable ui and swap current target to new enemy and enable their ui
                 int currentTargetIndex = Enemies.IndexOf(currentTarget);
 
-                currentTarget.GetComponent<EnemyUI>().setTargetArrow(false);
+                currentTarget.GetComponent<EnemyUI>().SetTargetArrow(false);
                 currentTarget = Enemies[currentTargetIndex+1];
-                currentTarget.GetComponent<EnemyUI>().setTargetArrow(true);
+                currentTarget.GetComponent<EnemyUI>().SetTargetArrow(true);
 
             }
 
@@ -61,26 +61,36 @@ public class CombatTargeting : MonoBehaviour
         }
     }
 
-    public void startTargeting(int t) {
+    private void OnEnable()
+    {
+        EventHolder.OnEnemyDeath += RemoveEnemy;
+    }
+
+    private void OnDisable()
+    {
+        EventHolder.OnEnemyDeath -= RemoveEnemy;
+    }
+
+    public void StartTargeting(targetingType t) {
 
         switch (t) {
 
-            case 0:
+            case targetingType.Self:
 
-                Player.GetComponent<PlayerUI>().setTargetArrow(true);
+                Player.GetComponent<PlayerUI>().SetTargetArrow(true);
                 currentTarget = Player;
 
                 break;
 
-            case 1:
+            case targetingType.SingleEnemy:
 
-                Enemies[0].GetComponent<EnemyUI>().setTargetArrow(true);
+                Enemies[0].GetComponent<EnemyUI>().SetTargetArrow(true);
                 currentTarget = Enemies[0];
                 targetSwapping = true;
 
                 break;
 
-            case 2:
+            case targetingType.AllEnemy:
 
                 //find out in a sec
 
@@ -89,23 +99,24 @@ public class CombatTargeting : MonoBehaviour
         }
     }
 
-    public void swapEnemyTarget() { 
-        
-
-
-    }
-
-    public void resetTargeting() {
+    public void ResetTargeting() {
 
         foreach (GameObject enemy in Enemies) {
 
-            enemy.GetComponent<EnemyUI>().setTargetArrow(false);
+            enemy.GetComponent<EnemyUI>().SetTargetArrow(false);
 
         }
 
-        Player.GetComponent<PlayerUI>().setTargetArrow(false);
+        Player.GetComponent<PlayerUI>().SetTargetArrow(false);
 
         targetSwapping = false;
+
+    }
+
+    private void RemoveEnemy(GameObject e) {
+
+        Enemies.Remove(e);
+        Debug.Log("Removed " + e.name);
 
     }
 }
