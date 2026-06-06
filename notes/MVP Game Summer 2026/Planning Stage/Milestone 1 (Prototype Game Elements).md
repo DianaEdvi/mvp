@@ -27,11 +27,16 @@ Bare min List:
 	 - [[Annabel Lee]]
 	 - [[Prospero]]
 	 - [[The Raven and The Man]]
-	 - 2 enemies ([[Types for Characters and bosses to be]]) 
+	 - 2 enemies ([[Final Characters]]) 
 		 - [[Human ManGuy (orangutan)]]
 		 - [[The Mansion (enemy)]]
 - Needed UI
-- Needed Art 
+	- pause menu
+	- start menu
+	- combat menu
+	- temp dialogue menu
+- Needed 2D Art 
+	- Annabel Lee portrait 
 	
  
 
