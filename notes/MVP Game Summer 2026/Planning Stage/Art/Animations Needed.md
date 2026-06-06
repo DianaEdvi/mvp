@@ -47,3 +47,5 @@ if time permits:
 # Animations specific 
 - animate on threes, choppy animation, no in between frames
 - persona 3 stule, final fantasy rendering 
+- https://www.youtube.com/watch?v=aDQ0B0SVtjo
+- https://www.youtube.com/watch?v=hfUbh6igfpA
