@@ -1,6 +1,6 @@
 
 
-For each weapon: [[Weapons]] (4 total)
+For each weapon: [[Weapons]] (4 weapons total)
 - Block 
 - Attack
 - 1 general skill attacks
@@ -10,7 +10,7 @@ For each Mob, Boss, Miniboss (10 total)
 - death animation
 	- coding forward animation 
 	- maybe freeze their idle then have them kind of explode in smoke 
-	- bosses might be comp
+	- bosses might be complex
 - idle
 
 For each Boss, MiniBoss (4 total)
@@ -25,13 +25,15 @@ Annabel Lee
 - walk 
 - run 
 - interact
+- idle 
+- jump
 
 
 
 
-Total animations:  12 weapon, 30 enemy, 8 bosses, 2 bug boss, 3 annabel lee
+Total animations:  12 weapon, 30 enemy, 8 bosses, 2 big boss, 5 annabel lee
 
-55 animations
+57 animations
 
 
 if time permits:
