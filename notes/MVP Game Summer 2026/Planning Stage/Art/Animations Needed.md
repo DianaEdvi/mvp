@@ -40,8 +40,10 @@ if time permits:
 - Parry
 - 2 attacks per enemy, 3 per boss
 - 2nd skill animation
+- getting hit
+
 
 
 # Animations specific 
 - animate on threes, choppy animation, no in between frames
-- 
+- persona 3 stule, final fantasy rendering 

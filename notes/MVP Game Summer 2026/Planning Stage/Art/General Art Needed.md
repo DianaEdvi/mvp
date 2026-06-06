@@ -10,6 +10,7 @@ Text could be glowing streaks like Hollow Knight
 - fight menu
 	- attack, block, skill, health bar, enemy health bars, enemy attack plan
 	- block/parry meters/circle ( could be stained glass??)
+	- damage ui
 - start screen
 	- new game, continue, quit, settings
 		- settings: volume, controls
