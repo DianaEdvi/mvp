@@ -4,19 +4,8 @@ Collecting eyes to reveal more of the past, also the meta currency
 
 
 2-3 Paragraph Summary
-	The game begins with a flashback, a memory of The raven and the man manipulating you, trying to get you to do his bidding, he is quite predatory to Annabel Lee. Luckily, she escapes, knowing that she would return to end his reign. To save the people here like her, those who have been manipulated and trapped. She wants to end the curse that befalls [[Lady Rowena]], [[Prospero]], and [[The Mesmerist]]. 
-	
-
-
-
-
-
-
-
-
-
-
-
+	The game begins with a flashback, a memory of [[The Raven and The Man]] manipulating you, trying to get you to do his bidding, he is quite predatory to [[Annabel Lee]]. Luckily, she escapes, knowing that she would return to end his reign. To save the people here like her, those who have been manipulated and trapped. She wants to end the curse that befalls [[Lady Rowena]], [[Prospero]], and [[The Mesmerist]]. [[Lady Rowena]] is a glimpse into the future of [[Annabel Lee]], obsessed with becoming a perfect wife who cannot exist, [[Prospero]] is an innocent man who th
+	For Those who pay attention and talk to [[Ligeia]], who read the lore items, talk to the bosses, etc, they awarded with the information that Annabel Lee is sick, inflicted with the same disease that made [[The Raven and The Man]] the person he is. He cursed her as she escaped to rag her back here and make her his perfect wife, [[Lenore]]. However, Lenore is impossible to exist, her traits contradicts themselves, and there is no pleasing an insufferable and terrible man. 
 
 
 
