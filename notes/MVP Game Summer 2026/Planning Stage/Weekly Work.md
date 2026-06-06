@@ -3,11 +3,9 @@ Week of May 18 - May 24
 
 # Mia 
 
-- dialogue
+- dialogue, summary, book relation/symbol, fix prospero, the messmerist, re-touch story
 - annabel lee
 - the raven and the man
-- fix prospero, the messmerist, re-touch story
-
 
 # Aleck
 - Attacks and stuff for enemies
