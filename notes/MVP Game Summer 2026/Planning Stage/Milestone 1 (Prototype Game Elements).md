@@ -21,13 +21,17 @@ Bare min List:
  - Parry action thing that happens on enemy turn 
 	 - Parry window (how to do with animations and stuff)
 	 - baby parry for now (ie no real animation reaction, just do action command)
+
+# Art 
  - Needed characters
 	 - [[Annabel Lee]]
+	 - [[Prospero]]
 	 - [[The Raven and The Man]]
-	 - 3 enemies ([[Types for Characters and bosses to be]]) 
-		 - [[Augustus Bedloe, controlled by Doctor Templeton]]
+	 - 2 enemies ([[Types for Characters and bosses to be]]) 
 		 - [[Human ManGuy (orangutan)]]
 		 - [[The Mansion (enemy)]]
+- Needed UI
+- Needed Art 
 	
  
 
