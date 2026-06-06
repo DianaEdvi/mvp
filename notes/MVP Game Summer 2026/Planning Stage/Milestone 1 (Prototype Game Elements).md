@@ -59,10 +59,14 @@ Art Section:
 - [[Prospero]] character model
 - [[Human ManGuy (arangatang)]]
 	- mobs: card, caged animal, mirror
-- Mia: [[Annabel Lee]], [[Human ManGuy (arangatang)]], mirror, eyeball
-- Jacket: [[Prospero]] caged animal, card, few room objects, 
+- Mia: [[Annabel Lee]], [[The Raven and The Man]]
+- Jacket: [[Prospero]], 2 mobs
 - Raph: Walls and rooms for milestone 1, different for boss
 	- The [[Human ManGuy (orangutan)]] room,[[Prospero]] room, and the regular rooms
+- Saya: 
+	- simple pngs for enemies just to place them in
+	- ui sketching -portrait sketching
+	- Continue concept art for basic enemies
 
 	 
 	
