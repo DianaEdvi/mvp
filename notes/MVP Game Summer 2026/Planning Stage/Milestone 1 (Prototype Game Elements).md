@@ -21,14 +21,18 @@ Bare min List:
  - Parry action thing that happens on enemy turn 
 	 - Parry window (how to do with animations and stuff)
 	 - baby parry for now (ie no real animation reaction, just do action command)
+
+# Art 
  - Needed characters
-	 - [[Prospero]] (with interaction)
 	 - [[Annabel Lee]]
-	 - [[Human ManGuy (arangatang)]]
-	 - 3 enemies ([[Types for Characters and bosses to be]]) 
-		 - mirror
-		 - animal 
-		 - cards
+	 - [[Prospero]]
+	 - [[The Raven and The Man]]
+	 - 2 enemies ([[Final Characters]]) 
+		 - [[Human ManGuy (orangutan)]]
+		 - [[The Mansion (enemy)]]
+
+- Needed 2D Art 
+	- Annabel Lee portrait 
 	
  
 
@@ -48,6 +52,21 @@ Test Game Loop:
 	- Kill Prospero 
 	- Get eyeballs
 - Demo Ends
+
+
+Art Section:
+- [[Annabel Lee]] character model done
+- [[Prospero]] character model
+- [[Human ManGuy (arangatang)]]
+	- mobs: card, caged animal, mirror
+- Mia: [[Annabel Lee]], [[The Raven and The Man]]
+- Jacket: [[Prospero]], 2 mobs
+- Raph: Walls and rooms for milestone 1, different for boss
+	- The [[Human ManGuy (orangutan)]] room,[[Prospero]] room, and the regular rooms
+- Saya: 
+	- simple pngs for enemies just to place them in
+	- ui sketching -portrait sketching
+	- Continue concept art for basic enemies
 
 	 
 	
