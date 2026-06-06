@@ -30,11 +30,7 @@ Bare min List:
 	 - 2 enemies ([[Final Characters]]) 
 		 - [[Human ManGuy (orangutan)]]
 		 - [[The Mansion (enemy)]]
-- Needed UI
-	- pause menu
-	- start menu
-	- combat menu
-	- temp dialogue menu
+
 - Needed 2D Art 
 	- Annabel Lee portrait 
 	

@@ -40,3 +40,8 @@ if time permits:
 - Parry
 - 2 attacks per enemy, 3 per boss
 - 2nd skill animation
+
+
+# Animations specific 
+- animate on threes, choppy animation, no in between frames
+- 
