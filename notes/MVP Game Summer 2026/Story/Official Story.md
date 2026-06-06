@@ -2,6 +2,26 @@
 testing 
 Collecting eyes to reveal more of the past, also the meta currency
 
+
+2-3 Paragraph Summary
+	The game begins with a flashback, a memory of The raven and the man manipulating you, trying to get you to do his bidding, he is quite predatory to Annabel Lee. Luckily, she escapes, knowing that she would return to end his reign. To save the people here like her, those who have been manipulated and trapped. She wants to end the curse that befalls [[Lady Rowena]], [[Prospero]], and [[The Mesmerist]]. 
+	
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 You learn the relevant post boss info with a npc or letter or something in the following act upon discovering their body. Would be so cool to have a room where ominous music plays and its just a body on the ground.
 
 The game starts off with the player being approached by [[The Raven and The Man]] (the representation of poe), with the offer to kill a man by the name of Prospero for an exorbitant amount of money. The player accepts this deal, they are blessed by the man and begins the game 

@@ -27,12 +27,12 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "Planning Stage/Milestone 1 (Prototype Game Elements).md",
+                "file": "Story/Official Story.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "Milestone 1 (Prototype Game Elements)"
+              "title": "Official Story"
             }
           }
         ],
@@ -201,8 +201,8 @@
   },
   "active": "c09b007346612c4c",
   "lastOpenFiles": [
-    "Planning Stage/Specific dates.md",
     "Planning Stage/Milestone 1 (Prototype Game Elements).md",
+    "Planning Stage/Specific dates.md",
     "Planning Stage/Art/Animations Needed.md",
     "Planning Stage/Weekly Work.md",
     "Planning Stage/Art/General Art Needed.md",
