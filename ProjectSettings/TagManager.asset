@@ -6,6 +6,9 @@ TagManager:
   tags:
   - Enemy
   - EnemyHolder
+  - Cell
+  - Room
+  - Door
   layers:
   - Default
   - TransparentFX
@@ -13,7 +16,7 @@ TagManager:
   - Ground
   - Water
   - UI
-  - 
+  - Door
   - 
   - 
   - 
