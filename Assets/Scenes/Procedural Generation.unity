@@ -324,7 +324,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::RoomSpawner
   numCellsWidth: 11
   numCellsHeight: 10
-  actualCellSize: 10
   startingRoomPrefab: {fileID: 8452098039410964737, guid: cb706a2c123143b43819176002d059df, type: 3}
   xIndex: 5
   zIndex: 0

@@ -4,35 +4,35 @@ using System.Collections.Generic;
 public class Room : MonoBehaviour
 {
     public float cellSize = 10f;
-
     public Transform origin;
     [SerializeField] private Transform[] cellTransforms;
     private Vector2Int[] relativeCoordinatesToOrigin;
 
     [Tooltip("The door sockets in the room where new rooms can be attached.")]
     public Transform[] doorSockets;
+
+    // Takes the world position and snaps it to the grid
+    private Vector2Int PositionToGrid(Vector3 pos) => new Vector2Int(
+        Mathf.FloorToInt(pos.x / cellSize),
+        Mathf.FloorToInt(pos.z / cellSize)
+    );
+
+    // This makes sure to spawn the room taking into account the offset if the origin is not 0,0
     public Vector2Int LocalOriginOffset
     {
         get
         {
-            if (origin == null) return Vector2Int.zero;
-            
-            // Transforms origin position relative to this root object's transform matrix
-            Vector3 localPosToRoot = transform.InverseTransformPoint(origin.position);
-
-            return new Vector2Int(
-                Mathf.FloorToInt(localPosToRoot.x / cellSize),
-                Mathf.FloorToInt(localPosToRoot.z / cellSize)
-            );
+            if (origin == null) return Vector2Int.zero; // If origin isnt assigned, default cell 0,0 as origin (might cause issues tbh bcs not all origins have doors)
+            Vector3 localPosToRoot = transform.InverseTransformPoint(origin.position); // Convert from world space to local space 
+            return PositionToGrid(localPosToRoot);
         }
     }
 
-    // Returns the world coordinates of all cells in this room relative to the origin cell (ie the step directions needed to move from the origin cell to each cell in the room)
     public Vector2Int[] GetRelativeCoordinates()
     {
         if (relativeCoordinatesToOrigin == null || relativeCoordinatesToOrigin.Length == 0)
         {
-            CalculateRelativeCoordinatesToOrigin(origin, cellTransforms);
+            CalculateRelativeCoordinatesToOrigin();
         }
         return relativeCoordinatesToOrigin;
     }
@@ -42,51 +42,34 @@ public class Room : MonoBehaviour
         GetRelativeCoordinates();
     }
 
-    private void CalculateRelativeCoordinatesToOrigin(Transform originTransform, Transform[] cellTransforms)
+    private void CalculateRelativeCoordinatesToOrigin()
     {
-        if (originTransform == null || cellTransforms == null) return;
+        if (origin == null || cellTransforms == null) return;
 
-        Vector2Int originInWorldCoords = new Vector2Int(
-            Mathf.FloorToInt(originTransform.position.x / cellSize), 
-            Mathf.FloorToInt(originTransform.position.z / cellSize)
-        );
-        
-        Vector2Int[] cellsInWorldCoords = new Vector2Int[cellTransforms.Length];
+        Vector2Int originGrid = PositionToGrid(origin.position); // Get origin in world grid coords
+        relativeCoordinatesToOrigin = new Vector2Int[cellTransforms.Length]; // Store vectors from origin to cells
+
+        // For each cell, calculate a vector from the origin to the cell (aka direction steps)
         for (int i = 0; i < cellTransforms.Length; i++)
         {
-            Vector3 globalPos = cellTransforms[i].position;
-            cellsInWorldCoords[i] = new Vector2Int(
-                Mathf.FloorToInt(globalPos.x / cellSize),
-                Mathf.FloorToInt(globalPos.z / cellSize)
-            );
-        }
-
-        relativeCoordinatesToOrigin = new Vector2Int[cellTransforms.Length];
-        for (int i = 0; i < cellTransforms.Length; i++)
-        {
-            relativeCoordinatesToOrigin[i] = cellsInWorldCoords[i] - originInWorldCoords;
+            relativeCoordinatesToOrigin[i] = PositionToGrid(cellTransforms[i].position) - originGrid;
         }
     }
 
     private void OnValidate()
     {
-        // 1. Grab every single transform attached to this object or its children (including inactive ones)
+        // Find all children of the room that are cells and assign them to cellTransforms automatically
         Transform[] allChildren = GetComponentsInChildren<Transform>(true);
-        
-        // 2. Create a temporary list to hold the ones that match our criteria
         List<Transform> matchingCells = new List<Transform>();
 
-        // 3. Loop through and find the ones tagged "Cell"
         foreach (Transform child in allChildren)
         {
-            // Use CompareTag as it's much safer and more performant than child.tag == "Cell"
             if (child.CompareTag("Cell"))
             {
                 matchingCells.Add(child);
             }
         }
-
-        // 4. Assign the results back to your serialized array so it updates in the Inspector
+        
         cellTransforms = matchingCells.ToArray();
     }
 }
