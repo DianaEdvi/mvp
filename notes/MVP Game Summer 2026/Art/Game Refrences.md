@@ -1,8 +1,10 @@
-Nightmare kart
-Alice asylum
-Alice madness returns 
+Nightmare kart -low poly gothic 
+Alice asylum - style
+Alice madness returns - style
+Nevermoore Webtoon - character design
+Gwen from league - Scissors weapon
 
 
 
-Combat:
-Expedition 33
+Non art related:
+Expedition 33 - combat

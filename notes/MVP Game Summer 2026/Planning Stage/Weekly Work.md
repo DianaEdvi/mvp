@@ -3,11 +3,9 @@ Week of May 18 - May 24
 
 # Mia 
 
-- Make character and enemy descriptions for Concept art
-- how each character speaks, interacts with the world, mannerisms (for at least the characters relevent)
-- Attacks and stuff for enemies
+- dialogue, summary, book relation/symbol, fix prospero, the messmerist, re-touch story
 - annabel lee
-
+- the raven and the man
 
 # Aleck
 - Attacks and stuff for enemies
