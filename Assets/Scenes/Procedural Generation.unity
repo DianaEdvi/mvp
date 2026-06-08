@@ -322,11 +322,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 987fca178cea75e4cb6c7256be8843e1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::RoomSpawner
-  numCellsWidth: 11
-  numCellsHeight: 10
+  numCellsWidth: 300
+  numCellsHeight: 300
   startingRoomPrefab: {fileID: 8452098039410964737, guid: cb706a2c123143b43819176002d059df, type: 3}
-  xIndex: 5
-  zIndex: 0
+  xIndex: 100
+  zIndex: 100
   roomPrefabs:
   - {fileID: 8452098039410964737, guid: 3c1f5860e13bf264b9dd9af330b3929a, type: 3}
   - {fileID: 8452098039410964737, guid: f8e972f2cba6fd2449d4f7693fd1313e, type: 3}
@@ -349,7 +349,7 @@ MonoBehaviour:
   - {fileID: 8452098039410964737, guid: 6978ad90d6a99c645b88a2fbac292396, type: 3}
   - {fileID: 8452098039410964737, guid: c61d6fe85bfa48d4282b081e34696850, type: 3}
   - {fileID: 8452098039410964737, guid: 9f6397dc7b86a8144acd4e71bc689979, type: 3}
-  numRoomsToSpawn: 10
+  numRoomsToSpawn: 1000
   doorLayerMask:
     serializedVersion: 2
     m_Bits: 64
