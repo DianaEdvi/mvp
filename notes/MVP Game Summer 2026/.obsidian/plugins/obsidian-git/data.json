@@ -3,7 +3,7 @@
   "autoCommitMessage": "{{date}} (see below), {{hostname}} (see below) {{numFiles}} (number of files changed) {{files}} (changed files)",
   "commitMessageScript": "",
   "commitDateFormat": "YYYY-MM-DD HH:mm:ss",
-  "autoSaveInterval": 0,
+  "autoSaveInterval": 800000,
   "autoPushInterval": 0,
   "autoPullInterval": 0,
   "autoPullOnBoot": false,
