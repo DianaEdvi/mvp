@@ -166,50 +166,6 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!1 &866312019 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 7033064926252480159, guid: 7c75230ca7df25049ad50327866b5685, type: 3}
-  m_PrefabInstance: {fileID: 894828128}
-  m_PrefabAsset: {fileID: 0}
---- !u!114 &866312021
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 866312019}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: dbe43d662878a7c43bcd44d43c9e2094, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Unity.Cinemachine::Unity.Cinemachine.CinemachineDeoccluder
-  CollideAgainst:
-    serializedVersion: 2
-    m_Bits: 127
-  IgnoreTag: 
-  TransparentLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  MinimumDistanceFromTarget: 0.3
-  AvoidObstacles:
-    Enabled: 1
-    DistanceLimit: 0
-    MinimumOcclusionTime: 0
-    CameraRadius: 0.6
-    UseFollowTarget:
-      Enabled: 0
-      YOffset: 0
-    Strategy: 0
-    MaximumEffort: 4
-    SmoothingTime: 0
-    Damping: 0.4
-    DampingWhenOccluded: 0.1
-  ShotQualityEvaluation:
-    Enabled: 0
-    OptimalDistance: 10
-    NearLimit: 5
-    FarLimit: 30
-    MaxQualityBoost: 0.2
 --- !u!1001 &894828128
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -339,12 +295,11 @@ PrefabInstance:
       value: 7
       objectReference: {fileID: 0}
     m_RemovedComponents: []
-    m_RemovedGameObjects: []
+    m_RemovedGameObjects:
+    - {fileID: 7033064926252480159, guid: 7c75230ca7df25049ad50327866b5685, type: 3}
+    - {fileID: 5687302700685251833, guid: 7c75230ca7df25049ad50327866b5685, type: 3}
     m_AddedGameObjects: []
-    m_AddedComponents:
-    - targetCorrespondingSourceObject: {fileID: 7033064926252480159, guid: 7c75230ca7df25049ad50327866b5685, type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 866312021}
+    m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 7c75230ca7df25049ad50327866b5685, type: 3}
 --- !u!1 &1318698261
 GameObject:
@@ -483,6 +438,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1761261380}
   - component: {fileID: 1761261379}
+  - component: {fileID: 1761261381}
   m_Layer: 0
   m_Name: Rooms
   m_TagString: Untagged
@@ -504,7 +460,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::RoomSpawner
   numCellsWidth: 21
   numCellsHeight: 20
-  startingRoomPrefab: {fileID: 8452098039410964737, guid: cb706a2c123143b43819176002d059df, type: 3}
+  startingRoomPrefab: {fileID: 8452098039410964737, guid: 3c1f5860e13bf264b9dd9af330b3929a, type: 3}
   xIndex: 5
   zIndex: 0
   roomPrefabs:
@@ -529,7 +485,7 @@ MonoBehaviour:
   - {fileID: 7230117717002740873, guid: 6978ad90d6a99c645b88a2fbac292396, type: 3}
   - {fileID: 6701514058861893137, guid: c61d6fe85bfa48d4282b081e34696850, type: 3}
   - {fileID: 8452098039410964737, guid: 9f6397dc7b86a8144acd4e71bc689979, type: 3}
-  numRoomsToSpawn: 30
+  numRoomsToSpawn: 5
   doorLayerMask:
     serializedVersion: 2
     m_Bits: 64
@@ -549,6 +505,20 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1761261381
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1761261378}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 884f1be71f5f46a4c9bf2f8fba53281f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: '::'
+  roomCamera: {fileID: 0}
+  activePriority: 20
 --- !u!1 &1971207967
 GameObject:
   m_ObjectHideFlags: 0
@@ -610,7 +580,7 @@ Camera:
     height: 1
   near clip plane: 0.3
   far clip plane: 1000
-  field of view: 60.000004
+  field of view: 65
   orthographic: 0
   orthographic size: 5
   m_Depth: -1
@@ -636,8 +606,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1971207967}
   serializedVersion: 2
-  m_LocalRotation: {x: 0.1647929, y: 0.000000014697437, z: -0.0000000024556057, w: 0.9863282}
-  m_LocalPosition: {x: 55, y: 4.25, z: 2}
+  m_LocalRotation: {x: 0.35724676, y: -0.3118838, z: 0.12791282, w: 0.8710578}
+  m_LocalPosition: {x: 195.95316, y: 15, z: 67.582405}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []

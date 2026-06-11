@@ -6,6 +6,7 @@ public class Room : MonoBehaviour
     public float cellSize = 10f;
     public Transform origin;
     [SerializeField] private Transform[] cellTransforms;
+    [SerializeField] private Transform cameraTransform;
     private Vector2Int[] relativeCoordinatesToOrigin;
 
     [Tooltip("The door sockets in the room where new rooms can be attached.")]
