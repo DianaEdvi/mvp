@@ -15,7 +15,8 @@ public class Player : MonoBehaviour
     [Header("References")]
     [SerializeField] private InputActionAsset inputActions;
     [SerializeField] private CharacterController characterController;
-    [SerializeField] private Transform playerCamera;
+    [SerializeField] private Transform playerCameraLocal;
+    [SerializeField] private Transform roomCameraTransform;
     
     [Header("Movement and Rotation")]
 
@@ -55,34 +56,46 @@ public class Player : MonoBehaviour
     {
         moveInput = moveAction.ReadValue<Vector2>();    
         MoveAndRotate();
-        Jump();   
+        // Jump();   
     }
-
     private void MoveAndRotate()
     {
         // Convert the 2D input into a 3D movement direction
         Vector3 moveDirection = new Vector3(moveInput.x, 0, moveInput.y).normalized;
 
-        // Calculate vertical movement separately to apply gravity and jumping
-        Vector3 verticalMove = new Vector3(0, verticalVelocity, 0) * Time.deltaTime;
+        // 2. Calculate vertical movement separately to apply gravity and jumping
+        Vector3 verticalMove = new Vector3(0, verticalVelocity, 0) * Time.deltaTime; // TODO GET RID OF
 
-        // Only rotate and move the player if there's some input
+        // Only rotate and move the player if there's horizontal input
         if (moveDirection.magnitude >= 0.1f)
         {
-            // Calculate the angle the player should face based on the input and camera orientation
-            float targetAngle = Mathf.Atan2(moveDirection.x, moveDirection.z) * Mathf.Rad2Deg + playerCamera.eulerAngles.y;
-            // Smoothly rotate the player towards the target angle
+            // CHANGE OF BASIS
+            // Get the camera's directional basis vectors
+            Vector3 camForward = roomCameraTransform.forward;
+            Vector3 camRight = roomCameraTransform.right;
+
+            // Project them onto the horizontal plane (ignore camera tilt up/down)
+            camForward.y = 0;
+            camRight.y = 0;
+            camForward.Normalize(); // Fix the shrinking of the vectors
+            camRight.Normalize();
+
+            // Calculate final movement direction relative to the Room Camera
+            Vector3 finalMoveDir = (camForward * moveDirection.z) + (camRight * moveDirection.x); // Linear combination 
+            finalMoveDir.Normalize();
+
+            // ROTATION
+            // Face the direction of movement
+            float targetAngle = Mathf.Atan2(finalMoveDir.x, finalMoveDir.z) * Mathf.Rad2Deg;
             float smoothTargetAngle = Mathf.SmoothDampAngle(transform.eulerAngles.y, targetAngle, ref turnSmoothVelocity, rotateDampening);
-            // Apply the rotation to the player
             transform.rotation = Quaternion.Euler(0, smoothTargetAngle, 0);
-            // Move the player in the direction they're facing
-            Vector3 moveDir = Quaternion.Euler(0, targetAngle, 0) * Vector3.forward;
+
+            // MOVEMENT
             // Move the player by combining horizontal movement and vertical movement
-            characterController.Move(moveDir.normalized * moveSpeed * Time.deltaTime + verticalMove);
+            characterController.Move(finalMoveDir * moveSpeed * Time.deltaTime + verticalMove); // TODO get rid of vertical
         }
         else
         {
-            // If there's no horizontal input, just apply vertical movement (gravity/jumping)
             characterController.Move(verticalMove);
         }
     }
