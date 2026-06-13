@@ -3,7 +3,7 @@ Week of May 18 - May 24
 
 # Mia 
 
-- dialogue, summary, book relation/symbol, fix prospero, the messmerist, re-touch story
+- dialogue, book relation/symbol, fix prospero, the messmerist,
 - annabel lee
 - the raven and the man
 

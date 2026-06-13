@@ -4,6 +4,8 @@
 TagManager:
   serializedVersion: 3
   tags:
+  - Enemy
+  - EnemyHolder
   - Cell
   - Room
   - Door
@@ -15,7 +17,7 @@ TagManager:
   - Water
   - UI
   - Door
-  - 
+  - Player
   - 
   - 
   - 
