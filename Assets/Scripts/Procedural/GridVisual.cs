@@ -14,7 +14,7 @@ public class GridVisual : MonoBehaviour
     void Start()
     {
         cellSize = cellPrefab.GetComponentInChildren<Renderer>().bounds.size.x;
-        Debug.Log($"Actual cell size in unity units: {cellSize}");
+        // Debug.Log($"Actual cell size in unity units: {cellSize}");
 
         if (RoomSpawner.Instance == null)
         {

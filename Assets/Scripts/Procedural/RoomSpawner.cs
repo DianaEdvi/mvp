@@ -44,7 +44,7 @@ public class RoomSpawner : MonoBehaviour
         else Instance = this;
 
         actualCellSize = startingRoomPrefab.cellSize;
-        Debug.unityLogger.logEnabled = false;
+        // Debug.unityLogger.logEnabled = false;
     }
 
     void Start()
