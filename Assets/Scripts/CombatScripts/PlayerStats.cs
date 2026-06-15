@@ -6,6 +6,18 @@ public class PlayerStats : MonoBehaviour
 
     private int actionPoints = 3;
 
+    private void OnEnable()
+    {
+        EventHolder.OnPlayerTurnStart += ResetActionPoints;
+        EventHolder.OnPlayerTakeDamage += RemoveHealth;
+    }
+
+    private void OnDisable()
+    {
+        EventHolder.OnPlayerTurnStart -= ResetActionPoints;
+        EventHolder.OnPlayerTakeDamage -= RemoveHealth;
+    }
+
     public void AddHealth(int h) {
 
         health += h;

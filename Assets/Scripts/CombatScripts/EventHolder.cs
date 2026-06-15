@@ -18,4 +18,10 @@ public class EventHolder : MonoBehaviour
     public static UnityAction<GameObject> OnEnemyDeath;
 
     public static UnityAction OnPlayerDeath;
+
+    public static UnityAction OnPlayerTurnStart;
+
+    public static UnityAction OnEnemyTurnStart;
+
+    public static UnityAction<int> OnPlayerTakeDamage;
 }
