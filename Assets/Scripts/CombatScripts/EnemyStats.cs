@@ -4,7 +4,7 @@ public class EnemyStats : MonoBehaviour
 {
     private int health = 10;
 
-    //private int damage = 5;
+    private int damage = 2;
 
     [SerializeField] private EnemyUI enemyUI;
 
@@ -21,5 +21,11 @@ public class EnemyStats : MonoBehaviour
             Destroy(gameObject);
 
         }
+    }
+
+    public int GetEnemyDamage() {
+
+        return damage;
+
     }
 }
