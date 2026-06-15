@@ -14,5 +14,17 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/CombatPrototype.unity
     guid: 9787bc7083b972d4a8af81be7de23823
+  - enabled: 1
+    path: Assets/Scenes/Game/Menu.unity
+    guid: 8bdd27b8c6dd7ba4b989a7ac3be3e27a
+  - enabled: 1
+    path: Assets/Scenes/Game/Game.unity
+    guid: de1e39916973fc4488d32f1976425a25
+  - enabled: 1
+    path: Assets/Scenes/Game/Credits.unity
+    guid: c170011e4c1daee4dabde882d3ad316e
+  - enabled: 1
+    path: Assets/Scenes/Game/Settings.unity
+    guid: 892de86b8ad861742bf7bf575324fb93
   m_configObjects:
     com.unity.input.settings.actions: {fileID: -944628639613478452, guid: 052faaac586de48259a63d0c4782560b, type: 3}

@@ -43,3 +43,6 @@ Mia: Murders of the red morgue
 Diana:
 Jacket: Masque of the red death,
 
+
+
+in [[Official Story]], lines pulled from "Annabel Lee" and "Eulalie"
