@@ -13,6 +13,8 @@ public class CombatMenuNav : MonoBehaviour
     //add variable for target handling script, enable in relevant methods
     [SerializeField] private CombatTargeting combatTargetingScript;
 
+    [SerializeField] private PlayerStats playerStats;
+
     private void OnEnable()
     {
         EventHolder.OnEnableMenu += EnableMenu;
@@ -36,24 +38,40 @@ public class CombatMenuNav : MonoBehaviour
 
     public void AttackSelect() {
 
-        combatMenu.SetActive(false);
-        attackToolTip.SetActive(true);
+        if (playerStats.GetActionPoints() > 0)
+        {
+            combatMenu.SetActive(false);
+            attackToolTip.SetActive(true);
 
-        //enable targeting in target script
-        combatTargetingScript.StartTargeting(targetingType.SingleEnemy);
+            //enable targeting in target script
+            combatTargetingScript.StartTargeting(targetingType.SingleEnemy);
+        }
+        else {
+
+            Debug.Log("No more action points!");
+
+        }
     }
 
     public void BlockSelect()
     {
-        combatMenu.SetActive(false);
-        blockToolTip.SetActive(true);
+        if (playerStats.GetActionPoints() > 0)
+        {
+            combatMenu.SetActive(false);
+            blockToolTip.SetActive(true);
 
-        //enable targeting in target script
-        combatTargetingScript.StartTargeting(targetingType.Self);
+            //enable targeting in target script
+            combatTargetingScript.StartTargeting(targetingType.Self);
+        }
+        else {
+            Debug.Log("No more action points!");
+        }
     }
 
     public void SkillSelect() { 
         
+        //implement player skills list then can use this
+
     }
 
     public void BackSelect() {

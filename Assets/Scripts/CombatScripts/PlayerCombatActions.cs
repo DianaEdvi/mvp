@@ -3,6 +3,9 @@ using System.Collections;
 
 public class PlayerCombatActions : MonoBehaviour
 {
+    [SerializeField] private PlayerUI playerUI;
+    [SerializeField] private PlayerStats playerStats;
+
     private string ACResult;
 
     private int damage = 2;
@@ -22,6 +25,9 @@ public class PlayerCombatActions : MonoBehaviour
     private void StartAttackAction(GameObject t) {
         ACResult = null;
         StartCoroutine(AttackAction(t));
+
+        playerUI.RemoveActionPoint();
+        playerStats.RemoveActionPoint();
     }
 
     private IEnumerator AttackAction(GameObject t) {

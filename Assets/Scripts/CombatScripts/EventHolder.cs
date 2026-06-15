@@ -16,4 +16,6 @@ public class EventHolder : MonoBehaviour
     public static UnityAction OnEnableMenu;
 
     public static UnityAction<GameObject> OnEnemyDeath;
+
+    public static UnityAction OnPlayerDeath;
 }
