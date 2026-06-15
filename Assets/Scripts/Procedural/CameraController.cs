@@ -1,5 +1,7 @@
 using UnityEngine;
 using Unity.Cinemachine;
+using UnityEngine.InputSystem;
+using UnityEngine.SceneManagement;
 
 public class CameraController : MonoBehaviour
 {
@@ -36,12 +38,17 @@ public class CameraController : MonoBehaviour
             // Check if the player is withing the bounds of the room and set the camera to it if yes 
             if (roomCollider.bounds.Contains(player.transform.position))
             {
+                 Debug.Log("Room does not contain player");
                 roomCamera.Priority.Value = activePriority;
                 if (Camera.main != null)
                 {
+                    Debug.Log("Main camera not found");
                     Camera.main.transform.SetPositionAndRotation(roomCamera.transform.position, roomCamera.transform.rotation);
                 }
             }
+        }
+        else {
+             Debug.Log("Player is null");
         }
     }
 
@@ -60,6 +67,17 @@ public class CameraController : MonoBehaviour
         {
             // Revert to default priority
             roomCamera.Priority.Value = defaultPriority;
+        }
+    }
+
+    private void OnTriggerStay(Collider other)
+    {
+        if (other.CompareTag("Player") && roomCamera != null)
+        {
+           if (Keyboard.current != null && Keyboard.current.spaceKey.wasPressedThisFrame)
+            {
+                SceneManager.LoadScene("CombatPrototype");
+            }
         }
     }
 }
