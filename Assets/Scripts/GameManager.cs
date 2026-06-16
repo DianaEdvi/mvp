@@ -12,7 +12,7 @@ public class GameManager : MonoBehaviour
 
     public float Cellsize => cellSize; // CHANGE?
 
-    private Vector3 playerPosition;
+    private Vector3 playerPosition = new Vector3(55, 2, 5); // CHANGE
 
 
     void Awake()

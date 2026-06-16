@@ -38,17 +38,12 @@ public class CameraController : MonoBehaviour
             // Check if the player is withing the bounds of the room and set the camera to it if yes 
             if (roomCollider.bounds.Contains(player.transform.position))
             {
-                 Debug.Log("Room does not contain player");
                 roomCamera.Priority.Value = activePriority;
                 if (Camera.main != null)
                 {
-                    Debug.Log("Main camera not found");
                     Camera.main.transform.SetPositionAndRotation(roomCamera.transform.position, roomCamera.transform.rotation);
                 }
             }
-        }
-        else {
-             Debug.Log("Player is null");
         }
     }
 
