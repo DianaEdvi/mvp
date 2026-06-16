@@ -1,8 +1,10 @@
 using UnityEngine;
 using UnityEngine.InputSystem;
+using System.Collections.Generic;
 
 public class Player : MonoBehaviour
 {
+    public static Player Instance {get; private set;}
     [Header("Input Setup")]
     public InputActionReference moveAction;
 
@@ -17,12 +19,19 @@ public class Player : MonoBehaviour
     private Transform mainCameraTransform;
     private CharacterController characterController;
 
+    void Awake()
+    {
+         // Singleton
+        if (Instance != null && Instance != this) Destroy(this.gameObject);
+        else Instance = this;       
+        characterController = GetComponent<CharacterController>();
+    }
+
     private void Start()
     {
         if (Camera.main != null) mainCameraTransform = Camera.main.transform;
         else Debug.LogError("No main camera found! Does main camera have MainCamera tag?");
 
-        characterController = GetComponent<CharacterController>();
     }
 
     private void OnEnable()
@@ -82,5 +91,16 @@ public class Player : MonoBehaviour
             Quaternion targetRotation = Quaternion.LookRotation(horizontalMoveDirection);
             transform.rotation = Quaternion.Slerp(transform.rotation, targetRotation, rotationSpeed * Time.deltaTime);
         }
+    }
+
+    public void TeleportPlayer(Vector3 newPosition)
+    {
+        if (characterController != null) characterController.enabled = false;
+
+        transform.position = newPosition;
+
+        if (characterController != null) characterController.enabled = true;
+
+        verticalVelocity = -2f;
     }
 }
