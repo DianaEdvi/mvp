@@ -69,15 +69,4 @@ public class CameraController : MonoBehaviour
             roomCamera.Priority.Value = defaultPriority;
         }
     }
-
-    private void OnTriggerStay(Collider other)
-    {
-        if (other.CompareTag("Player") && roomCamera != null)
-        {
-           if (Keyboard.current != null && Keyboard.current.spaceKey.wasPressedThisFrame)
-            {
-                SceneManager.LoadScene("CombatPrototype");
-            }
-        }
-    }
 }

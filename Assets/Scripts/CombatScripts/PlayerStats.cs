@@ -1,4 +1,5 @@
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class PlayerStats : MonoBehaviour
 {
@@ -33,6 +34,7 @@ public class PlayerStats : MonoBehaviour
 
             //EventHolder.OnPlayerDeath?.Invoke();
             Debug.Log("Player Died");
+            SceneManager.LoadScene("Game"); // Temp
 
         }
     }
