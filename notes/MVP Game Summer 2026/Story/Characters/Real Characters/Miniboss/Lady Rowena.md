@@ -1,3 +1,4 @@
+Obessive 
 
 obsessed with becoming lenore, the perfcet wife of [[The Raven and The Man]], trying to kill you to rid her competition
 

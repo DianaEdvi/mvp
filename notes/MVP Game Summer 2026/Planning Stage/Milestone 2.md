@@ -25,12 +25,15 @@ Future discussions:
 - Implemnt portraits
 - Item descriptions
 - Actual dialogue
+- NO CHARCTER PORTAITS 
 
 # Combat (Aleck)
 - Different skills
 - Clarity
 - Enemy AI
 - Weapons
+- how do we make this feel fast paced 
+- each miniboss introduces a new mechanic, TRATM combines all three (well balanced)
 
 # Art
 - The Raven and the Man
@@ -51,6 +54,23 @@ Future discussions:
 - Character portraits
 - Weapon(s)
 - Attack VFX (ONE VFX)
+
+## Mia
+- Knave enemies
+- TRATM 
+- Ligeia
+- Fortunado
+
+## Saya
+- Predacious enemies 
+- Lady Rowena  
+- The Mesmerist 
+
+## Jacket
+- Obsessive enemies 
+- TRATM
+- The Messmerist 
+- Prospero
 
 #Audio
 - GAME READY tracks. Things we can pop into different places, ready to go. 
