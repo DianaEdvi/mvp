@@ -72,9 +72,35 @@ Future discussions:
 - The Messmerist 
 - Prospero
 
-#Audio
-- GAME READY tracks. Things we can pop into different places, ready to go. 
+# Audio
+- GAME READY tracks (7 total). Things we can pop into different places, ready to go.
+-  Jingles? or Stingers (finding a secret, treasure, etc)  
 - Combat
-- Overworld
+  - 3 tracks: One for mobs, one for miniboss, one for TRATM 
+- Overworld (more focus on sfx)
+  - 1-2 ambient 
 - Menus
-- Sound effects (tbd)
+  - 1-2 ambient 
+- Sound effects
+  - Overworld
+    - Walking
+    - Door opening
+    - Finding item (chest, ?)
+    - Wind? Creaky noises?
+    - Bird caws in the distance?
+  - UI
+    - Button select/hover
+    - Sliders? Toggles?
+    - Wooshes 
+  - Combat
+    - Attack
+    - Block
+    - Use skill
+    - Use action point  
+    - Losing health
+    - Doing damage
+    - Player dying
+    - Combat succeeded/lost
+    - Etc
+  - Boss vocals?
+    - Boss noises (you get it)
