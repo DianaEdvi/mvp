@@ -1070,6 +1070,22 @@ PrefabInstance:
       propertyPath: m_Name
       value: ActionCommandCanvas
       objectReference: {fileID: 0}
+    - target: {fileID: 7155766669343778445, guid: e65b1835db8a8e243b5a932e87fa2de6, type: 3}
+      propertyPath: m_UiScaleMode
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7155766669343778445, guid: e65b1835db8a8e243b5a932e87fa2de6, type: 3}
+      propertyPath: m_MatchWidthOrHeight
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 7155766669343778445, guid: e65b1835db8a8e243b5a932e87fa2de6, type: 3}
+      propertyPath: m_ReferenceResolution.x
+      value: 1920
+      objectReference: {fileID: 0}
+    - target: {fileID: 7155766669343778445, guid: e65b1835db8a8e243b5a932e87fa2de6, type: 3}
+      propertyPath: m_ReferenceResolution.y
+      value: 1080
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -1202,6 +1218,22 @@ PrefabInstance:
     - target: {fileID: 4577753983787506252, guid: f14a691ef5c0617459081900c66a0a3c, type: 3}
       propertyPath: m_Name
       value: OverlayUICanvas
+      objectReference: {fileID: 0}
+    - target: {fileID: 5501841845795300800, guid: f14a691ef5c0617459081900c66a0a3c, type: 3}
+      propertyPath: m_UiScaleMode
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5501841845795300800, guid: f14a691ef5c0617459081900c66a0a3c, type: 3}
+      propertyPath: m_MatchWidthOrHeight
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 5501841845795300800, guid: f14a691ef5c0617459081900c66a0a3c, type: 3}
+      propertyPath: m_ReferenceResolution.x
+      value: 1920
+      objectReference: {fileID: 0}
+    - target: {fileID: 5501841845795300800, guid: f14a691ef5c0617459081900c66a0a3c, type: 3}
+      propertyPath: m_ReferenceResolution.y
+      value: 1080
       objectReference: {fileID: 0}
     - target: {fileID: 6003374309702545404, guid: f14a691ef5c0617459081900c66a0a3c, type: 3}
       propertyPath: m_Camera
@@ -1416,6 +1448,10 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1171717908128473765, guid: afe5d2b9ac4ddb64d8e58db02319b2ec, type: 3}
       propertyPath: m_AnchoredPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2908607114741300189, guid: afe5d2b9ac4ddb64d8e58db02319b2ec, type: 3}
+      propertyPath: m_IsActive
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 3642141517475218465, guid: afe5d2b9ac4ddb64d8e58db02319b2ec, type: 3}
