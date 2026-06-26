@@ -24,4 +24,6 @@ public class EventHolder : MonoBehaviour
     public static UnityAction OnEnemyTurnStart;
 
     public static UnityAction<int> OnPlayerTakeDamage;
+
+    public static UnityAction OnBreakBlock;
 }

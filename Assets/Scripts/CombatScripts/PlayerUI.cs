@@ -1,5 +1,6 @@
 using UnityEngine;
 using UnityEngine.UI;
+using TMPro;
 
 public class PlayerUI : MonoBehaviour
 {
@@ -8,6 +9,12 @@ public class PlayerUI : MonoBehaviour
     [SerializeField] private Image[] actionPointsUI;
 
     [SerializeField] private Slider healthSlider;
+
+    [SerializeField] private TextMeshProUGUI healthText;
+
+    [SerializeField] private GameObject blockIndicator;
+
+    [SerializeField] private TextMeshProUGUI blockText;
 
     private Color filledColor = new Color(0.8584906f, 0.8578606f, 0.1822268f);
     private Color emptyColor = new Color(0.3f, 0.3f, 0.3f);
@@ -26,13 +33,14 @@ public class PlayerUI : MonoBehaviour
 
     private void removeHealth(int h) {
         healthSlider.value -= h;
+        healthText.text = healthSlider.value +"/10";
     }
 
     private void addHealth(int h)
     {
         healthSlider.value += h;
+        healthText.text = healthSlider.value + "/10";
     }
-
 
     public void RefillActionPoints() {
 

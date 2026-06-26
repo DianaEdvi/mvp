@@ -3,6 +3,8 @@ using UnityEngine.SceneManagement;
 
 public class PlayerStats : MonoBehaviour
 {
+    private int currentBlock = 0;
+
     private int health = 10;
 
     private int actionPoints = 3;
@@ -35,6 +37,25 @@ public class PlayerStats : MonoBehaviour
             //EventHolder.OnPlayerDeath?.Invoke();
             Debug.Log("Player Died");
             SceneManager.LoadScene("Game"); // Temp
+
+        }
+    }
+
+    public void AddBlock(int b) {
+
+        currentBlock += b;
+
+    }
+
+    public void RemoveBlock(int b) {
+        
+        //subtract but make sure we can't go below zero
+        currentBlock -= b;
+        currentBlock = Mathf.Clamp(currentBlock, 0, 1000000);
+
+        if (currentBlock <= 0) {
+
+            EventHolder.OnBreakBlock?.Invoke();
 
         }
     }
