@@ -44,7 +44,7 @@ public class CombatMenuNav : MonoBehaviour
             attackToolTip.SetActive(true);
 
             //enable targeting in target script
-            combatTargetingScript.StartTargeting(targetingType.SingleEnemy);
+            combatTargetingScript.StartTargeting(TargetingType.SingleEnemy);
         }
         else {
 
@@ -61,7 +61,7 @@ public class CombatMenuNav : MonoBehaviour
             blockToolTip.SetActive(true);
 
             //enable targeting in target script
-            combatTargetingScript.StartTargeting(targetingType.Self);
+            combatTargetingScript.StartTargeting(TargetingType.Self);
         }
         else {
             Debug.Log("No more action points!");

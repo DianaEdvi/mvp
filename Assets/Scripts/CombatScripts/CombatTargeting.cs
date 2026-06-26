@@ -2,7 +2,7 @@ using UnityEngine;
 using System.Collections.Generic;
 using UnityEngine.InputSystem;
 
-public enum targetingType {Self, SingleEnemy, AllEnemy}
+public enum TargetingType {None, Self, SingleEnemy, AllEnemy}
 
 public class CombatTargeting : MonoBehaviour
 {
@@ -12,7 +12,7 @@ public class CombatTargeting : MonoBehaviour
     private List<GameObject> Enemies = new List<GameObject>();
     private GameObject currentTarget;
 
-    private bool targetSwapping = false;
+    private TargetingType targetingType = TargetingType.None;
 
     private void Start()
     {
@@ -28,7 +28,7 @@ public class CombatTargeting : MonoBehaviour
 
     private void Update()
     {
-        if (targetSwapping && Keyboard.current != null) {
+        if (targetingType == TargetingType.SingleEnemy && Keyboard.current != null) {
 
             if (Keyboard.current.leftArrowKey.wasPressedThisFrame && currentTarget != Enemies[0]) {
 
@@ -53,11 +53,25 @@ public class CombatTargeting : MonoBehaviour
 
             }
 
-            if (Keyboard.current.enterKey.wasPressedThisFrame) {
+            if (Keyboard.current.spaceKey.wasPressedThisFrame) {
+
+                //only able to attack with single enemy targeting right now? Need a variable for what the player is targeting WITH
+                //Add that when skills are implemented
 
                 EventHolder.OnPlayerAttack?.Invoke(currentTarget);
 
             }
+        }
+
+        if (targetingType == TargetingType.Self && Keyboard.current != null) {
+
+            if (Keyboard.current.spaceKey.wasPressedThisFrame)
+            {
+
+                EventHolder.OnPlayerBlock?.Invoke();
+
+            }
+
         }
     }
 
@@ -71,26 +85,27 @@ public class CombatTargeting : MonoBehaviour
         EventHolder.OnEnemyDeath -= RemoveEnemy;
     }
 
-    public void StartTargeting(targetingType t) {
+    public void StartTargeting(TargetingType t) {
+
+        targetingType = t;
 
         switch (t) {
 
-            case targetingType.Self:
+            case TargetingType.Self:
 
                 Player.GetComponent<PlayerUI>().SetTargetArrow(true);
                 currentTarget = Player;
 
                 break;
 
-            case targetingType.SingleEnemy:
+            case TargetingType.SingleEnemy:
 
                 Enemies[0].GetComponent<EnemyUI>().SetTargetArrow(true);
                 currentTarget = Enemies[0];
-                targetSwapping = true;
 
                 break;
 
-            case targetingType.AllEnemy:
+            case TargetingType.AllEnemy:
 
                 //find out in a sec
 
@@ -109,8 +124,9 @@ public class CombatTargeting : MonoBehaviour
 
         Player.GetComponent<PlayerUI>().SetTargetArrow(false);
 
-        targetSwapping = false;
+        targetingType = TargetingType.None;
 
+        currentTarget = null;
     }
 
     private void RemoveEnemy(GameObject e) {

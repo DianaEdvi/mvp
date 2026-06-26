@@ -46,7 +46,10 @@ public class EnemyManager : MonoBehaviour
             EventHolder.OnPlayerTakeDamage?.Invoke(damage);
         }
 
-        //then go back to player's turn 
+        //then go back to player's turn after a small delay
+
+        yield return new WaitForSeconds(1.5f);
+
         EventHolder.OnPlayerTurnStart?.Invoke();
         EventHolder.OnEnableMenu?.Invoke();
     }

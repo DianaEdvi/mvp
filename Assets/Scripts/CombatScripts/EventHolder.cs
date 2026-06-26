@@ -25,5 +25,11 @@ public class EventHolder : MonoBehaviour
 
     public static UnityAction<int> OnPlayerTakeDamage;
 
-    public static UnityAction OnBreakBlock;
+    public static UnityAction<int> OnPlayerRemoveHealth;
+
+    public static UnityAction<int> OnPlayerGainBlock;
+
+    public static UnityAction OnDisableBlockUI;
+
+    public static UnityAction OnRemoveActionPoint;
 }
