@@ -4,26 +4,30 @@ using System.Collections.Generic;
 
 public class Player : MonoBehaviour
 {
-    public static Player Instance {get; private set;}
+    public static Player Instance { get; private set; }
     [Header("Input Setup")]
     public InputActionReference moveAction;
+    public InputActionReference interactAction;
 
     [Header("Movement Settings")]
     [SerializeField] private float moveSpeed = 8f;
     [SerializeField] private float rotationSpeed = 10f;
-    
+
     [Header("Gravity Settings")]
     [SerializeField] private float gravity = -9.81f;
     private float verticalVelocity;
+
+    [Header("Interaction Settings")]
+    [SerializeField] private float interactRange = 2f;
 
     private Transform mainCameraTransform;
     private CharacterController characterController;
 
     void Awake()
     {
-         // Singleton
+        // Singleton
         if (Instance != null && Instance != this) Destroy(this.gameObject);
-        else Instance = this;       
+        else Instance = this;
         characterController = GetComponent<CharacterController>();
     }
 
@@ -37,11 +41,25 @@ public class Player : MonoBehaviour
     private void OnEnable()
     {
         if (moveAction != null) moveAction.action.Enable();
+
+        if (interactAction != null)
+        {
+            interactAction.action.Enable();
+            // Subscribe to the "performed" event (when the key is pressed)
+            interactAction.action.performed += OnInteractPressed;
+        }
     }
 
     private void OnDisable()
     {
         if (moveAction != null) moveAction.action.Disable();
+
+        if (interactAction != null)
+        {
+            interactAction.action.Disable();
+            // Unsubscribe to prevent memory leaks
+            interactAction.action.performed -= OnInteractPressed;
+        }
     }
 
     private void Update()
@@ -56,7 +74,7 @@ public class Player : MonoBehaviour
         // Gravity. Make sure player is grounded
         if (characterController.isGrounded && verticalVelocity < 0)
         {
-            verticalVelocity = -2f; 
+            verticalVelocity = -2f;
         }
 
         // Acceleration
@@ -102,5 +120,37 @@ public class Player : MonoBehaviour
         if (characterController != null) characterController.enabled = true;
 
         verticalVelocity = -2f;
+    }
+
+    private void OnInteractPressed(InputAction.CallbackContext context)
+    {
+        Debug.Log("The E button was successfully pressed!");
+        // Create an invisible sphere around the player to find objects
+        Collider[] hitColliders = Physics.OverlapSphere(transform.position, interactRange);
+
+        foreach (Collider hitCollider in hitColliders)
+        {
+            Debug.Log("Colliding");
+            // Check if the thing we found is interactible
+            IInteractible interactible = hitCollider.GetComponent<IInteractible>();
+
+            if (interactible != null)
+            {
+                // Trigger and stop searching
+                interactible.Interact();
+                break;
+            }
+        }
+    }
+
+    // This is a built-in Unity method that draws helpful shapes in the Scene view
+    private void OnDrawGizmosSelected()
+    {
+        // 1. Choose a color for the sphere outline
+        Gizmos.color = Color.yellow;
+
+        // 2. Draw a wireframe sphere at the player's exact position, 
+        // using the exact same range variable your interaction uses!
+        Gizmos.DrawWireSphere(transform.position, interactRange);
     }
 }

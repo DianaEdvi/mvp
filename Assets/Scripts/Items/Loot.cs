@@ -2,6 +2,8 @@ using UnityEngine;
 
 public class Loot : MonoBehaviour, IInteractible
 {
+    public Material openMaterial; // TEMP 
+
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
@@ -17,6 +19,7 @@ public class Loot : MonoBehaviour, IInteractible
     public void Interact()
     {
         Debug.Log($"Interacted with {gameObject.name} loot");
+        gameObject.GetComponent<MeshRenderer>().material = openMaterial;
 
     }
 }
