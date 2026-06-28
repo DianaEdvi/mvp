@@ -19,7 +19,7 @@ public class Loot : MonoBehaviour, IInteractible
     public void Interact()
     {
         Debug.Log($"Interacted with {gameObject.name} loot");
-        gameObject.GetComponent<MeshRenderer>().material = openMaterial;
+        gameObject.GetComponent<SpriteRenderer>().material = openMaterial;
 
     }
 }

@@ -124,13 +124,11 @@ public class Player : MonoBehaviour
 
     private void OnInteractPressed(InputAction.CallbackContext context)
     {
-        Debug.Log("The E button was successfully pressed!");
         // Create an invisible sphere around the player to find objects
         Collider[] hitColliders = Physics.OverlapSphere(transform.position, interactRange);
 
         foreach (Collider hitCollider in hitColliders)
         {
-            Debug.Log("Colliding");
             // Check if the thing we found is interactible
             IInteractible interactible = hitCollider.GetComponent<IInteractible>();
 
@@ -146,11 +144,7 @@ public class Player : MonoBehaviour
     // This is a built-in Unity method that draws helpful shapes in the Scene view
     private void OnDrawGizmosSelected()
     {
-        // 1. Choose a color for the sphere outline
         Gizmos.color = Color.yellow;
-
-        // 2. Draw a wireframe sphere at the player's exact position, 
-        // using the exact same range variable your interaction uses!
         Gizmos.DrawWireSphere(transform.position, interactRange);
     }
 }
