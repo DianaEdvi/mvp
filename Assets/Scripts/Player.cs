@@ -1,17 +1,19 @@
 using UnityEngine;
 using UnityEngine.InputSystem;
 using System.Collections.Generic;
+using System;
 
 public class Player : MonoBehaviour
 {
-    public static Player Instance {get; private set;}
+    public static Player Instance { get; private set; }
     [Header("Input Setup")]
     public InputActionReference moveAction;
+    public InputActionReference inventoryAction;
 
     [Header("Movement Settings")]
     [SerializeField] private float moveSpeed = 8f;
     [SerializeField] private float rotationSpeed = 10f;
-    
+
     [Header("Gravity Settings")]
     [SerializeField] private float gravity = -9.81f;
     private float verticalVelocity;
@@ -19,11 +21,13 @@ public class Player : MonoBehaviour
     private Transform mainCameraTransform;
     private CharacterController characterController;
 
+    public Action OnInventoryActionPerformed;
+
     void Awake()
     {
-         // Singleton
+        // Singleton
         if (Instance != null && Instance != this) Destroy(this.gameObject);
-        else Instance = this;       
+        else Instance = this;
         characterController = GetComponent<CharacterController>();
     }
 
@@ -37,11 +41,18 @@ public class Player : MonoBehaviour
     private void OnEnable()
     {
         if (moveAction != null) moveAction.action.Enable();
+        if (inventoryAction != null)
+        {
+            inventoryAction.action.Enable();
+            inventoryAction.action.performed += ctx => OnInventoryOpened();
+        }
+
     }
 
     private void OnDisable()
     {
         if (moveAction != null) moveAction.action.Disable();
+        if (inventoryAction != null) inventoryAction.action.Disable();
     }
 
     private void Update()
@@ -56,7 +67,7 @@ public class Player : MonoBehaviour
         // Gravity. Make sure player is grounded
         if (characterController.isGrounded && verticalVelocity < 0)
         {
-            verticalVelocity = -2f; 
+            verticalVelocity = -2f;
         }
 
         // Acceleration
@@ -102,5 +113,11 @@ public class Player : MonoBehaviour
         if (characterController != null) characterController.enabled = true;
 
         verticalVelocity = -2f;
+    }
+
+    public void OnInventoryOpened()
+    {
+        Debug.Log($"Player position: {transform.position}");
+        OnInventoryActionPerformed?.Invoke();
     }
 }
