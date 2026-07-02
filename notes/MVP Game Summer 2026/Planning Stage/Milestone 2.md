@@ -1,13 +1,72 @@
-
-
 Future discussions: 
 - Cutcenes
-- Items
 - Art tasks
-- Audio
 
-- Question for Aleck
-  	- Golden bugs? 
+# Weapons
+- Rapier (base)
+- Scissors (Obsessive) = available after your first miniboss
+- Scythe (Predatious) = available after you beat the first boss (Prospero)
+- Throwing daggers (Knave) = available after you beat second boss (Mesmerist)
+
+# Item Shop (4 items)
+- Healing syringe (always)
+- Each other slot rolls for an 85% chance of common, 15% rare
+
+# Items  
+## Legendary :
+- Clock: Gives two extra action points for a turn 
+- Cask: Second life in fight, but get only half health 
+- Ring: Gives you more eyeballs when killing enemies
+
+## Rare:
+- Letter: Attack hits twice (one attack)
+- Morphine: Makes enemy Miss next attack
+- Lantern: clear status effects
+- Skull: Takes health in excahnge for damage this turn
+- Pendulum: Enemies do half damage this turn
+
+## Common
+- Heal x health (usable outside of combat)
+- Plague Vial: Applies poison damage to your weapon 
+- Galvanic Battery: Gives chance to stun when attacking
+- Razer: Increases damage to weapon
+- ???: Deal x damage to all enemies
+- ???: Gain x block this turn (more than you would have gained than if block)
+- ???: Gain eyeballs equal to damage blocked? taken?
+- ???: Apply x *weakness* to one enemy
+- ???: Apply x *vulnerable* to one enemy
+
+
+# Status Effects 
+- Weakness = deal less dmg
+- Vulnerable = take more dmg
+- Silenced = can't use skills
+- Shattered = can't block
+- Incapacitaed = can't attack
+- Fixation = deal damage = to fixation stacks every time enemy is hit by attack
+- Poisoned = deal damage = to number of poison stacks at end of player turn (lasts x turns)
+- Bleeding = deal set damage per turn (boolean)
+- Muddled = skills cost more clarity for this turn
+- Lucid = reduces cost of skills by amount of lucid 
+
+# Skills 
+## Obsessive
+- Apply x *fixation* to 1 enemy
+- Deal x damage to one target (x1)
+- Dealing damage to yourself for huge bonus next turn
+- Apply a negative status to yourself (vulnerable) for more damage
+- Every attack has a x% chance of causing bleeding on enemy  
+## Predatious
+- Deal x damage to all enemies 
+- Apply x *weakness* to one enemy
+- Apply x *vulnerable* to one enemy
+- Apply bleeding
+## Knave
+- Gain 1.5x more clarity after winning this fight (once per combat)
+- Deal x damage between y and z times (floor should be more than basic attack)
+- Apply poison
+- Apply x *lucid* to oneself (costs tiny bit)
+
 
  # Procedural Rooms (Diana) 
 - Procedural enemies that trigger appropriate
@@ -18,6 +77,18 @@ Future discussions:
 - Raven and the Man hallway (big, long, man at end) - priority
 - Prospero/Lady Rowena/Mesmirist unique room? Pallette or lighting is differnt? 
 - Item shop (what items?)
+
+# Room types
+- Shop
+- Take damage for clarity (sacrifice room)
+- General loot room
+- NPC quest room
+- Healing room
+- Trade random item for clarity
+- Baby mob room
+- Miniboss room
+- Boss rooms
+- Entrance hall with the pick 3
 
 # Dialogue 
 - Actual dialogue box and text generation

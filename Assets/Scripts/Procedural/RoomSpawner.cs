@@ -1,8 +1,9 @@
 using UnityEngine;
 using System.Collections.Generic;
+using UnityEngine.AI;
 
 public class RoomSpawner : MonoBehaviour
-{  
+{
     public static RoomSpawner Instance { get; private set; }
     private float actualCellSize;
 
@@ -11,14 +12,14 @@ public class RoomSpawner : MonoBehaviour
     [SerializeField] private int numCellsHeight = 10;
 
     [Header("Start Spawn Settings")]
-    [SerializeField] private Room startingRoomPrefab; 
+    [SerializeField] private Room startingRoomPrefab;
     [SerializeField] private int xIndex;
     [SerializeField] private int zIndex;
 
     [Header("Rooms Settings")]
     [SerializeField] private Room[] roomPrefabs;
     [SerializeField] private int numRoomsToSpawn = 5;
-    
+
     // Initialized inline to save space
     private List<Transform> availableDoors = new List<Transform>();
     public LayerMask doorLayerMask;
@@ -52,7 +53,7 @@ public class RoomSpawner : MonoBehaviour
     void Start()
     {
         occupiedGrid = new bool[numCellsWidth, numCellsHeight];
-        
+
         TrySpawnRoom(startingRoomPrefab, xIndex, zIndex);
         GenerateFullMap();
         TrimExtraDoors();
@@ -62,7 +63,7 @@ public class RoomSpawner : MonoBehaviour
     {
         Vector2Int[] relativeCoords = room.GetRelativeCoordinates(); // vector from origin to each cell in the room
         Vector2Int[] cellWorldGridCoordinates = new Vector2Int[relativeCoords.Length]; // grid coords for each cell in the room
-        
+
         // Find world grid coords for each cell 
         for (int i = 0; i < relativeCoords.Length; i++)
         {
@@ -77,9 +78,9 @@ public class RoomSpawner : MonoBehaviour
 
         Vector3 targetWorldPos = new Vector3(startX * actualCellSize, 0, startZ * actualCellSize); // World grid coords of origin 
         Vector3 prefabOffset = new Vector3(room.LocalOriginOffset.x * actualCellSize, 0, room.LocalOriginOffset.y * actualCellSize); // The offset of where the origin should be 
-        
+
         // Instantiate the room where the origin should be
-        Room newRoom = Instantiate(room, targetWorldPos - prefabOffset, Quaternion.identity, this.transform); 
+        Room newRoom = Instantiate(room, targetWorldPos - prefabOffset, Quaternion.identity, this.transform);
         newRoom.name = $"{room.name}_at_{startX}_{startZ}";
 
         // Mark its cells as occupied 
@@ -92,7 +93,7 @@ public class RoomSpawner : MonoBehaviour
         foreach (Transform door in newRoom.doorSockets)
         {
             if (!IsDoorFacingEdge(door))
-            availableDoors.Add(door);
+                availableDoors.Add(door);
         }
 
         return true;
@@ -101,13 +102,13 @@ public class RoomSpawner : MonoBehaviour
     private bool IsDoorFacingEdge(Transform door)
     {
         Vector2Int doorGrid = PositionToGrid(door.position); // Get the cell the door is in 
-        
+
         // Get the coordinates of the cell the door is leading to 
         int targetX = doorGrid.x + Mathf.RoundToInt(door.forward.x);
         int targetZ = doorGrid.y + Mathf.RoundToInt(door.forward.z);
 
         // Uses a cleaner single-coordinate bounds check instead of array allocation
-        return !IsWithinBounds(targetX, targetZ);        
+        return !IsWithinBounds(targetX, targetZ);
     }
 
     private bool IsWithinBounds(int x, int z)
@@ -117,7 +118,7 @@ public class RoomSpawner : MonoBehaviour
     }
 
     private bool AreCoordinatesWithinBounds(Vector2Int[] cellWorldCoordinates)
-    {   
+    {
         // Check if any coords of an array are out of bounds
         foreach (Vector2Int cell in cellWorldCoordinates)
         {
@@ -156,12 +157,12 @@ public class RoomSpawner : MonoBehaviour
                 if (newDoorToConnect == null) // No valid doors to connect to
                 {
                     untriedDoors.RemoveAt(randomUntriedIndex);
-                    continue; 
+                    continue;
                 }
 
                 Vector2Int doorGrid = PositionToGrid(doorToSpawnFrom.position); // The door to connect to's coords 
 
-                 // The coords of the cell it faces
+                // The coords of the cell it faces
                 int targetX = doorGrid.x + Mathf.RoundToInt(doorToSpawnFrom.forward.x);
                 int targetZ = doorGrid.y + Mathf.RoundToInt(doorToSpawnFrom.forward.z);
 
@@ -197,34 +198,75 @@ public class RoomSpawner : MonoBehaviour
             if (Mathf.RoundToInt(socket.forward.x) == Mathf.RoundToInt(requiredDirection.x) &&
                 Mathf.RoundToInt(socket.forward.z) == Mathf.RoundToInt(requiredDirection.z))
             {
-                return socket; 
+                return socket;
             }
         }
-        return null; 
+        return null;
     }
 
     private void TrimExtraDoors()
     {
-        // Find all doors in the game 
         GameObject[] doorObjects = GameObject.FindGameObjectsWithTag("Door");
-        float rayCastDistance = actualCellSize * 0.5f; // Length of the raycast 
+        float rayCastDistance = actualCellSize * 0.5f;
 
-        // For each door, send out the ray and see if it hits another door. If it does, then the two doors are connected 
+        List<Transform> validDoors = new List<Transform>();
+        List<Transform> invalidDoors = new List<Transform>();
+
+        // Perform all raycasts 
         foreach (GameObject doorObj in doorObjects)
         {
             Transform door = doorObj.transform;
             Vector3 rayCastDirection = new Vector3(Mathf.RoundToInt(door.forward.x), 0, Mathf.RoundToInt(door.forward.z));
             Vector3 rayCastOrigin = door.position + (rayCastDirection * 0.2f);
 
-            // If it didn't hit another door, disactivate it
-            if (!Physics.Raycast(rayCastOrigin, rayCastDirection, out RaycastHit hit, rayCastDistance, doorLayerMask) || !hit.collider.CompareTag("Door"))
+            // If we hit another door, it's a valid connection
+            if (Physics.Raycast(rayCastOrigin, rayCastDirection, out RaycastHit hit, rayCastDistance, doorLayerMask) && hit.collider.CompareTag("Door"))
             {
-                doorObj.SetActive(false);
+                validDoors.Add(door);
             }
+            else
+            {
+                // If we hit nothing, or a standard wall, it's invalid
+                invalidDoors.Add(door);
+            }
+        }
+
+        // Apply visuals
+        foreach (Transform door in validDoors)
+        {
+            SetDoorVisuals(door, isValid: true);
+        }
+
+        foreach (Transform door in invalidDoors)
+        {
+            SetDoorVisuals(door, isValid: false);
         }
     }
 
-// Populate prefabs automatically when you call this function in the inspector (right click on script in inspector)
+    // Activates appropriate wall
+    private void SetDoorVisuals(Transform door, bool isValid)
+    {
+        Transform parent = door.parent;
+
+        foreach (Transform child in parent)
+        {
+            if (child.CompareTag("DoorWall"))
+            {
+                // If valid, DoorWall is on
+                child.gameObject.SetActive(isValid);
+            }
+            else if (child.CompareTag("SolidWall"))
+            {
+                // If valid, SolidWall is off. If invalid, SolidWall is on
+                child.gameObject.SetActive(!isValid);
+            }
+        }
+
+        // Disable the door collider
+        door.gameObject.SetActive(false);
+    }
+
+    // Populate prefabs automatically when you call this function in the inspector (right click on script in inspector)
 #if UNITY_EDITOR
     [ContextMenu("Auto-Populate Room Prefabs")]
     private void AutoPopulateRoomPrefabs()

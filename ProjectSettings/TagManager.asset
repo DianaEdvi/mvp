@@ -9,6 +9,8 @@ TagManager:
   - Cell
   - Room
   - Door
+  - SolidWall
+  - DoorWall
   layers:
   - Default
   - TransparentFX
