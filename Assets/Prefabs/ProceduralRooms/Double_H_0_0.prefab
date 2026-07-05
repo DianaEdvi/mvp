@@ -55,6 +55,7 @@ MonoBehaviour:
   - {fileID: 4533205412826457123}
   - {fileID: 7177133649092212768}
   - {fileID: 4641864588051398301}
+  currentTags: 1
 --- !u!1 &1170799025375965327
 GameObject:
   m_ObjectHideFlags: 0
