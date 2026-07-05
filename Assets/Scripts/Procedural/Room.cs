@@ -3,21 +3,19 @@ using System.Collections.Generic;
 
 using System;
 
-[Flags]
 public enum RoomTags
 {
-    None = 0,
-    Start = 1 << 0,  // 1
-    Shop = 1 << 1,  // 2
-    Loot = 1 << 2,  // 4
-    Quest = 1 << 3,  // 8
-    Healing = 1 << 4,  // 16
-    Trade = 1 << 5,  // 32
-    Mob = 1 << 6,  // 64
-    MiniBoss = 1 << 7,  // 128
-    Boss = 1 << 8,  // 256
-    Sacrifice = 1 << 9,  // 512
-    Secret = 1 << 10  // 1024
+    None,
+    Shop,
+    Loot,
+    Quest,
+    Healing,
+    Trade,
+    Mob,
+    MiniBoss,
+    Boss,
+    Sacrifice,
+    Secret
 }
 public class Room : MonoBehaviour
 {

@@ -5,6 +5,7 @@ using UnityEngine.AI;
 public class RoomSpawner : MonoBehaviour
 {
     public static RoomSpawner Instance { get; private set; }
+
     private float actualCellSize;
 
     [Header("Grid Config")]
@@ -18,7 +19,7 @@ public class RoomSpawner : MonoBehaviour
 
     [Header("Rooms Settings")]
     [SerializeField] private Room[] roomPrefabs;
-    [SerializeField] private int numRoomsToSpawn = 5;
+    public RoomSpawnConfig[] roomSpawnConfigs;
 
     // Initialized inline to save space
     private List<Transform> availableDoors = new List<Transform>();
@@ -45,7 +46,6 @@ public class RoomSpawner : MonoBehaviour
         else Instance = this;
 
         actualCellSize = startingRoomPrefab.cellSize;
-        // Debug.unityLogger.logEnabled = false;
 
         DontDestroyOnLoad(this.gameObject);
     }
@@ -57,6 +57,55 @@ public class RoomSpawner : MonoBehaviour
         TrySpawnRoom(startingRoomPrefab, xIndex, zIndex);
         GenerateFullMap();
         TrimExtraDoors();
+    }
+
+    private List<Room> PopulateRoomsArray()
+    {
+        List<Room> roomDeck = new List<Room>(); // List of rooms types we want
+
+        if (roomSpawnConfigs == null || roomSpawnConfigs.Length == 0)
+        {
+            Debug.LogWarning("Room Spawn Configs are empty! Add some rules in the Inspector.");
+            return roomDeck;
+        }
+
+        // Loop through the rules defined in the inspector
+        foreach (RoomSpawnConfig config in roomSpawnConfigs)
+        {
+            // Find all available prefabs in the pool that match this required tag
+            List<Room> matchingPrefabs = new List<Room>();
+            foreach (Room prefab in roomPrefabs)
+            {
+                if (prefab.currentTags == config.requiredTag)
+                {
+                    matchingPrefabs.Add(prefab);
+                }
+            }
+
+            if (matchingPrefabs.Count == 0)
+            {
+                Debug.LogWarning($"No prefabs found with tag {config.requiredTag}! Skipping this config.");
+                continue;
+            }
+
+            // Randomly draw a room the requested amount of times
+            for (int i = 0; i < config.count; i++)
+            {
+                Room randomSelection = matchingPrefabs[Random.Range(0, matchingPrefabs.Count)];
+                roomDeck.Add(randomSelection);
+            }
+        }
+
+        // Shuffle the deck
+        for (int i = 0; i < roomDeck.Count; i++)
+        {
+            Room temp = roomDeck[i];
+            int randomIndex = Random.Range(i, roomDeck.Count);
+            roomDeck[i] = roomDeck[randomIndex];
+            roomDeck[randomIndex] = temp;
+        }
+
+        return roomDeck;
     }
 
     public bool TrySpawnRoom(Room room, int startX, int startZ)
@@ -139,15 +188,21 @@ public class RoomSpawner : MonoBehaviour
 
     private void GenerateFullMap()
     {
-        for (int i = 0; i < numRoomsToSpawn; i++)
+        // Generate list of rooms we want 
+        List<Room> roomDeck = PopulateRoomsArray();
+
+        // Loop through our deck and try to spawn them one by one 
+        foreach (Room roomPrefab in roomDeck)
         {
-            if (availableDoors.Count == 0) return;
+            if (availableDoors.Count == 0)
+            {
+                Debug.LogWarning("Ran out of available doors before placing all rooms!");
+                return;
+            }
 
-            List<Transform> untriedDoors = new List<Transform>(availableDoors); // Begin list with all available doors as untried 
+            List<Transform> untriedDoors = new List<Transform>(availableDoors);
             bool roomSpawnedSuccessfully = false;
-            Room roomPrefab = roomPrefabs[Random.Range(0, roomPrefabs.Length)]; // Random from list **TO BE CHANGED**
 
-            // Loop through all untried doors
             while (untriedDoors.Count > 0 && !roomSpawnedSuccessfully)
             {
                 int randomUntriedIndex = Random.Range(0, untriedDoors.Count); // Get random door to try
@@ -266,8 +321,8 @@ public class RoomSpawner : MonoBehaviour
         door.gameObject.SetActive(false);
     }
 
-    // Populate prefabs automatically when you call this function in the inspector (right click on script in inspector)
 #if UNITY_EDITOR
+    // Populate prefabs automatically when you call this function in the inspector (right click on script in inspector)
     [ContextMenu("Auto-Populate Room Prefabs")]
     private void AutoPopulateRoomPrefabs()
     {
@@ -296,6 +351,49 @@ public class RoomSpawner : MonoBehaviour
 
         // Convert to array 
         roomPrefabs = validRooms.ToArray();
+        // Notify script that a change has been made (will update memory next time the file is saved) 
+        UnityEditor.EditorUtility.SetDirty(this);
+    }
+
+    // Populate the room spawn configs automatically 
+    [ContextMenu("Auto-Populate Spawn Configs")]
+    private void AutoPopulateSpawnConfigs()
+    {
+        // Get all possible values from the RoomTags enum
+        System.Array allTags = System.Enum.GetValues(typeof(RoomTags));
+
+        // Store our updated configurations
+        List<RoomSpawnConfig> updatedConfigs = new List<RoomSpawnConfig>();
+
+        foreach (RoomTags tag in allTags)
+        {
+            if (tag == RoomTags.None) continue; // All rooms should have a tag
+
+            int preservedCount = 0;
+
+            // If the array already exists, search it for the current tag to save its count
+            if (roomSpawnConfigs != null)
+            {
+                foreach (RoomSpawnConfig existingConfig in roomSpawnConfigs)
+                {
+                    if (existingConfig.requiredTag == tag)
+                    {
+                        preservedCount = existingConfig.count;
+                        break;
+                    }
+                }
+            }
+
+            // Create the new config entry and add it to our list
+            RoomSpawnConfig newConfig = new RoomSpawnConfig();
+            newConfig.requiredTag = tag;
+            newConfig.count = preservedCount;
+
+            updatedConfigs.Add(newConfig);
+        }
+
+        roomSpawnConfigs = updatedConfigs.ToArray();
+
         // Notify script that a change has been made (will update memory next time the file is saved) 
         UnityEditor.EditorUtility.SetDirty(this);
     }
