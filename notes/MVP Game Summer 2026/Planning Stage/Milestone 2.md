@@ -27,7 +27,6 @@ Future discussions:
 
 ## Common
 - Heal x health (usable outside of combat)
-- Plague Vial: Applies poison damage to your weapon 
 - Galvanic Battery: Gives chance to stun when attacking
 - Razer: Increases damage to weapon
 - ???: Deal x damage to all enemies
