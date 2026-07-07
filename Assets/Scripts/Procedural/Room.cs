@@ -6,14 +6,18 @@ using System;
 public enum RoomTags
 {
     None,
+    Vestibule,
+    Corridor,
     Shop,
+    Mob_Small,
+    Mob_Medium,
+    Mob_Large,
+    MiniBoss,
+    Boss,
     Loot,
     Quest,
     Healing,
     Trade,
-    Mob,
-    MiniBoss,
-    Boss,
     Sacrifice,
     Secret
 }
