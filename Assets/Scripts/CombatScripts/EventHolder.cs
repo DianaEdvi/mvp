@@ -32,4 +32,10 @@ public class EventHolder : MonoBehaviour
     public static UnityAction OnDisableBlockUI;
 
     public static UnityAction OnRemoveActionPoint;
+
+    public static UnityAction<int> OnHealPlayer;
+
+    public static UnityAction<Item> OnAddItem;
+
+    public static UnityAction<Item> OnRemoveItem; 
 }

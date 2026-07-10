@@ -7,6 +7,7 @@ public class CombatMenuNav : MonoBehaviour
 
     [SerializeField] private GameObject attackToolTip;
     [SerializeField] private GameObject blockToolTip;
+    [SerializeField] private GameObject itemMenu;
 
     //add nested list for skills 
 
@@ -74,10 +75,25 @@ public class CombatMenuNav : MonoBehaviour
 
     }
 
+    public void ItemSelect() {
+
+        if (playerStats.GetActionPoints() > 0)
+        {
+            combatMenu.SetActive(false);
+            itemMenu.SetActive(true);
+        }
+        else
+        {
+            Debug.Log("No more action points!");
+        }
+
+    }
+
     public void BackSelect() {
 
         attackToolTip.SetActive(false);
         blockToolTip.SetActive(false);
+        itemMenu.SetActive(false);
         //add skill list active here
 
         combatTargetingScript.ResetTargeting();
