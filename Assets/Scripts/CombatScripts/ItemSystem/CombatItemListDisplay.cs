@@ -29,7 +29,7 @@ public class CombatItemListDisplay : MonoBehaviour
         for (int i = 0; i < playerInventory.GetInventoryLength(); i++) {
 
             GameObject itemButtonInstance = Instantiate(itemButton, transform);
-            itemButtonInstance.GetComponent<CombatItemDisplay>().SetupDisplay(playerInventory.GetItem(i));
+            itemButtonInstance.GetComponent<CombatItemDisplay>().SetupButton(playerInventory.GetItem(i));
 
             //this is cause the z is weird when we instantiate it as a child of the menu
             itemButtonInstance.transform.localPosition = Vector3.one;

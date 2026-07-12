@@ -13,7 +13,7 @@ public class CombatTargeting : MonoBehaviour
     private GameObject currentTarget;
 
     private TargetingType targetingType = TargetingType.None;
-
+    
     private void Start()
     {
 
@@ -78,11 +78,13 @@ public class CombatTargeting : MonoBehaviour
     private void OnEnable()
     {
         EventHolder.OnEnemyDeath += RemoveEnemy;
+        EventHolder.OnBeginTargeting += StartTargeting;
     }
 
     private void OnDisable()
     {
         EventHolder.OnEnemyDeath -= RemoveEnemy;
+        EventHolder.OnBeginTargeting -= StartTargeting;
     }
 
     public void StartTargeting(TargetingType t) {

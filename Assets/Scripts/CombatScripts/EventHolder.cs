@@ -37,5 +37,7 @@ public class EventHolder : MonoBehaviour
 
     public static UnityAction<Item> OnAddItem;
 
-    public static UnityAction<Item> OnRemoveItem; 
+    public static UnityAction<Item> OnRemoveItem;
+
+    public static UnityAction<TargetingType> OnBeginTargeting;
 }
