@@ -1,3 +1,5 @@
+Knave
+
 Afflicted with a plague, you must become the masque of the red death, and show to hi, that death is inevitable
 
 There is a red smoke around Annabel whe she enters the room, and ter is no red in the room otherwise

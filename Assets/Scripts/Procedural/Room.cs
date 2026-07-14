@@ -1,6 +1,22 @@
 using UnityEngine;
 using System.Collections.Generic;
 
+using System;
+
+public enum RoomTags
+{
+    None,
+    Shop,
+    Loot,
+    Quest,
+    Healing,
+    Trade,
+    Mob,
+    MiniBoss,
+    Boss,
+    Sacrifice,
+    Secret
+}
 public class Room : MonoBehaviour
 {
     public float cellSize = 10f;
@@ -10,6 +26,9 @@ public class Room : MonoBehaviour
 
     [Tooltip("The door sockets in the room where new rooms can be attached.")]
     public Transform[] doorSockets;
+
+    [Tooltip("The tags that describe the purpose or characteristics of this room.")]
+    public RoomTags currentTags;
 
     // Takes the world position and snaps it to the grid
     private Vector2Int PositionToGrid(Vector3 pos) => new Vector2Int(
@@ -69,7 +88,7 @@ public class Room : MonoBehaviour
                 matchingCells.Add(child);
             }
         }
-        
+
         cellTransforms = matchingCells.ToArray();
     }
 }
