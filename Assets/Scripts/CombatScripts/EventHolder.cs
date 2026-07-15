@@ -24,4 +24,20 @@ public class EventHolder : MonoBehaviour
     public static UnityAction OnEnemyTurnStart;
 
     public static UnityAction<int> OnPlayerTakeDamage;
+
+    public static UnityAction<int> OnPlayerRemoveHealth;
+
+    public static UnityAction<int> OnPlayerGainBlock;
+
+    public static UnityAction OnDisableBlockUI;
+
+    public static UnityAction OnRemoveActionPoint;
+
+    public static UnityAction<int> OnHealPlayer;
+
+    public static UnityAction<Item> OnAddItem;
+
+    public static UnityAction<Item> OnRemoveItem;
+
+    public static UnityAction<TargetingType> OnBeginTargeting;
 }

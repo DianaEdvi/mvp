@@ -17,6 +17,7 @@ public class ActionCommandCircle : MonoBehaviour
 
     private IEnumerator StartActionCommand() {
 
+        yield return new WaitForSeconds(0.05f);
 
         while (!buttonHit)
         {
