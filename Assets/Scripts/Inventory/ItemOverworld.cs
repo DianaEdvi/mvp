@@ -4,6 +4,7 @@ using UnityEngine;
 public class ItemOverworld : MonoBehaviour
 {
     [SerializeField] private Item item;
+    public Item ItemData => item;
     [SerializeField] private SpriteRenderer mainSpriteRenderer;
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created

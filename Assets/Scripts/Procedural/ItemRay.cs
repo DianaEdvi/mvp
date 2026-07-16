@@ -1,23 +1,27 @@
 using UnityEngine;
 
-public class RaycastShooter : MonoBehaviour
+public class ItemRay : MonoBehaviour
 {
     [Header("Raycast Settings")]
     public float rayDistance = 10f;
     public LayerMask hitLayers;
-
+    private bool hitting;
+    public GameObject currentHitObject;
+    public bool Hitting;
     void Update()
     {
         Vector3 origin = transform.position;
         Vector3 direction = transform.forward;
 
-        bool didHit = Physics.Raycast(origin, direction, out RaycastHit hit, rayDistance, hitLayers);
+        Hitting = Physics.Raycast(origin, direction, out RaycastHit hit, rayDistance, hitLayers);
 
-        Color rayColor = didHit ? Color.green : Color.red;
+        Color rayColor = Hitting ? Color.green : Color.red;
 
-        if (didHit)
+        if (Hitting)
         {
+            Debug.Log("Player is colliding...");
             Debug.DrawLine(origin, hit.point, rayColor);
+            currentHitObject = hit.collider.gameObject;
         }
         else
         {
