@@ -10,7 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 6737053458607914134}
   - component: {fileID: 6800390860230149144}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: DropShadow
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -101,7 +101,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4558358396064888604}
   - component: {fileID: 7209808581033774311}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Sprite
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -193,7 +193,7 @@ GameObject:
   - component: {fileID: 5478148640418626761}
   - component: {fileID: 6944168512011056275}
   - component: {fileID: 6664717418997553566}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Item
   m_TagString: Untagged
   m_Icon: {fileID: 0}

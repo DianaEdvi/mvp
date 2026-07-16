@@ -13,7 +13,7 @@ public class ItemOverworld : MonoBehaviour
     }
 
     // Update is called once per frame
-    void Update()
+    void LateUpdate()
     {
         mainSpriteRenderer.gameObject.transform.rotation = Camera.main.transform.rotation;
     }
