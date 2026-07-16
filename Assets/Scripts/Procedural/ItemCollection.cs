@@ -13,11 +13,7 @@ public class ItemCollection : MonoBehaviour
         {
             Debug.LogError($"ItemRay script is missing from {gameObject.name} or its children!");
         }
-    }
 
-    // Subscribe to the player's interact input
-    void OnEnable()
-    {
         if (Player.Instance != null)
         {
             Player.Instance.OnInteractActionPerformed += CollectItem;
@@ -35,23 +31,15 @@ public class ItemCollection : MonoBehaviour
 
     public void CollectItem()
     {
-        // 1. Ensure we have a valid raycaster and it is currently pointing at something
         if (raycastShooter != null && raycastShooter.Hitting)
         {
             GameObject targetGameObject = raycastShooter.currentHitObject;
-
-            // 2. Grab the ItemOverworld script from the object we are looking at
             ItemOverworld overworldComponent = targetGameObject.GetComponent<ItemOverworld>();
 
             if (overworldComponent != null)
             {
-                // 3. Extract the ScriptableObject data
                 Item collectedItem = overworldComponent.ItemData;
-
-                // 4. Fire the event! (The ?. ensures it doesn't crash if nothing is listening)
                 EventHolder.OnAddItem?.Invoke(collectedItem);
-
-                // 5. Destroy the physical object in the scene
                 Destroy(targetGameObject);
             }
             else
