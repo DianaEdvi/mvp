@@ -71,7 +71,9 @@ MonoBehaviour:
   - {fileID: 7230117717002740873, guid: 6978ad90d6a99c645b88a2fbac292396, type: 3}
   - {fileID: 6701514058861893137, guid: c61d6fe85bfa48d4282b081e34696850, type: 3}
   - {fileID: 8452098039410964737, guid: 9f6397dc7b86a8144acd4e71bc689979, type: 3}
-  numRoomsToSpawn: 50
+  roomSpawnConfigs:
+  - requiredTag: 0
+    count: 0
   doorLayerMask:
     serializedVersion: 2
     m_Bits: 64
