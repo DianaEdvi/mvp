@@ -117,7 +117,6 @@ public class Player : MonoBehaviour
 
     public void OnInventoryOpened()
     {
-        Debug.Log($"Player position: {transform.position}");
         OnInventoryActionPerformed?.Invoke();
     }
 }

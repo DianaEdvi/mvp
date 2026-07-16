@@ -122,7 +122,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Player
   moveAction: {fileID: -1680190386980627800, guid: 052faaac586de48259a63d0c4782560b, type: 3}
-  inventoryAction: {fileID: 0}
+  inventoryAction: {fileID: -4019334785754566888, guid: 052faaac586de48259a63d0c4782560b, type: 3}
   moveSpeed: 10
   rotationSpeed: 10
   gravity: -30
