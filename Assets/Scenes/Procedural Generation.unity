@@ -403,9 +403,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::RoomSpawner
   numCellsWidth: 21
   numCellsHeight: 20
-  startingRoomPrefab: {fileID: 8452098039410964737, guid: cb706a2c123143b43819176002d059df, type: 3}
+  startingRoomPrefab: {fileID: 8452098039410964737, guid: 9f6397dc7b86a8144acd4e71bc689979, type: 3}
   xIndex: 5
-  zIndex: 0
+  zIndex: 1
   roomPrefabs:
   - {fileID: 8452098039410964737, guid: 3c1f5860e13bf264b9dd9af330b3929a, type: 3}
   - {fileID: 91526004562949189, guid: 20477cd4bd180364495115efc112b548, type: 3}
@@ -428,27 +428,27 @@ MonoBehaviour:
   - {fileID: 7230117717002740873, guid: 6978ad90d6a99c645b88a2fbac292396, type: 3}
   - {fileID: 6701514058861893137, guid: c61d6fe85bfa48d4282b081e34696850, type: 3}
   - {fileID: 8452098039410964737, guid: 9f6397dc7b86a8144acd4e71bc689979, type: 3}
+  - {fileID: 5086773838791859875, guid: e01186caefa14ce4daafbd8387c9a1b3, type: 3}
+  - {fileID: 5086773838791859875, guid: fb04cde0f78a97a49a7f032a59766e56, type: 3}
   roomSpawnConfigs:
   - requiredTag: 1
-    count: 5
+    count: 0
   - requiredTag: 2
-    count: 5
+    count: 10
   - requiredTag: 3
-    count: 5
+    count: 1
   - requiredTag: 4
-    count: 5
+    count: 1
   - requiredTag: 5
-    count: 5
+    count: 1
   - requiredTag: 6
-    count: 5
+    count: 1
   - requiredTag: 7
-    count: 5
+    count: 1
   - requiredTag: 8
-    count: 5
+    count: 0
   - requiredTag: 9
-    count: 5
-  - requiredTag: 10
-    count: 5
+    count: 1
   doorLayerMask:
     serializedVersion: 2
     m_Bits: 64
@@ -529,7 +529,7 @@ Camera:
     height: 1
   near clip plane: 0.3
   far clip plane: 1000
-  field of view: 60.000004
+  field of view: 65
   orthographic: 0
   orthographic size: 5
   m_Depth: -1
@@ -555,8 +555,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1971207967}
   serializedVersion: 2
-  m_LocalRotation: {x: -0.59785247, y: 0.14861162, z: -0.11399249, w: -0.77941823}
-  m_LocalPosition: {x: 5.84, y: 20.88, z: 0.96000004}
+  m_LocalRotation: {x: 0.3376204, y: -0.15023915, z: 0.054682553, w: 0.9276048}
+  m_LocalPosition: {x: 7.5, y: 13, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []

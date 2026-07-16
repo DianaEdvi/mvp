@@ -513,7 +513,7 @@ MonoBehaviour:
   - {fileID: 7203265309989248403}
   doorSockets:
   - {fileID: 1510168737911624539}
-  currentTags: 8
+  currentTags: 9
 --- !u!1 &4906599793475691063
 GameObject:
   m_ObjectHideFlags: 0

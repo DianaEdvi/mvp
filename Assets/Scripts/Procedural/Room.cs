@@ -8,18 +8,13 @@ public enum RoomTags
     None,
     Vestibule,
     Corridor,
-    Shop,
-    Mob_Small,
-    Mob_Medium,
-    Mob_Large,
-    MiniBoss,
-    Boss,
-    Loot,
-    Quest,
-    Healing,
-    Trade,
-    Sacrifice,
-    Secret
+    NPC_A,
+    NPC_B,
+    NPC_C,
+    Prospero,
+    Mesmerist,
+    Rowena,
+    TRATM
 }
 public class Room : MonoBehaviour
 {
