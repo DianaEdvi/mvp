@@ -12,5 +12,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c0767e337e1e55c47933dbaf394438b7, type: 3}
   m_Name: Hop Frog
   m_EditorClassIdentifier: Assembly-CSharp::NPC_Data
-  npcName: 
-  modelPrefab: {fileID: 0}
+  npcName: Hop Frog

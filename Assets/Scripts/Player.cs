@@ -131,7 +131,6 @@ public class Player : MonoBehaviour
 
     public void OnInteract()
     {
-        Debug.Log("Player is pressing interacting button");
         OnInteractActionPerformed?.Invoke();
     }
 }
