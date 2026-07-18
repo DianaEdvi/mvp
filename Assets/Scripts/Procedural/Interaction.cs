@@ -1,6 +1,6 @@
 using UnityEngine;
 
-public class ItemCollection : MonoBehaviour
+public class Interaction : MonoBehaviour
 {
     private Ray raycastShooter;
 
@@ -17,6 +17,7 @@ public class ItemCollection : MonoBehaviour
         if (Player.Instance != null)
         {
             Player.Instance.OnInteractActionPerformed += CollectItem;
+            Player.Instance.OnInteractActionPerformed += NPCInteraction;
         }
     }
 
@@ -26,6 +27,7 @@ public class ItemCollection : MonoBehaviour
         if (Player.Instance != null)
         {
             Player.Instance.OnInteractActionPerformed -= CollectItem;
+            Player.Instance.OnInteractActionPerformed -= NPCInteraction;
         }
     }
 
@@ -34,6 +36,9 @@ public class ItemCollection : MonoBehaviour
         if (raycastShooter != null && raycastShooter.Hitting)
         {
             GameObject targetGameObject = raycastShooter.currentHitObject;
+
+            if (targetGameObject.layer != LayerMask.NameToLayer("Item")) return;
+
             ItemOverworld overworldComponent = targetGameObject.GetComponent<ItemOverworld>();
 
             if (overworldComponent != null)
@@ -42,10 +47,18 @@ public class ItemCollection : MonoBehaviour
                 EventHolder.OnAddItem?.Invoke(collectedItem);
                 Destroy(targetGameObject);
             }
-            else
-            {
-                Debug.LogWarning($"Tried to collect {targetGameObject.name}, but it doesn't have an ItemOverworld script!");
-            }
+        }
+    }
+
+    public void NPCInteraction()
+    {
+        if (raycastShooter != null && raycastShooter.Hitting)
+        {
+            GameObject targetGameObject = raycastShooter.currentHitObject;
+
+            if (targetGameObject.layer != LayerMask.NameToLayer("NPC")) return;
+            Debug.Log("Interacting with NPC...");
+            // npc.Interact().invoke;
         }
     }
 }
