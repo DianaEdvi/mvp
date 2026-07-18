@@ -9,6 +9,7 @@ public class Player : MonoBehaviour
     [Header("Input Setup")]
     public InputActionReference moveAction;
     public InputActionReference inventoryAction;
+    public InputActionReference interactAction;
 
     [Header("Movement Settings")]
     [SerializeField] private float moveSpeed = 8f;
@@ -22,6 +23,7 @@ public class Player : MonoBehaviour
     private CharacterController characterController;
 
     public Action OnInventoryActionPerformed;
+    public Action OnInteractActionPerformed;
 
     void Awake()
     {
@@ -47,12 +49,19 @@ public class Player : MonoBehaviour
             inventoryAction.action.performed += ctx => OnInventoryOpened();
         }
 
+        if (interactAction != null)
+        {
+            interactAction.action.Enable();
+            interactAction.action.performed += ctx => OnInteract();
+        }
+
     }
 
     private void OnDisable()
     {
         if (moveAction != null) moveAction.action.Disable();
         if (inventoryAction != null) inventoryAction.action.Disable();
+        if (interactAction != null) interactAction.action.Disable();
     }
 
     private void Update()
@@ -117,7 +126,12 @@ public class Player : MonoBehaviour
 
     public void OnInventoryOpened()
     {
-        Debug.Log($"Player position: {transform.position}");
         OnInventoryActionPerformed?.Invoke();
+    }
+
+    public void OnInteract()
+    {
+        Debug.Log("Player is pressing interacting button");
+        OnInteractActionPerformed?.Invoke();
     }
 }

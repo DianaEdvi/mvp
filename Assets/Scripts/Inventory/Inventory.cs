@@ -1,7 +1,7 @@
 using UnityEngine;
 using System.Collections.Generic;
 
-public class PlayerInventory : MonoBehaviour
+public class Inventory : MonoBehaviour
 {
     [SerializeField] private List<Item> inventory = new List<Item>();
 
@@ -17,27 +17,23 @@ public class PlayerInventory : MonoBehaviour
         EventHolder.OnRemoveItem -= RemoveItemFromInventory;
     }
 
-    public int GetInventoryLength() {
-
+    public int GetInventoryLength()
+    {
         return inventory.Count;
-
     }
 
-    public Item GetItem(int index) {
-
+    public Item GetItem(int index)
+    {
         return inventory[index];
-
     }
 
-    public void AddItemToInventory(Item i) {
-
+    public void AddItemToInventory(Item i)
+    {
         inventory.Add(i);
-
     }
 
-    public void RemoveItemFromInventory(Item i) {
-
+    public void RemoveItemFromInventory(Item i)
+    {
         inventory.Remove(i);
-
     }
 }

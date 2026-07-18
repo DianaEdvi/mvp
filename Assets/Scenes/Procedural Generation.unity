@@ -646,22 +646,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 952311471092482696, guid: 7c75230ca7df25049ad50327866b5685, type: 3}
-      propertyPath: m_ExcludeLayers.m_Bits
-      value: 0
-      objectReference: {fileID: 0}
     - target: {fileID: 1303464551719162139, guid: 7c75230ca7df25049ad50327866b5685, type: 3}
       propertyPath: m_Name
       value: Player
       objectReference: {fileID: 0}
-    - target: {fileID: 1754571570590973134, guid: 7c75230ca7df25049ad50327866b5685, type: 3}
-      propertyPath: moveSpeed
-      value: 10
-      objectReference: {fileID: 0}
-    - target: {fileID: 1754571570590973134, guid: 7c75230ca7df25049ad50327866b5685, type: 3}
-      propertyPath: inventoryAction
-      value: 
-      objectReference: {fileID: -4019334785754566888, guid: 052faaac586de48259a63d0c4782560b, type: 3}
     - target: {fileID: 1934547171688181526, guid: 7c75230ca7df25049ad50327866b5685, type: 3}
       propertyPath: m_LocalPosition.x
       value: 55

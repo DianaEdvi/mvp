@@ -47,8 +47,8 @@ MonoBehaviour:
   numCellsWidth: 21
   numCellsHeight: 20
   startingRoomPrefab: {fileID: 8452098039410964737, guid: cb706a2c123143b43819176002d059df, type: 3}
-  xIndex: 10
-  zIndex: 10
+  xIndex: 5
+  zIndex: 0
   roomPrefabs:
   - {fileID: 8452098039410964737, guid: 3c1f5860e13bf264b9dd9af330b3929a, type: 3}
   - {fileID: 91526004562949189, guid: 20477cd4bd180364495115efc112b548, type: 3}
@@ -71,7 +71,9 @@ MonoBehaviour:
   - {fileID: 7230117717002740873, guid: 6978ad90d6a99c645b88a2fbac292396, type: 3}
   - {fileID: 6701514058861893137, guid: c61d6fe85bfa48d4282b081e34696850, type: 3}
   - {fileID: 8452098039410964737, guid: 9f6397dc7b86a8144acd4e71bc689979, type: 3}
-  numRoomsToSpawn: 50
+  roomSpawnConfigs:
+  - requiredTag: 1
+    count: 20
   doorLayerMask:
     serializedVersion: 2
     m_Bits: 64
