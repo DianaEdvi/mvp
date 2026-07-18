@@ -2,12 +2,12 @@ using UnityEngine;
 
 public class ItemCollection : MonoBehaviour
 {
-    private ItemRay raycastShooter;
+    private Ray raycastShooter;
 
     void Start()
     {
         // Cache the ItemRay reference so we aren't using GetComponent every frame
-        raycastShooter = GetComponentInChildren<ItemRay>();
+        raycastShooter = GetComponentInChildren<Ray>();
 
         if (raycastShooter == null)
         {

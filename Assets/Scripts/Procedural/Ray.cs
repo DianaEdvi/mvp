@@ -1,11 +1,10 @@
 using UnityEngine;
 
-public class ItemRay : MonoBehaviour
+public class Ray : MonoBehaviour
 {
     [Header("Raycast Settings")]
     public float rayDistance = 10f;
     public LayerMask hitLayers;
-    private bool hitting;
     public GameObject currentHitObject;
     public bool Hitting;
     void Update()
