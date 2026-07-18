@@ -3,31 +3,30 @@ using System.Collections;
 
 public class PlayerCombatActions : MonoBehaviour
 {
-    [SerializeField] private PlayerUI playerUI;
+    //reference needed to get relevant stats for attack and block actions
     [SerializeField] private PlayerStats playerStats;
 
     private string ACResult;
-
-    private int damage = 2;
 
     private void OnEnable()
     {
         EventHolder.OnActionCommandCompletion += ListenForAC;
         EventHolder.OnPlayerAttack += StartAttackAction;
+        EventHolder.OnPlayerBlock += StartBlockAction;
     }
 
     private void OnDisable()
     {
         EventHolder.OnActionCommandCompletion -= ListenForAC;
         EventHolder.OnPlayerAttack -= StartAttackAction;
+        EventHolder.OnPlayerBlock -= StartBlockAction;
     }
 
     private void StartAttackAction(GameObject t) {
         ACResult = null;
         StartCoroutine(AttackAction(t));
 
-        playerUI.RemoveActionPoint();
-        playerStats.RemoveActionPoint();
+        EventHolder.OnRemoveActionPoint?.Invoke();
     }
 
     private IEnumerator AttackAction(GameObject t) {
@@ -43,24 +42,62 @@ public class PlayerCombatActions : MonoBehaviour
         switch (ACResult) {
 
             case "Perfect":
-                t.GetComponent<EnemyStats>().TakeDamage(damage*2);
+                t.GetComponent<EnemyStats>().TakeDamage(playerStats.GetDamage()*2);
                 break;
 
             case "Great":
-                t.GetComponent<EnemyStats>().TakeDamage((int)Mathf.Ceil(damage * 1.5f));
+                t.GetComponent<EnemyStats>().TakeDamage((int)Mathf.Ceil(playerStats.GetDamage() * 1.5f));
                 break;
 
             case "Good":
-                t.GetComponent<EnemyStats>().TakeDamage(damage);
+                t.GetComponent<EnemyStats>().TakeDamage(playerStats.GetDamage());
                 break;
 
             case "Miss":
-                t.GetComponent<EnemyStats>().TakeDamage((int) (damage / 2));
+                t.GetComponent<EnemyStats>().TakeDamage((int) (playerStats.GetDamage() / 2));
                 break;
 
         }
 
         Debug.Log("Dealt damage to " +t.name);
+
+        EventHolder.OnEnableMenu?.Invoke();
+    }
+
+    private void StartBlockAction() {
+        ACResult = null;
+        StartCoroutine(BlockAction());
+
+        EventHolder.OnRemoveActionPoint?.Invoke();
+    }
+
+    private IEnumerator BlockAction() {
+
+        EventHolder.OnDisableMenu?.Invoke();
+        EventHolder.OnTriggerCircleActionCommand?.Invoke();
+
+        yield return new WaitUntil(() => ACResult != null);
+
+        switch (ACResult)
+        {
+
+            case "Perfect":
+                EventHolder.OnPlayerGainBlock?.Invoke(playerStats.GetBlockGain() * 2);
+                break;
+
+            case "Great":
+                EventHolder.OnPlayerGainBlock?.Invoke((int)Mathf.Ceil(playerStats.GetBlockGain() * 1.5f));
+                break;
+
+            case "Good":
+                EventHolder.OnPlayerGainBlock?.Invoke(playerStats.GetBlockGain());
+                break;
+
+            case "Miss":
+                EventHolder.OnPlayerGainBlock?.Invoke(playerStats.GetBlockGain() / 2);
+                break;
+
+        }
 
         EventHolder.OnEnableMenu?.Invoke();
     }

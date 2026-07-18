@@ -1,9 +1,11 @@
 using UnityEngine;
 using System.Collections.Generic;
+using UnityEngine.AI;
 
 public class RoomSpawner : MonoBehaviour
-{  
+{
     public static RoomSpawner Instance { get; private set; }
+
     private float actualCellSize;
 
     [Header("Grid Config")]
@@ -11,14 +13,14 @@ public class RoomSpawner : MonoBehaviour
     [SerializeField] private int numCellsHeight = 10;
 
     [Header("Start Spawn Settings")]
-    [SerializeField] private Room startingRoomPrefab; 
+    [SerializeField] private Room startingRoomPrefab;
     [SerializeField] private int xIndex;
     [SerializeField] private int zIndex;
 
     [Header("Rooms Settings")]
     [SerializeField] private Room[] roomPrefabs;
-    [SerializeField] private int numRoomsToSpawn = 5;
-    
+    public RoomSpawnConfig[] roomSpawnConfigs;
+
     // Initialized inline to save space
     private List<Transform> availableDoors = new List<Transform>();
     public LayerMask doorLayerMask;
@@ -44,7 +46,6 @@ public class RoomSpawner : MonoBehaviour
         else Instance = this;
 
         actualCellSize = startingRoomPrefab.cellSize;
-        // Debug.unityLogger.logEnabled = false;
 
         DontDestroyOnLoad(this.gameObject);
     }
@@ -52,17 +53,66 @@ public class RoomSpawner : MonoBehaviour
     void Start()
     {
         occupiedGrid = new bool[numCellsWidth, numCellsHeight];
-        
+
         TrySpawnRoom(startingRoomPrefab, xIndex, zIndex);
         GenerateFullMap();
         TrimExtraDoors();
+    }
+
+    private List<Room> PopulateRoomsArray()
+    {
+        List<Room> roomDeck = new List<Room>(); // List of rooms types we want
+
+        if (roomSpawnConfigs == null || roomSpawnConfigs.Length == 0)
+        {
+            Debug.LogWarning("Room Spawn Configs are empty! Add some rules in the Inspector.");
+            return roomDeck;
+        }
+
+        // Loop through the rules defined in the inspector
+        foreach (RoomSpawnConfig config in roomSpawnConfigs)
+        {
+            // Find all available prefabs in the pool that match this required tag
+            List<Room> matchingPrefabs = new List<Room>();
+            foreach (Room prefab in roomPrefabs)
+            {
+                if (prefab.currentTags == config.requiredTag)
+                {
+                    matchingPrefabs.Add(prefab);
+                }
+            }
+
+            if (matchingPrefabs.Count == 0)
+            {
+                Debug.LogWarning($"No prefabs found with tag {config.requiredTag}! Skipping this config.");
+                continue;
+            }
+
+            // Randomly draw a room the requested amount of times
+            for (int i = 0; i < config.count; i++)
+            {
+                Room randomSelection = matchingPrefabs[Random.Range(0, matchingPrefabs.Count)];
+                roomDeck.Add(randomSelection);
+            }
+        }
+
+        // Shuffle the deck
+        for (int i = 0; i < roomDeck.Count; i++)
+        {
+            Room temp = roomDeck[i];
+            int randomIndex = Random.Range(i, roomDeck.Count);
+            roomDeck[i] = roomDeck[randomIndex];
+            roomDeck[randomIndex] = temp;
+        }
+
+        return roomDeck;
     }
 
     public bool TrySpawnRoom(Room room, int startX, int startZ)
     {
         Vector2Int[] relativeCoords = room.GetRelativeCoordinates(); // vector from origin to each cell in the room
         Vector2Int[] cellWorldGridCoordinates = new Vector2Int[relativeCoords.Length]; // grid coords for each cell in the room
-        
+
         // Find world grid coords for each cell 
         for (int i = 0; i < relativeCoords.Length; i++)
         {
@@ -77,9 +127,9 @@ public class RoomSpawner : MonoBehaviour
 
         Vector3 targetWorldPos = new Vector3(startX * actualCellSize, 0, startZ * actualCellSize); // World grid coords of origin 
         Vector3 prefabOffset = new Vector3(room.LocalOriginOffset.x * actualCellSize, 0, room.LocalOriginOffset.y * actualCellSize); // The offset of where the origin should be 
-        
+
         // Instantiate the room where the origin should be
-        Room newRoom = Instantiate(room, targetWorldPos - prefabOffset, Quaternion.identity, this.transform); 
+        Room newRoom = Instantiate(room, targetWorldPos - prefabOffset, Quaternion.identity, this.transform);
         newRoom.name = $"{room.name}_at_{startX}_{startZ}";
 
         // Mark its cells as occupied 
@@ -92,7 +142,7 @@ public class RoomSpawner : MonoBehaviour
         foreach (Transform door in newRoom.doorSockets)
         {
             if (!IsDoorFacingEdge(door))
-            availableDoors.Add(door);
+                availableDoors.Add(door);
         }
 
         return true;
@@ -101,13 +151,13 @@ public class RoomSpawner : MonoBehaviour
     private bool IsDoorFacingEdge(Transform door)
     {
         Vector2Int doorGrid = PositionToGrid(door.position); // Get the cell the door is in 
-        
+
         // Get the coordinates of the cell the door is leading to 
         int targetX = doorGrid.x + Mathf.RoundToInt(door.forward.x);
         int targetZ = doorGrid.y + Mathf.RoundToInt(door.forward.z);
 
         // Uses a cleaner single-coordinate bounds check instead of array allocation
-        return !IsWithinBounds(targetX, targetZ);        
+        return !IsWithinBounds(targetX, targetZ);
     }
 
     private bool IsWithinBounds(int x, int z)
@@ -117,7 +167,7 @@ public class RoomSpawner : MonoBehaviour
     }
 
     private bool AreCoordinatesWithinBounds(Vector2Int[] cellWorldCoordinates)
-    {   
+    {
         // Check if any coords of an array are out of bounds
         foreach (Vector2Int cell in cellWorldCoordinates)
         {
@@ -138,15 +188,21 @@ public class RoomSpawner : MonoBehaviour
 
     private void GenerateFullMap()
     {
-        for (int i = 0; i < numRoomsToSpawn; i++)
+        // Generate list of rooms we want 
+        List<Room> roomDeck = PopulateRoomsArray();
+
+        // Loop through our deck and try to spawn them one by one 
+        foreach (Room roomPrefab in roomDeck)
         {
-            if (availableDoors.Count == 0) return;
+            if (availableDoors.Count == 0)
+            {
+                Debug.LogWarning("Ran out of available doors before placing all rooms!");
+                return;
+            }
 
-            List<Transform> untriedDoors = new List<Transform>(availableDoors); // Begin list with all available doors as untried 
+            List<Transform> untriedDoors = new List<Transform>(availableDoors);
             bool roomSpawnedSuccessfully = false;
-            Room roomPrefab = roomPrefabs[Random.Range(0, roomPrefabs.Length)]; // Random from list **TO BE CHANGED**
 
-            // Loop through all untried doors
             while (untriedDoors.Count > 0 && !roomSpawnedSuccessfully)
             {
                 int randomUntriedIndex = Random.Range(0, untriedDoors.Count); // Get random door to try
@@ -156,12 +212,12 @@ public class RoomSpawner : MonoBehaviour
                 if (newDoorToConnect == null) // No valid doors to connect to
                 {
                     untriedDoors.RemoveAt(randomUntriedIndex);
-                    continue; 
+                    continue;
                 }
 
                 Vector2Int doorGrid = PositionToGrid(doorToSpawnFrom.position); // The door to connect to's coords 
 
-                 // The coords of the cell it faces
+                // The coords of the cell it faces
                 int targetX = doorGrid.x + Mathf.RoundToInt(doorToSpawnFrom.forward.x);
                 int targetZ = doorGrid.y + Mathf.RoundToInt(doorToSpawnFrom.forward.z);
 
@@ -197,35 +253,76 @@ public class RoomSpawner : MonoBehaviour
             if (Mathf.RoundToInt(socket.forward.x) == Mathf.RoundToInt(requiredDirection.x) &&
                 Mathf.RoundToInt(socket.forward.z) == Mathf.RoundToInt(requiredDirection.z))
             {
-                return socket; 
+                return socket;
             }
         }
-        return null; 
+        return null;
     }
 
     private void TrimExtraDoors()
     {
-        // Find all doors in the game 
         GameObject[] doorObjects = GameObject.FindGameObjectsWithTag("Door");
-        float rayCastDistance = actualCellSize * 0.5f; // Length of the raycast 
+        float rayCastDistance = actualCellSize * 0.5f;
 
-        // For each door, send out the ray and see if it hits another door. If it does, then the two doors are connected 
+        List<Transform> validDoors = new List<Transform>();
+        List<Transform> invalidDoors = new List<Transform>();
+
+        // Perform all raycasts 
         foreach (GameObject doorObj in doorObjects)
         {
             Transform door = doorObj.transform;
             Vector3 rayCastDirection = new Vector3(Mathf.RoundToInt(door.forward.x), 0, Mathf.RoundToInt(door.forward.z));
             Vector3 rayCastOrigin = door.position + (rayCastDirection * 0.2f);
 
-            // If it didn't hit another door, disactivate it
-            if (!Physics.Raycast(rayCastOrigin, rayCastDirection, out RaycastHit hit, rayCastDistance, doorLayerMask) || !hit.collider.CompareTag("Door"))
+            // If we hit another door, it's a valid connection
+            if (Physics.Raycast(rayCastOrigin, rayCastDirection, out RaycastHit hit, rayCastDistance, doorLayerMask) && hit.collider.CompareTag("Door"))
             {
-                doorObj.SetActive(false);
+                validDoors.Add(door);
             }
+            else
+            {
+                // If we hit nothing, or a standard wall, it's invalid
+                invalidDoors.Add(door);
+            }
+        }
+
+        // Apply visuals
+        foreach (Transform door in validDoors)
+        {
+            SetDoorVisuals(door, isValid: true);
+        }
+
+        foreach (Transform door in invalidDoors)
+        {
+            SetDoorVisuals(door, isValid: false);
         }
     }
 
-// Populate prefabs automatically when you call this function in the inspector (right click on script in inspector)
+    // Activates appropriate wall
+    private void SetDoorVisuals(Transform door, bool isValid)
+    {
+        Transform parent = door.parent;
+
+        foreach (Transform child in parent)
+        {
+            if (child.CompareTag("DoorWall"))
+            {
+                // If valid, DoorWall is on
+                child.gameObject.SetActive(isValid);
+            }
+            else if (child.CompareTag("SolidWall"))
+            {
+                // If valid, SolidWall is off. If invalid, SolidWall is on
+                child.gameObject.SetActive(!isValid);
+            }
+        }
+
+        // Disable the door collider
+        door.gameObject.SetActive(false);
+    }
+
 #if UNITY_EDITOR
+    // Populate prefabs automatically when you call this function in the inspector (right click on script in inspector)
     [ContextMenu("Auto-Populate Room Prefabs")]
     private void AutoPopulateRoomPrefabs()
     {
@@ -254,6 +351,49 @@ public class RoomSpawner : MonoBehaviour
 
         // Convert to array 
         roomPrefabs = validRooms.ToArray();
+        // Notify script that a change has been made (will update memory next time the file is saved) 
+        UnityEditor.EditorUtility.SetDirty(this);
+    }
+
+    // Populate the room spawn configs automatically 
+    [ContextMenu("Auto-Populate Spawn Configs")]
+    private void AutoPopulateSpawnConfigs()
+    {
+        // Get all possible values from the RoomTags enum
+        System.Array allTags = System.Enum.GetValues(typeof(RoomTags));
+
+        // Store our updated configurations
+        List<RoomSpawnConfig> updatedConfigs = new List<RoomSpawnConfig>();
+
+        foreach (RoomTags tag in allTags)
+        {
+            if (tag == RoomTags.None) continue; // All rooms should have a tag
+
+            int preservedCount = 0;
+
+            // If the array already exists, search it for the current tag to save its count
+            if (roomSpawnConfigs != null)
+            {
+                foreach (RoomSpawnConfig existingConfig in roomSpawnConfigs)
+                {
+                    if (existingConfig.requiredTag == tag)
+                    {
+                        preservedCount = existingConfig.count;
+                        break;
+                    }
+                }
+            }
+
+            // Create the new config entry and add it to our list
+            RoomSpawnConfig newConfig = new RoomSpawnConfig();
+            newConfig.requiredTag = tag;
+            newConfig.count = preservedCount;
+
+            updatedConfigs.Add(newConfig);
+        }
+
+        roomSpawnConfigs = updatedConfigs.ToArray();
+
         // Notify script that a change has been made (will update memory next time the file is saved) 
         UnityEditor.EditorUtility.SetDirty(this);
     }
