@@ -18,7 +18,6 @@ public class Ray : MonoBehaviour
 
         if (Hitting)
         {
-            Debug.Log("Player is colliding...");
             Debug.DrawLine(origin, hit.point, rayColor);
             currentHitObject = hit.collider.gameObject;
         }

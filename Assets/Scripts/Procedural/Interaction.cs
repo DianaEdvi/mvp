@@ -57,8 +57,11 @@ public class Interaction : MonoBehaviour
             GameObject targetGameObject = raycastShooter.currentHitObject;
 
             if (targetGameObject.layer != LayerMask.NameToLayer("NPC")) return;
-            Debug.Log("Interacting with NPC...");
-            // npc.Interact().invoke;
+            NPC_Asset npc = targetGameObject.GetComponent<NPC_Asset>();
+            if (npc != null)
+            {
+                npc.Interact();
+            }
         }
     }
 }
