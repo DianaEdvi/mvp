@@ -384,8 +384,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: eaabe5dfee89fb14b849dcfd3386a405, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::NPC_Asset
-  npcData: {fileID: 11400000, guid: 20a84d66d2d31924cb8c0bb526834649, type: 2}
-  image: {fileID: 4066325689002819473}
+  npcData: {fileID: 11400000, guid: 9a2d0c83529170c4590cf6d1975863c9, type: 2}
+  interactPopup: {fileID: 4066325689002819473}
+  displayRange: 5
 --- !u!1001 &5332678501470763496
 PrefabInstance:
   m_ObjectHideFlags: 0
