@@ -1,4 +1,5 @@
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class Interaction : MonoBehaviour
 {
@@ -68,6 +69,10 @@ public class Interaction : MonoBehaviour
                 {
                     npc.Interact();
                 }
+                break;
+            case "Combat":
+                Debug.Log("Load combat scene");
+                SceneManager.LoadScene("CombatPrototype");
                 break;
 
             default:

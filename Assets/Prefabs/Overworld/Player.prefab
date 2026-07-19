@@ -94,7 +94,7 @@ MonoBehaviour:
   interactionRadius: 3
   interactableLayers:
     serializedVersion: 2
-    m_Bits: 3072
+    m_Bits: 7168
 --- !u!54 &8218270972784994634
 Rigidbody:
   m_ObjectHideFlags: 0

@@ -47,7 +47,7 @@ MonoBehaviour:
   numCellsWidth: 21
   numCellsHeight: 20
   startingRoomPrefab: {fileID: 8452098039410964737, guid: cb706a2c123143b43819176002d059df, type: 3}
-  xIndex: 5
+  xIndex: 10
   zIndex: 0
   roomPrefabs:
   - {fileID: 8452098039410964737, guid: 3c1f5860e13bf264b9dd9af330b3929a, type: 3}
