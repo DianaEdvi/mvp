@@ -6,16 +6,14 @@ using System;
 public enum RoomTags
 {
     None,
-    Shop,
-    Loot,
-    Quest,
-    Healing,
-    Trade,
-    Mob,
-    MiniBoss,
-    Boss,
-    Sacrifice,
-    Secret
+    Item,
+    TRATM,
+    Rowena,
+    Mesmerist,
+    Prospero,
+    Ligia,
+    HopFrog,
+    Manguy,
 }
 public class Room : MonoBehaviour
 {

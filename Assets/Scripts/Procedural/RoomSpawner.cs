@@ -61,12 +61,13 @@ public class RoomSpawner : MonoBehaviour
 
     private List<Room> PopulateRoomsArray()
     {
-        List<Room> roomDeck = new List<Room>(); // List of rooms types we want
+        List<Room> standardRooms = new List<Room>(); // Rooms we want to shuffle
+        List<Room> finalRooms = new List<Room>();    // Rooms we want to spawn last
 
         if (roomSpawnConfigs == null || roomSpawnConfigs.Length == 0)
         {
             Debug.LogWarning("Room Spawn Configs are empty! Add some rules in the Inspector.");
-            return roomDeck;
+            return standardRooms;
         }
 
         // Loop through the rules defined in the inspector
@@ -92,20 +93,36 @@ public class RoomSpawner : MonoBehaviour
             for (int i = 0; i < config.count; i++)
             {
                 Room randomSelection = matchingPrefabs[Random.Range(0, matchingPrefabs.Count)];
-                roomDeck.Add(randomSelection);
+
+                // SORTING LOGIC: Check for all 4 specific "end-of-dungeon" tags
+                if (randomSelection.currentTags == RoomTags.TRATM ||
+                    randomSelection.currentTags == RoomTags.Prospero ||
+                    randomSelection.currentTags == RoomTags.Mesmerist ||
+                    randomSelection.currentTags == RoomTags.Rowena)
+                {
+                    finalRooms.Add(randomSelection);
+                }
+                else
+                {
+                    standardRooms.Add(randomSelection);
+                }
             }
         }
 
-        // Shuffle the deck
-        for (int i = 0; i < roomDeck.Count; i++)
+        // Shuffle ONLY the standard deck
+        for (int i = 0; i < standardRooms.Count; i++)
         {
-            Room temp = roomDeck[i];
-            int randomIndex = Random.Range(i, roomDeck.Count);
-            roomDeck[i] = roomDeck[randomIndex];
-            roomDeck[randomIndex] = temp;
+            Room temp = standardRooms[i];
+            int randomIndex = Random.Range(i, standardRooms.Count);
+            standardRooms[i] = standardRooms[randomIndex];
+            standardRooms[randomIndex] = temp;
         }
 
-        return roomDeck;
+        // Combine the decks: Standard shuffled rooms first, final rooms last
+        List<Room> completeDeck = new List<Room>(standardRooms);
+        completeDeck.AddRange(finalRooms);
+
+        return completeDeck;
     }
 
     public bool TrySpawnRoom(Room room, int startX, int startZ)

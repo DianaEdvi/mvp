@@ -92,7 +92,7 @@ MonoBehaviour:
   - {fileID: 7177133649092212768}
   - {fileID: 5966613404384073151}
   - {fileID: 4641864588051398301}
-  currentTags: 1
+  currentTags: 6
 --- !u!1 &1428075965533189064
 GameObject:
   m_ObjectHideFlags: 0
