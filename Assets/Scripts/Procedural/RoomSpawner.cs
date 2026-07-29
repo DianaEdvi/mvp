@@ -24,8 +24,6 @@ public class RoomSpawner : MonoBehaviour
     [Header("Generation Settings")]
     [Tooltip("Maximum number of times to retry generation if it fails to place all mandatory rooms.")]
     [SerializeField] private int maxRetries = 50;
-
-    // Initialized inline to save space
     private List<Transform> availableDoors = new List<Transform>();
     public LayerMask doorLayerMask;
     [Header("Editor Tools")]
@@ -68,7 +66,7 @@ public class RoomSpawner : MonoBehaviour
             if (TrySpawnRoom(startingRoomPrefab, xIndex, zIndex))
             {
                 // Attempt to generate the rest of the map. 
-                // It will return true ONLY if all mandatory rooms are placed.
+                // It will return true if all mandatory rooms are placed.
                 success = GenerateFullMap();
             }
         }
@@ -87,7 +85,7 @@ public class RoomSpawner : MonoBehaviour
     private List<Room> PopulateRoomsArray()
     {
         List<Room> standardRooms = new List<Room>(); // Rooms we want to shuffle
-        List<Room> finalRooms = new List<Room>();    // Rooms we want to spawn last
+        List<Room> finalRooms = new List<Room>();    // Rooms we want to spawn last (bosses)
 
         if (roomSpawnConfigs == null || roomSpawnConfigs.Length == 0)
         {
@@ -119,7 +117,7 @@ public class RoomSpawner : MonoBehaviour
             {
                 Room randomSelection = matchingPrefabs[Random.Range(0, matchingPrefabs.Count)];
 
-                // SORTING LOGIC: Check for all 4 specific "end-of-dungeon" tags
+                // Add all the bosses to the final rooms array and to the standard otherwise
                 if (randomSelection.currentTags == RoomTags.TRATM ||
                     randomSelection.currentTags == RoomTags.Prospero ||
                     randomSelection.currentTags == RoomTags.Mesmerist ||
@@ -134,7 +132,7 @@ public class RoomSpawner : MonoBehaviour
             }
         }
 
-        // Shuffle ONLY the standard deck
+        // Shuffle the standard deck (Fisher-Yates shuffle)
         for (int i = 0; i < standardRooms.Count; i++)
         {
             Room temp = standardRooms[i];
@@ -198,7 +196,6 @@ public class RoomSpawner : MonoBehaviour
         int targetX = doorGrid.x + Mathf.RoundToInt(door.forward.x);
         int targetZ = doorGrid.y + Mathf.RoundToInt(door.forward.z);
 
-        // Uses a cleaner single-coordinate bounds check instead of array allocation
         return !IsWithinBounds(targetX, targetZ);
     }
 
