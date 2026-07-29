@@ -3,7 +3,7 @@ using UnityEngine;
 
 public class Dialogue_Manager_UI : MonoBehaviour
 {
-    //essential the director of the scripts, and diplsya UI
+    //essential the director of the scripts, and diplsya UIin silenc
     string[] lines = null; //all the lines in the dialogue, defined by the length of the array of strings
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
