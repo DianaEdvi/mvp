@@ -21,7 +21,9 @@ public class RoomSpawner : MonoBehaviour
     [SerializeField] private Room[] roomPrefabs;
     public RoomSpawnConfig[] roomSpawnConfigs;
 
-    // Initialized inline to save space
+    [Header("Generation Settings")]
+    [Tooltip("Maximum number of times to retry generation if it fails to place all mandatory rooms.")]
+    [SerializeField] private int maxRetries = 50;
     private List<Transform> availableDoors = new List<Transform>();
     public LayerMask doorLayerMask;
     [Header("Editor Tools")]
@@ -52,21 +54,43 @@ public class RoomSpawner : MonoBehaviour
 
     void Start()
     {
-        occupiedGrid = new bool[numCellsWidth, numCellsHeight];
+        int attempts = 0;
+        bool success = false;
 
-        TrySpawnRoom(startingRoomPrefab, xIndex, zIndex);
-        GenerateFullMap();
-        TrimExtraDoors();
+        while (attempts < maxRetries && !success)
+        {
+            attempts++;
+            ResetGrid();
+
+            // Try placing the starting room
+            if (TrySpawnRoom(startingRoomPrefab, xIndex, zIndex))
+            {
+                // Attempt to generate the rest of the map. 
+                // It will return true if all mandatory rooms are placed.
+                success = GenerateFullMap();
+            }
+        }
+
+        if (success)
+        {
+            Debug.Log($"Dungeon generated successfully after {attempts} attempts.");
+            TrimExtraDoors();
+        }
+        else
+        {
+            Debug.LogError($"Failed to generate a complete dungeon with all mandatory rooms after {maxRetries} attempts. Try increasing the grid size or reducing room counts.");
+        }
     }
 
     private List<Room> PopulateRoomsArray()
     {
-        List<Room> roomDeck = new List<Room>(); // List of rooms types we want
+        List<Room> standardRooms = new List<Room>(); // Rooms we want to shuffle
+        List<Room> finalRooms = new List<Room>();    // Rooms we want to spawn last (bosses)
 
         if (roomSpawnConfigs == null || roomSpawnConfigs.Length == 0)
         {
             Debug.LogWarning("Room Spawn Configs are empty! Add some rules in the Inspector.");
-            return roomDeck;
+            return standardRooms;
         }
 
         // Loop through the rules defined in the inspector
@@ -92,20 +116,36 @@ public class RoomSpawner : MonoBehaviour
             for (int i = 0; i < config.count; i++)
             {
                 Room randomSelection = matchingPrefabs[Random.Range(0, matchingPrefabs.Count)];
-                roomDeck.Add(randomSelection);
+
+                // Add all the bosses to the final rooms array and to the standard otherwise
+                if (randomSelection.currentTags == RoomTags.TRATM ||
+                    randomSelection.currentTags == RoomTags.Prospero ||
+                    randomSelection.currentTags == RoomTags.Mesmerist ||
+                    randomSelection.currentTags == RoomTags.Rowena)
+                {
+                    finalRooms.Add(randomSelection);
+                }
+                else
+                {
+                    standardRooms.Add(randomSelection);
+                }
             }
         }
 
-        // Shuffle the deck
-        for (int i = 0; i < roomDeck.Count; i++)
+        // Shuffle the standard deck (Fisher-Yates shuffle)
+        for (int i = 0; i < standardRooms.Count; i++)
         {
-            Room temp = roomDeck[i];
-            int randomIndex = Random.Range(i, roomDeck.Count);
-            roomDeck[i] = roomDeck[randomIndex];
-            roomDeck[randomIndex] = temp;
+            Room temp = standardRooms[i];
+            int randomIndex = Random.Range(i, standardRooms.Count);
+            standardRooms[i] = standardRooms[randomIndex];
+            standardRooms[randomIndex] = temp;
         }
 
-        return roomDeck;
+        // Combine the decks: Standard shuffled rooms first, final rooms last
+        List<Room> completeDeck = new List<Room>(standardRooms);
+        completeDeck.AddRange(finalRooms);
+
+        return completeDeck;
     }
 
     public bool TrySpawnRoom(Room room, int startX, int startZ)
@@ -156,7 +196,6 @@ public class RoomSpawner : MonoBehaviour
         int targetX = doorGrid.x + Mathf.RoundToInt(door.forward.x);
         int targetZ = doorGrid.y + Mathf.RoundToInt(door.forward.z);
 
-        // Uses a cleaner single-coordinate bounds check instead of array allocation
         return !IsWithinBounds(targetX, targetZ);
     }
 
@@ -186,18 +225,19 @@ public class RoomSpawner : MonoBehaviour
         return false;
     }
 
-    private void GenerateFullMap()
+    private bool GenerateFullMap()
     {
         // Generate list of rooms we want 
         List<Room> roomDeck = PopulateRoomsArray();
+        int successfullySpawnedCount = 0;
 
         // Loop through our deck and try to spawn them one by one 
         foreach (Room roomPrefab in roomDeck)
         {
             if (availableDoors.Count == 0)
             {
-                Debug.LogWarning("Ran out of available doors before placing all rooms!");
-                return;
+                // Ran out of doors before placing all rooms; attempt failed
+                return false;
             }
 
             List<Transform> untriedDoors = new List<Transform>(availableDoors);
@@ -205,34 +245,31 @@ public class RoomSpawner : MonoBehaviour
 
             while (untriedDoors.Count > 0 && !roomSpawnedSuccessfully)
             {
-                int randomUntriedIndex = Random.Range(0, untriedDoors.Count); // Get random door to try
-                Transform doorToSpawnFrom = untriedDoors[randomUntriedIndex]; // Get a random available door from the rooms already placed (that are not yet tested)
-                Transform newDoorToConnect = GetValidConnectingDoor(roomPrefab, doorToSpawnFrom); // Get a random valid door from the room we want to spawn  
+                int randomUntriedIndex = Random.Range(0, untriedDoors.Count);
+                Transform doorToSpawnFrom = untriedDoors[randomUntriedIndex];
+                Transform newDoorToConnect = GetValidConnectingDoor(roomPrefab, doorToSpawnFrom);
 
-                if (newDoorToConnect == null) // No valid doors to connect to
+                if (newDoorToConnect == null)
                 {
                     untriedDoors.RemoveAt(randomUntriedIndex);
                     continue;
                 }
 
-                Vector2Int doorGrid = PositionToGrid(doorToSpawnFrom.position); // The door to connect to's coords 
-
-                // The coords of the cell it faces
+                Vector2Int doorGrid = PositionToGrid(doorToSpawnFrom.position);
                 int targetX = doorGrid.x + Mathf.RoundToInt(doorToSpawnFrom.forward.x);
                 int targetZ = doorGrid.y + Mathf.RoundToInt(doorToSpawnFrom.forward.z);
 
-                Vector3 insideNewDoorPos = newDoorToConnect.position - (newDoorToConnect.forward * 0.1f); // Get the position of the new door a bit more inside the cell (for FloorToInt to work)
-                Vector2Int newDoorCell = PositionToGrid(insideNewDoorPos); // Get the grid coords of the new door's cell
-                Vector2Int originCell = PositionToGrid(roomPrefab.origin.position); // Get the grid coords of the origin of the room
+                Vector3 insideNewDoorPos = newDoorToConnect.position - (newDoorToConnect.forward * 0.1f);
+                Vector2Int newDoorCell = PositionToGrid(insideNewDoorPos);
+                Vector2Int originCell = PositionToGrid(roomPrefab.origin.position);
 
-                // Work backwards to get the place the origin SHOULD be to place the door in the right spot 
                 int originSpawnX = targetX - (newDoorCell.x - originCell.x);
                 int originSpawnZ = targetZ - (newDoorCell.y - originCell.y);
 
-                // Finally, try to spawn the room and update the doors arrays accordingly 
                 if (TrySpawnRoom(roomPrefab, originSpawnX, originSpawnZ))
                 {
                     roomSpawnedSuccessfully = true;
+                    successfullySpawnedCount++;
                     availableDoors.Remove(doorToSpawnFrom);
                 }
                 else
@@ -240,7 +277,16 @@ public class RoomSpawner : MonoBehaviour
                     untriedDoors.RemoveAt(randomUntriedIndex);
                 }
             }
+
+            // If we exit the while loop and a room from the deck couldn't be placed at all
+            if (!roomSpawnedSuccessfully)
+            {
+                return false;
+            }
         }
+
+        // Return true only if we spawned exactly the number of rooms we requested
+        return successfullySpawnedCount == roomDeck.Count;
     }
     private Transform GetValidConnectingDoor(Room prefab, Transform doorToSpawnFrom)
     {
@@ -319,6 +365,21 @@ public class RoomSpawner : MonoBehaviour
 
         // Disable the door collider
         door.gameObject.SetActive(false);
+    }
+
+    private void ResetGrid()
+    {
+        // Reset the grid array
+        occupiedGrid = new bool[numCellsWidth, numCellsHeight];
+
+        // Clear available doors
+        availableDoors.Clear();
+
+        // Destroy all instantiated room children
+        foreach (Transform child in transform)
+        {
+            Destroy(child.gameObject);
+        }
     }
 
 #if UNITY_EDITOR
