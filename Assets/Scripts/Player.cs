@@ -31,6 +31,7 @@ public class Player : MonoBehaviour
         if (Instance != null && Instance != this) Destroy(this.gameObject);
         else Instance = this;
         characterController = GetComponent<CharacterController>();
+        DontDestroyOnLoad(this.gameObject);
     }
 
     private void Start()
@@ -131,7 +132,6 @@ public class Player : MonoBehaviour
 
     public void OnInteract()
     {
-        Debug.Log("Player is pressing interacting button");
         OnInteractActionPerformed?.Invoke();
     }
 }
