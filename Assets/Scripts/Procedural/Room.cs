@@ -14,6 +14,7 @@ public enum RoomTags
     Ligia,
     HopFrog,
     Manguy,
+    Lance
 }
 public class Room : MonoBehaviour
 {
