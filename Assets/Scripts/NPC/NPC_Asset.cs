@@ -6,7 +6,7 @@ public class NPC_Asset : MonoBehaviour
     public NPC_Data npcData;
     [SerializeField] private Image interactPopup;
     [SerializeField] private float displayRange = 3f;
-
+    private Dialogue_Activator dialogueActivator;
     private string npcName;
 
     void Start()
@@ -34,6 +34,8 @@ public class NPC_Asset : MonoBehaviour
     public void Interact()
     {
         Debug.Log($"Interacting with NPC: {npcName}");
+
+        dialogueActivator.InitiateDialogue();
         // play audio
     }
 

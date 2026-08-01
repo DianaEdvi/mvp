@@ -67,6 +67,7 @@ public class Interaction : MonoBehaviour
                 NPC_Asset npc = targetGameObject.GetComponent<NPC_Asset>();
                 if (npc != null)
                 {
+                    //goes to Dialogue manager UI to play the dialogue
                     npc.Interact();
                 }
                 break;
