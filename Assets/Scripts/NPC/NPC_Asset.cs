@@ -11,6 +11,12 @@ public class NPC_Asset : MonoBehaviour
 
     void Start()
     {
+        dialogueActivator = GetComponent<Dialogue_Activator>();
+        if (dialogueActivator == null)
+        {
+            Debug.LogError("Dialogue_Activator component not found on NPC.");
+        }
+
         if (npcData != null) npcName = npcData.npcName;
         if (interactPopup != null) interactPopup.gameObject.SetActive(false);
     }

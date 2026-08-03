@@ -7,6 +7,7 @@ using System.Runtime.InteropServices.WindowsRuntime;
 using TMPro;
 using UnityEditor;
 using UnityEngine;
+using UnityEngine.InputSystem;
 
 
 public class Dialogue_Activator : MonoBehaviour
@@ -16,20 +17,18 @@ public class Dialogue_Activator : MonoBehaviour
     int lineTracker = 0; //which line the dialogue is on, defined with #>1 and decrements down to zero
     
     Interaction interaction; //reference to the interaction script
-    public TextMeshProUGUI dialogueText; // Reference to the TextMeshProUGUI component for displaying dialogue
-    public GameObject dialoguePanel; // Reference to the dialogue panel GameObject
-    public float textSpeed;
+  
     public static bool isAnyDialogueActive = false; // Static flag to track if any dialogue is active
     private bool isDialogueActive = false; // Instance flag to track if this dialogue is active
+    private bool isCharacterFileFound = false; // Flag to track if the character's dialogue file was found
+    private bool openedThisFrame = false;
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
-    //reads teh md file and passes that to dialogue manager
+    //reads the txt file and passes that to dialogue manager
     void Start()
     {
+
         //makes sure dialogue text box is not active
-        dialoguePanel.SetActive(false);
-        dialogueText = dialoguePanel.GetComponentInChildren<TextMeshProUGUI>(); // Get the TextMeshProUGUI component from the dialogue panel
-        dialogueText.text = string.Empty; // Initialize dialogueText to an empty string
         string character = gameObject.name.Replace("(Clone)", "").Trim();
 
         // Print with single quotes to see exact spaces/case
@@ -43,8 +42,8 @@ public class Dialogue_Activator : MonoBehaviour
            
             lines = dialogueFile.text.Split(new[] { Environment.NewLine }, StringSplitOptions.None);
             UnityEngine.Debug.Log($"Lines read from {character}: {lines.Length}");
+            isCharacterFileFound = true;
             //need implementaton that makes it so when a player interacts, it calls Initiate dialogue
-            interaction.TryInteract();
 
         }
         else
@@ -59,9 +58,18 @@ public class Dialogue_Activator : MonoBehaviour
 
     public void InitiateDialogue()
     {
+        if (isDialogueActive)
+        {
+            return;
+        }
+        if (!isCharacterFileFound)
+        {
+            UnityEngine.Debug.LogWarning($"Cannot initiate dialogue for {gameObject.name} because the dialogue file was not found.");
+            return; // Exit if the character's dialogue file was not found
+        }
         isAnyDialogueActive = true; // Set the static flag to indicate that a dialogue is active
         isDialogueActive = true; // Set the instance flag to indicate that this dialogue is active
-        string nextLine;
+        openedThisFrame = true;
         StartConversation(); // Enter cutscene mode before starting dialogue
         DisplayNextLine(lineTracker); // Display the first line of dialogue
      
@@ -71,9 +79,21 @@ public class Dialogue_Activator : MonoBehaviour
     public void StartConversation()
     {
         
+
+        if (!isCharacterFileFound)
+        {
+            UnityEngine.Debug.LogWarning($"Cannot initiate dialogue for {gameObject.name} because the dialogue file was not found.");
+            return; // Exit if the character's dialogue file was not found
+        }
+        if (lines == null || lines.Length == 0)
+        {
+            UnityEngine.Debug.LogWarning($"No dialogue lines found for {gameObject.name}. Cannot start conversation.");
+            return; // Exit if there are no dialogue lines to display
+        }
+
         Time.timeScale = 0f; // Pause the game
-        dialogueText.text = string.Empty; // Clear the dialogue text
-        dialoguePanel.SetActive(true); // Activate the dialogue panel
+        Dialogue_UI_Attach.instance.dialoguePanel.SetActive(true); // Activate the dialogue panel
+        Dialogue_UI_Attach.instance.dialogueText.text = string.Empty; // Clear the dialogue text
 
     }
 
@@ -81,7 +101,7 @@ public class Dialogue_Activator : MonoBehaviour
     public void EndConversation()
     {
         Time.timeScale = 1f; // Resume the game
-        dialoguePanel.SetActive(false); // Deactivate the dialogue panel
+        Dialogue_UI_Attach.instance.dialoguePanel.SetActive(false); // Deactivate the dialogue panel
 
         isDialogueActive = false; // Reset the instance flag to indicate that this dialogue is no longer active
         isAnyDialogueActive = false; // Reset the static flag to indicate that no dialogue is active
@@ -90,15 +110,16 @@ public class Dialogue_Activator : MonoBehaviour
 
     public void DisplayNextLine(int line)
     {
-        if (lineTracker < lines.Length - 1)
+        
+        if (lineTracker < lines.Length)
         {
-            
-            dialogueText.text = string.Empty; // Clear the dialogue text
+            StopAllCoroutines();
+            Dialogue_UI_Attach.instance.dialogueText.text = string.Empty; // Clear the dialogue text
             StartCoroutine(TypeLine(lineTracker)); // Start displaying the first line of dialogue
         }
         else
         {
-            gameObject.SetActive(false); // Deactivate the GameObject if there are no lines to display
+            EndConversation();
         }
     }
 
@@ -107,8 +128,8 @@ public class Dialogue_Activator : MonoBehaviour
     {
         foreach (char c in lines[line].ToCharArray())
         {
-            dialogueText.text += c;
-            yield return new WaitForSecondsRealtime(textSpeed);
+            Dialogue_UI_Attach.instance.dialogueText.text += c; // Append each character to the dialogue text
+            yield return new WaitForSecondsRealtime(Dialogue_UI_Attach.instance.typingSpeed);
         }
     }
 
@@ -126,26 +147,40 @@ public class Dialogue_Activator : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        if (!isDialogueActive)
+        {
+            return;
+        }
+
+        if (openedThisFrame)
+        {
+            openedThisFrame = false;
+            return;
+        }
 
         if (isDialogueActive)
         {
-            if (Input.GetKeyDown(KeyCode.Space))
+            if (Keyboard.current.spaceKey.wasPressedThisFrame)
             {
                 String nextLine = lines[lineTracker];
-                if (dialogueText.text == lines[lineTracker])
+                if (Dialogue_UI_Attach.instance.dialogueText.text == nextLine)
                 {
                     // If the current line is fully displayed, move to the next line
                     lineTracker++;
-                    if (nextLine == "[CHOICES]")
+                    if (lineTracker < lines.Length)
                     {
-                        DiplayChoices(); // Display choices to the player
-                        SelectChoice(); // Wait for player to select a choice
-                    }
-                    else if (nextLine != null)
-                    {
-                        if (lineTracker < lines.Length - 1)
+                        nextLine = lines[lineTracker];
+
+                        if (nextLine == "[CHOICES]")
                         {
-                            DisplayNextLine(lineTracker);
+                            DiplayChoices(); // Display choices to the player
+                            SelectChoice(); // Wait for player to select a choice
+                        }
+                        else if (nextLine != null)
+                        {
+                        
+                           DisplayNextLine(lineTracker);
+
                         }
                     }
                     else
@@ -157,7 +192,7 @@ public class Dialogue_Activator : MonoBehaviour
                 {
                     // If the current line is not fully displayed, complete it immediately
                     StopAllCoroutines();
-                    dialogueText.text = lines[lineTracker];
+                    Dialogue_UI_Attach.instance.dialogueText.text = lines[lineTracker];
                 }
             }
         }

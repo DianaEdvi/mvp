@@ -62,7 +62,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8803432383233761095, guid: fc8cf28317b3560478919e10d3ca52fc, type: 3}
       propertyPath: m_Name
-      value: Ligia
+      value: Ligeia
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects:
@@ -71,79 +71,13 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 5478148640418626761, guid: fc8cf28317b3560478919e10d3ca52fc, type: 3}
       insertIndex: 0
       addedObject: {fileID: 7096662568471204429}
-    m_AddedComponents:
-    - targetCorrespondingSourceObject: {fileID: 8803432383233761095, guid: fc8cf28317b3560478919e10d3ca52fc, type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 6694935274542069123}
-    - targetCorrespondingSourceObject: {fileID: 8803432383233761095, guid: fc8cf28317b3560478919e10d3ca52fc, type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 6367615859825624594}
-    - targetCorrespondingSourceObject: {fileID: 8803432383233761095, guid: fc8cf28317b3560478919e10d3ca52fc, type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 5254649085888095970}
-    - targetCorrespondingSourceObject: {fileID: 8803432383233761095, guid: fc8cf28317b3560478919e10d3ca52fc, type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 3667813767316547591}
+    m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: fc8cf28317b3560478919e10d3ca52fc, type: 3}
 --- !u!4 &1603972844280845422 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 5478148640418626761, guid: fc8cf28317b3560478919e10d3ca52fc, type: 3}
   m_PrefabInstance: {fileID: 6504394011494279335}
   m_PrefabAsset: {fileID: 0}
---- !u!1 &2335165852075882464 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 8803432383233761095, guid: fc8cf28317b3560478919e10d3ca52fc, type: 3}
-  m_PrefabInstance: {fileID: 6504394011494279335}
-  m_PrefabAsset: {fileID: 0}
---- !u!114 &6694935274542069123
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2335165852075882464}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b785e84b1fa37824fb10f427eaadf6bd, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: '::'
-  dialogueManager: {fileID: 0}
---- !u!114 &6367615859825624594
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2335165852075882464}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 143154277c900cc44a1b9d39a189a017, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::Dialogue_Manager_UI
---- !u!114 &5254649085888095970
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2335165852075882464}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f2e927e25c837974ba05e1d4f0343417, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::Cutscene_System
---- !u!114 &3667813767316547591
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2335165852075882464}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d857e00c49cf81f4ab84e7acbc382c38, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: '::'
 --- !u!1001 &7347289076891186598
 PrefabInstance:
   m_ObjectHideFlags: 0

@@ -327,6 +327,7 @@ GameObject:
   - component: {fileID: 5478148640418626761}
   - component: {fileID: 6944168512011056275}
   - component: {fileID: 6001706300000563609}
+  - component: {fileID: -2293413502273419283}
   m_Layer: 11
   m_Name: NPC
   m_TagString: Untagged
@@ -387,6 +388,18 @@ MonoBehaviour:
   npcData: {fileID: 11400000, guid: 9a2d0c83529170c4590cf6d1975863c9, type: 2}
   interactPopup: {fileID: 4066325689002819473}
   displayRange: 5
+--- !u!114 &-2293413502273419283
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8803432383233761095}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b785e84b1fa37824fb10f427eaadf6bd, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Dialogue_Activator
 --- !u!1001 &5332678501470763496
 PrefabInstance:
   m_ObjectHideFlags: 0
