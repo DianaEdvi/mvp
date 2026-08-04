@@ -6,11 +6,17 @@ public class NPC_Asset : MonoBehaviour
     public NPC_Data npcData;
     [SerializeField] private Image interactPopup;
     [SerializeField] private float displayRange = 3f;
-
+    private Dialogue_Activator dialogueActivator;
     private string npcName;
 
     void Start()
     {
+        dialogueActivator = GetComponent<Dialogue_Activator>();
+        if (dialogueActivator == null)
+        {
+            Debug.LogError("Dialogue_Activator component not found on NPC.");
+        }
+
         if (npcData != null) npcName = npcData.npcName;
         if (interactPopup != null) interactPopup.gameObject.SetActive(false);
     }
@@ -34,6 +40,8 @@ public class NPC_Asset : MonoBehaviour
     public void Interact()
     {
         Debug.Log($"Interacting with NPC: {npcName}");
+
+        dialogueActivator.InitiateDialogue();
         // play audio
     }
 

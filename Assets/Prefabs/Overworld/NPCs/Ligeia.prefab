@@ -62,7 +62,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8803432383233761095, guid: fc8cf28317b3560478919e10d3ca52fc, type: 3}
       propertyPath: m_Name
-      value: Ligia
+      value: Ligeia
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects:
